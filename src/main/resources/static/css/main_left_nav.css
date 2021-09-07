@@ -1,0 +1,58 @@
+.center {
+    margin-top: 35px;
+    display: flex;
+}
+.left_nav {
+    display: inline-block;
+    width: 135px;
+    min-width: 135px;
+}
+
+.category h2 {
+    position: relative;
+    margin: 15px 0;
+    font-weight: 600;
+    font-size: 14px;
+    left: 5px;
+}
+
+.category a {
+    line-height: 1.8rem;
+}
+
+.category h2::before {
+    position: absolute;
+    display: block;
+    content: "";
+    border-top: 2px solid #666;
+    border-right: 2px solid #888;
+    top: 6px;
+    left: -15px;
+    width: 5px;
+    height: 5px;
+    transform: rotate(45deg);
+}
+
+.category_product_main li {
+    list-style:disc;
+    margin-left: 15px;
+  
+}
+
+.category > ul {
+    display: none;
+} 
+
+.category:hover > ul {
+    display: block;
+} 
+
+.category li{
+    position: relative;
+}
+
+.category_product_main li > a{
+    text-indent: 1rem;
+}
+
+

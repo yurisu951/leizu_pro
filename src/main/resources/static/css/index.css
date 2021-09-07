@@ -1,0 +1,106 @@
+
+.top_box {
+    position: relative;
+    margin-top: 50px;
+    margin-bottom: 75px;
+    width: 1180px;
+    height: 630px;
+    overflow: hidden;
+}
+
+.box_section {
+    position: relative;
+    width: 1180px;
+    height: 630px;
+    display: block;
+    letter-spacing: -4px;
+}
+
+.box_section li {
+    display: inline-block;
+    width: 1180px;
+    height: 630px;
+    box-sizing: border-box;
+    letter-spacing: normal;
+}
+
+.box_button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+    padding: 15px;
+
+}
+
+.box_back::before {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-top: #aaa 3px solid;
+    border-left: #aaa 3px solid;
+}
+
+.box_back {
+    left: 25px;
+    transform: rotate(-45deg);
+}
+
+.box_next::before {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-top: #aaa 3px solid;
+    border-right: #aaa 3px solid;
+}
+.box_next {
+    right: 25px;
+    transform: rotate(45deg);
+
+}
+
+.box_dot {
+    position: absolute;
+    bottom: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+}
+
+.box_dot > li {
+    display: inline-block;
+    margin: 0 5px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 0 0 15px 0 #999;
+    opacity: .3;
+    cursor: pointer;
+}
+
+.box_dot > .current {
+    opacity: 1;
+}
+
+.center > .wrap {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.wrap > .waterfall:first-child {
+    margin-right: 20px;
+}
+
+.wrap > .waterfall {
+    display: inline-block;
+    flex: 1;
+}
+
+.wrap > .waterfall > li {
+    margin-bottom: 25px;
+}
+

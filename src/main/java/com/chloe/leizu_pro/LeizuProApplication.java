@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 public class LeizuProApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(LeizuApplication.class, args);
+        SpringApplication.run(LeizuProApplication.class, args);
     }
 
 }

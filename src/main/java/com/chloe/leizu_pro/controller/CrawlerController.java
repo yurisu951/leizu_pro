@@ -20,8 +20,8 @@ import org.springframework.web.servlet.ModelAndView;
 import java.io.IOException;
 import java.util.List;
 
-@Controller
-@RequestMapping("/test")
+//@Controller
+//@RequestMapping("/test")
 public class CrawlerController {
 
     @Autowired

@@ -5,9 +5,9 @@
 <mapper namespace="com.example.leizu.mapper.InventoryMapper">
 
 
-    <insert id="addInventoryByCrawler" parameterType="com.example.leizu.bean.Inventory">
-        insert into tbl_inventory(id, product_id, color, size, quantity)
-        values(#{id}, #{productId}, #{color}, #{size}, #{quantity});
-    </insert>
+<!--    <insert id="addInventoryByCrawler" parameterType="com.example.leizu.bean.Inventory">-->
+<!--        insert into tbl_inventory(id, product_id, color, size, quantity)-->
+<!--        values(#{id}, #{productId}, #{color}, #{size}, #{quantity});-->
+<!--    </insert>-->
 
 </mapper>

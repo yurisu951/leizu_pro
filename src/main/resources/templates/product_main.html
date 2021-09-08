@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leizu 國際服飾品牌</title>
+
+    <link rel="stylesheet" href="../static/css/base.css" th:href="@{/css/base.css}">
+    <link rel="stylesheet" href="../static/css/common.css" th:href="@{/css/common.css}">
+    <link rel="stylesheet" href="../static/css/main_left_nav.css" th:href="@{/css/main_left_nav.css}">
+    <link rel="stylesheet" href="../static/css/main_women.css" th:href="@{/css/main_women.css}">
+    <script src="../static/js/jQuery3.6.0.js"  th:src="@{/js/jQuery3.6.0.js}"></script>
+
+</head>
+
+<body>
+    <div th:replace="commons::header"></div>
+
+    <div class="center wrapper">
+        <!-- Women Main Left -->
+        <div th:replace="commons::leftNav"></div>
+
+        <div class="product_block">
+            <div class="banner">
+                <img src="../images/uploads/55075_1010X400_210823_TW.jpeg" alt="">
+
+            </div>
+            <div class="product_section">
+                <ul>
+                    <li>
+                        <a href="#">
+                            <img src="../images/products/product_52264_M_01_n.jpeg" title="">
+                        </a>
+                        <h3>細肩帶印花洋裝-女</h3>
+                        <p>NT$690 活動價 NT$ 490</p>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="../images/products/product_52264_M_01_n.jpeg" title="">
+                        </a>
+                        <h3>細肩帶印花洋裝-女</h3>
+                        <p>NT$690 活動價 NT$ 490</p>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="../images/products/product_52264_M_01_n.jpeg" title="">
+                        </a>
+                        <h3>細肩帶印花洋裝-女</h3>
+                        <p>NT$690 活動價 NT$ 490</p>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="../images/products/product_52264_M_01_n.jpeg" title="">
+                        </a>
+                        <h3>細肩帶印花洋裝-女</h3>
+                        <p>NT$690 活動價 NT$ 490</p>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="../images/products/product_52264_M_01_n.jpeg" title="">
+                        </a>
+                        <h3>細肩帶印花洋裝-女</h3>
+                        <p>NT$690 活動價 NT$ 490</p>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="../images/products/product_52264_M_01_n.jpeg" title="">
+                        </a>
+                        <h3>細肩帶印花洋裝-女</h3>
+                        <p>NT$690 活動價 NT$ 490</p>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="../images/products/product_52264_M_01_n.jpeg" title="">
+                        </a>
+                        <h3>細肩帶印花洋裝-女</h3>
+                        <p>NT$690 活動價 NT$ 490</p>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="../images/products/product_52264_M_01_n.jpeg" title="">
+                        </a>
+                        <h3>細肩帶印花洋裝-女</h3>
+                        <p>NT$690 活動價 NT$ 490</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <hr>
+    <div th:replace="commons::footer"></div>
+</body>
+
+</html>
+
+<!-- <script>
+    $(".category").mouseenter(function(){
+        $(this).children("ul").stop().slideUp();
+    }).mouseleave(function(){
+        $(this).children("ul").stop().slideDown();
+    });
+    
+</script> -->

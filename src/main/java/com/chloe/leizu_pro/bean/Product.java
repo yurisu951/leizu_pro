@@ -14,5 +14,6 @@ public class Product {
     private Integer price;
     private String promo;   // PromoName Id
     private Integer promoPrice;
+    private String image;
 
 }

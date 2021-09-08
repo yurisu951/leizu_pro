@@ -16,6 +16,10 @@ spring:
     mode: HTML5
     cache: false  # 开发时配置
 
+#server:
+#  servlet:
+#    context-path: /leizu    # 設定訪問路徑
+
 mybatis:
   mapper-locations: classpath:/mybatis/mapper/*.xml
   type-aliases-package: com.example.leizu.bean

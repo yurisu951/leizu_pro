@@ -7,9 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ContentImage {
+public class SubCategory {
     private Integer id;
-    private Integer productId; // Product Id
-    private String image;
-    private String searchWord;
+    private Integer category;
+    private String subCategoryName;
 }

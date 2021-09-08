@@ -4,12 +4,12 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.leizu.mapper.ColorImageMapper">
 
-    <insert id="addColorImageByCrawler"  keyProperty="id" parameterType="com.example.leizu.bean.ColorImage">
-        insert into tbl_color_image(id, product_id, product_color, product_color_image, product_image)
-        values(#{id}, #{productId}, #{productColor}, #{productColorImage}, #{productImage});
-    </insert>
+<!--    <insert id="addColorImageByCrawler"  keyProperty="id" parameterType="com.example.leizu.bean.ColorImage">-->
+<!--        insert into tbl_color_image(id, product_id, product_color, product_color_image, product_image)-->
+<!--        values(#{id}, #{productId}, #{productColor}, #{productColorImage}, #{productImage});-->
+<!--    </insert>-->
 
-    <select id="getColorIamgeIds" resultType="java.lang.Integer">
-        select id from tbl_color_image;
-    </select>
+<!--    <select id="getColorIamgeIds" resultType="java.lang.Integer">-->
+<!--        select id from tbl_color_image;-->
+<!--    </select>-->
 </mapper>

@@ -57,104 +57,23 @@
         <!-- Women Main Left -->
         <div class="left_nav" th:fragment="leftNav">
             <div class="category category_promo">
-                <h2>女裝新品 & 熱銷</h2>
+                <h2 th:if="${gender=='women'}">女裝新品 & 熱銷</h2>
+                <h2 th:if="${gender=='men'}">男裝新品 & 熱銷</h2>
                 <ul>
-                    <li><a href="#">超值特惠．任兩件享優惠</a></li>
-                    <li><a href="#">牛仔大賞．任選330起</a></li>
-                    <li><a href="#">秋裝上市．任兩件享優惠</a></li>
-                    <li><a href="#">運動一夏．任選149元起</a></li>
-                    <li><a href="#">驚喜特惠．任選299元</a></li>
+                    <li><a th:href="@{activites/2P198}">限時搶購．任選2件198</a></li>
+                    <li><a th:href="@{activites/D100}">四季百搭．任選299起</a></li>
+                    <li><a th:href="@{activites/3P80DUP}">秋裝上市．任兩件享優惠</a></li>
+                    <li><a th:href="@{activites/sale}">超值精選．滿2件58折起</a></li>
+                    <li><a th:href="@{activites/sport}">運動一夏．任選149起</a></li>
                 </ul>
             </div>
-
             <ul>
-                <li class="category category_product_main">
-                    <h2 class="categoryMain">上衣類</h2>
+                <li class="category category_product_main" th:each="category :${categoryList}">
+                    <h2 class="categoryMain"  th:text="${category.key}">上衣類</h2>
                     <ul>
-                        <li><a href="#">聯名印花短T</a></li>
-                        <li><a href="#">聯名印花長T</a></li>
-                        <li><a href="#">設計印花T</a></li>
-                        <li><a href="#">短袖上衣</a></li>
-                        <li><a href="#">快乾系列</a></li>
-                        <li><a href="#">條紋系列</a></li>
-                        <li><a href="#">莫代爾系列</a></li>
-                        <li><a href="#">polo系列</a></li>
-                        <li><a href="#">針織衫/毛衣</a></li>
-                        <li><a href="#">五/七分袖</a></li>
-                        <li><a href="#">長袖上衣</a></li>
-                        <li><a href="#">立領/高領</a></li>
-                        <li><a href="#">長版上衣</a></li>
-                        <li><a href="#">輕涼系列</a></li>
-                        <li><a href="#">Bra系列</a></li>
-                        <li><a href="#">細肩帶/背心</a></li>
-                        <li><a href="#">厚棉系列</a></li>
-                    </ul>
-                </li>
-                <li class="category category_product_main">
-                    <h2 class="categoryMain">襯衫類</h2>
-                    <ul>
-                        <li><a href="#">商務襯衫</a></li>
-                        <li><a href="#">嫘縈/雪紡</a></li>
-                        <li><a href="#">休閒襯衫</a></li>
-                        <li><a href="#">亞麻/棉麻襯衫</a></li>
-                        <li><a href="#">格紋襯衫</a></li>
-                        <li><a href="#">法蘭絨襯衫</a></li>
-                    </ul>
-                </li>
-                <li class="category category_product_main">
-                    <h2 class="categoryMain">外套類</h2>
-                    <ul>
-                        <li><a href="#">機能風衣</a></li>
-                        <li><a href="#">抗UV系列</a></li>
-                        <li><a href="#">休閒外套</a></li>
-                        <li><a href="#">針織外套</a></li>
-                        <li><a href="#">西裝/大衣</a></li>
-                        <li><a href="#">Fleece系列</a></li>
-                    </ul>
-                </li>
-
-                <li class="category category_product_main">
-                    <h2 class="categoryMain">上衣類</h2>
-                    <ul>
-                        <li><a href="#">聯名印花短T</a></li>
-                        <li><a href="#">聯名印花長T</a></li>
-                        <li><a href="#">設計印花T</a></li>
-                        <li><a href="#">短袖上衣</a></li>
-                        <li><a href="#">快乾系列</a></li>
-                        <li><a href="#">條紋系列</a></li>
-                        <li><a href="#">莫代爾系列</a></li>
-                        <li><a href="#">polo系列</a></li>
-                        <li><a href="#">針織衫/毛衣</a></li>
-                        <li><a href="#">五/七分袖</a></li>
-                        <li><a href="#">長袖上衣</a></li>
-                        <li><a href="#">立領/高領</a></li>
-                        <li><a href="#">長版上衣</a></li>
-                        <li><a href="#">輕涼系列</a></li>
-                        <li><a href="#">Bra系列</a></li>
-                        <li><a href="#">細肩帶/背心</a></li>
-                        <li><a href="#">厚棉系列</a></li>
-                    </ul>
-                </li>
-                <li class="category category_product_main">
-                    <h2 class="categoryMain">襯衫類</h2>
-                    <ul>
-                        <li><a href="#">商務襯衫</a></li>
-                        <li><a href="#">嫘縈/雪紡</a></li>
-                        <li><a href="#">休閒襯衫</a></li>
-                        <li><a href="#">亞麻/棉麻襯衫</a></li>
-                        <li><a href="#">格紋襯衫</a></li>
-                        <li><a href="#">法蘭絨襯衫</a></li>
-                    </ul>
-                </li>
-                <li class="category category_product_main">
-                    <h2 class="categoryMain">外套類</h2>
-                    <ul>
-                        <li><a href="#">機能風衣</a></li>
-                        <li><a href="#">抗UV系列</a></li>
-                        <li><a href="#">休閒外套</a></li>
-                        <li><a href="#">針織外套</a></li>
-                        <li><a href="#">西裝/大衣</a></li>
-                        <li><a href="#">Fleece系列</a></li>
+                        <li th:each="value:${category.value}">
+                            <a th:href="@{/products(i=${#strings.substring(value,0,6)})}" th:text="${#strings.substring(value,6)}">聯名印花短T</a>
+                        </li>
                     </ul>
                 </li>
             </ul>

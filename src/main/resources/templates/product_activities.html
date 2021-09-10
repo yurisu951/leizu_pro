@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leizu 國際服飾品牌</title>
+
+    <link rel="stylesheet" href="../static/css/base.css" th:href="@{/css/base.css}">
+    <link rel="stylesheet" href="../static/css/common.css" th:href="@{/css/common.css}">
+    <script src="../static/js/jQuery3.6.0.js" th:src="@{/js/jQuery3.6.0.js}"></script>
+
+    <link rel="stylesheet" href="../static/css/product_activities.css" th:href="@{/css/product_activities.css}">
+
+
+</head>
+
+<body>
+    <!-- Commons部分 -->
+    <div class="header">
+        <div class="wrapper clearfix">
+            <div class="logo"><a href="javascript:;">Leizu</a></div>
+            <nav>
+                <ul>
+                    <li><a href="javascript:;">WOMEN</a></li>
+                    <li><a href="javascript:;">MEN</a></li>
+                </ul>
+            </nav>
+            <div class="userConsole">
+                <div class="search">
+                    <form>
+                        <input type="text" placeholder="SREACH...">
+                        <input type="submit" class="icomoon" value="">
+                    </form>
+                </div>
+                <div class="sub_nav">
+                    <ul>
+                        <li>
+                            <i class="icomoon"></i>
+                            <div class="sub_sub_nav">
+                                <ul>
+                                    <li><a href="#">訂單查詢</a></li>
+                                    <li><a href="#">會員專區</a></li>
+                                    <li><a href="#">我的收藏</a></li>
+                                    <li><a href="#">會員登錄/註冊</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icomoon"></i>
+                            <div class="sub_sub_nav">
+
+                                <p>購物車清單</p>
+                            </div>
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="center wrapper">
+        <div class="promo_nav">
+            <ul>
+                <li class="promo_nav_link"><a href="#"><span class="nav_front">限時搶購</span>任選2件198</a></li>
+                <li class="promo_nav_link current"><a href="#"><span class="nav_front">限時搶購</span>任選2件198</a></li>
+                <li class="promo_nav_link"><a href="#"><span class="nav_front">限時搶購</span>任選2件198</a></li>
+                <li class="promo_nav_link"><a href="#"><span class="nav_front">限時搶購</span>任選2件198</a></li>
+            </ul>
+        </div>
+        <div class="cartBlock">
+            <div class="cart_top">
+                <p>已選購 <span id="cart_selected_number">0</span> 件，原價 <span id="cart_origin_price">0</span> 元，折扣價 <span
+                        id="cart_discount_price">0</span> 元</p>
+                <a href="#">前往結帳</a>
+            </div>
+            <hr>
+        </div>
+        <div class="gender_nav">
+            <ul>
+                <li class="gender_nav_link"><a href="#">WOMEN</li>
+                <li class="gender_nav_link current"><a href="#">MEN</a></li>
+            </ul>
+        </div>
+        <div class="product_section">
+            <ul>
+                <li>
+                    <a href="#">
+                        <img src="../static/images/products/product_52264_M_01_n.jpeg" title="">
+                    </a>
+                    <h6>細肩帶印花洋裝-女</h6>
+                    <p><del>NT$690</del> 活動價NT$ 490</p>
+                    <select name="" id="" class="size_select">
+                        <option value="S">黑色-S</option>
+                        <option value="M">黑色-M</option>
+                        <option value="L">黑色-L</option>
+                    </select>
+                    <div class="product_section_bottom clear">
+                        <select name="" id="" class="quantity_select">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                        <a href="javascript:;" class="add_cart">選購</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="../static/images/products/product_52264_M_01_n.jpeg" title="">
+                    </a>
+                    <h6>細肩帶印花洋裝-女</h6>
+                    <p><del>NT$690</del> 活動價NT$ 490</p>
+                    <select name="" id="" class="size_select">
+                        <option value="S">黑色-S</option>
+                        <option value="M">黑色-M</option>
+                        <option value="L">黑色-L</option>
+                    </select>
+                    <div class="product_section_bottom clear">
+                        <select name="" id="" class="quantity_select">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                        <a href="javascript:;" class="add_cart">選購</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="../static/images/products/product_52264_M_01_n.jpeg" title="">
+                    </a>
+                    <h6>細肩帶印花洋裝-女</h6>
+                    <p><del>NT$690</del> 活動價 NT$ 490</p>
+                    <select name="" id="" class="size_select">
+                        <option value="S">黑色-S</option>
+                        <option value="M">黑色-M</option>
+                        <option value="L">黑色-L</option>
+                    </select>
+                    <div class="product_section_bottom clear">
+                        <select name="" id="" class="quantity_select">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                        <a href="javascript:;" class="add_cart">選購</a>
+                    </div>
+                </li>              <li>
+                    <a href="#">
+                        <img src="../static/images/products/product_52264_M_01_n.jpeg" title="">
+                    </a>
+                    <h6>細肩帶印花洋裝-女</h6>
+                    <p><del>NT$690</del> 活動價 NT$ 490</p>
+                    <select name="" id="" class="size_select">
+                        <option value="S">黑色-S</option>
+                        <option value="M">黑色-M</option>
+                        <option value="L">黑色-L</option>
+                    </select>
+                    <div class="product_section_bottom clear">
+                        <select name="" id="" class="quantity_select">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                        <a href="javascript:;" class="add_cart">選購</a>
+                    </div>
+                </li>              <li>
+                    <a href="#">
+                        <img src="../static/images/products/product_52264_M_01_n.jpeg" title="">
+                    </a>
+                    <h6>細肩帶印花洋裝-女</h6>
+                    <p><del>NT$690</del> 活動價 NT$ 490</p>
+                    <select name="" id="" class="size_select">
+                        <option value="S">黑色-S</option>
+                        <option value="M">黑色-M</option>
+                        <option value="L">黑色-L</option>
+                    </select>
+                    <div class="product_section_bottom clear">
+                        <select name="" id="" class="quantity_select">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                        <a href="javascript:;" class="add_cart">選購</a>
+                    </div>
+                </li>              <li>
+                    <a href="#">
+                        <img src="../static/images/products/product_52264_M_01_n.jpeg" title="">
+                    </a>
+                    <h6>細肩帶印花洋裝-女</h6>
+                    <p><del>NT$690</del> 活動價NT$ 490</p>
+                    <select name="" id="" class="size_select">
+                        <option value="S">黑色-S</option>
+                        <option value="M">黑色-M</option>
+                        <option value="L">黑色-L</option>
+                    </select>
+                    <div class="product_section_bottom clear">
+                        <select name="" id="" class="quantity_select">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                        <a href="javascript:;" class="add_cart">選購</a>
+                    </div>
+                </li>              <li>
+                    <a href="#">
+                        <img src="../static/images/products/product_52264_M_01_n.jpeg" title="">
+                    </a>
+                    <h6>細肩帶印花洋裝-女</h6>
+                    <p><del>NT$690</del> 活動價 NT$ 490</p>
+                    <select name="" id="" class="size_select">
+                        <option value="S">黑色-S</option>
+                        <option value="M">黑色-M</option>
+                        <option value="L">黑色-L</option>
+                    </select>
+                    <div class="product_section_bottom clear">
+                        <select name="" id="" class="quantity_select">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                        <a href="javascript:;" class="add_cart">選購</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="page wrapper">
+        <a href="#" class="page_pre">上一頁</a>
+        <ul>
+            <li class="current"><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+        </ul>
+        <a href="#" class="page_next">下一頁</a>
+
+    </div>
+    <footer>
+        <p> 測試用的footer</p>
+        <p> 測試用的footer</p>
+        <p> 測試用的footer</p>
+        <p> 測試用的footer</p>
+        <p> 測試用的footer</p>
+        <p> 測試用的footer</p>
+    </footer>
+</body>
+
+</html>
+
+<!-- <script>
+    $(".category").mouseenter(function(){
+        $(this).children("ul").stop().slideUp();
+    }).mouseleave(function(){
+        $(this).children("ul").stop().slideDown();
+    });
+    
+</script> -->

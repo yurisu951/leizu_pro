@@ -4,6 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.beans.Transient;
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -16,4 +19,5 @@ public class Product {
     private Integer promoPrice;
     private String image;
 
+    private List<ColorImage> colorImageList;
 }

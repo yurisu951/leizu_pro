@@ -4,13 +4,16 @@ import com.chloe.leizu_pro.bean.Product;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Mapper
 @Repository
 public interface ProductMapper {
 
-    public Product getProductById(Integer id);
+    Product getProductById(Integer id);
 
-    public void addProduct(Product product);
+    List<Product> getProductListByCategory(Integer category);
 
-    public void addProductByCrawler(Product product);
+    List<Product> getProductListWithColorByCategoryId(Integer category);
+
 }

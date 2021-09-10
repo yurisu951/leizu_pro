@@ -8,13 +8,19 @@
         select * from tbl_product where id = #{id}
     </select>
 
-<!--    <insert id="addProduct" useGeneratedKeys="true" keyProperty="id" parameterType="com.example.leizu.bean.Product">-->
-<!--        insert into tbl_product(category, product_name, price, promo, promoPrice)-->
-<!--        values(#{category}, #{productName}, #{price}, #{promo}, #{promoPrice});-->
-<!--    </insert>-->
+    <select id="getProductListByCategory" resultType="com.chloe.leizu_pro.bean.Product">
+        select id, category, product_name, price, promo, promoPrice, image from tbl_product where category = #{category}
+    </select>
 
-<!--    <insert id="addProductByCrawler"  keyProperty="id" parameterType="com.example.leizu.bean.Product">-->
-<!--        insert into tbl_product(id, category, product_name, price, promo, promoPrice)-->
-<!--        values(#{id}, #{category}, #{productName}, #{price}, #{promo}, #{promoPrice});-->
-<!--    </insert>-->
+    <resultMap id="colorMap" type="com.chloe.leizu_pro.bean.Product">
+        <id property="id" column="id" />
+        <result property="productName" column="product_name" />
+        <result property="price" column="price" />
+        <result property="promoPrice" column="promoPrice" />
+        <result property="image" column="image" />
+        <collection property="colorImageList" column="id" select="com.chloe.leizu_pro.mapper.ColorImageMapper.getColorImageAndNameOfListByProductId" />
+    </resultMap>
+    <select id="getProductListWithColorByCategoryId" resultMap="colorMap">
+        select id,product_name, price, promoPrice, image  from tbl_product where category = #{category}
+    </select>
 </mapper>

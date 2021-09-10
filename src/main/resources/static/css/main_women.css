@@ -7,7 +7,7 @@
     display: inline-block;
     flex: 1;
     margin-left: 55px;
-
+    margin-bottom: 50px;
 }
 
 .banner img {
@@ -20,7 +20,6 @@
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
-
 }
 
 .product_section li {
@@ -31,4 +30,17 @@
 
 .product_section li >h3 {
     margin: 20px 0 10px 0;
+}
+
+.product_section li > a {
+    display: flex;
+    align-items: center;
+    width: 220px;
+    height: 330px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.product_section li > a > img {
+    flex: 1;
 }

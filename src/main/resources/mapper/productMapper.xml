@@ -23,4 +23,13 @@
     <select id="getProductListWithColorByCategoryId" resultMap="colorMap">
         select id,product_name, price, promoPrice, image  from tbl_product where category = #{category}
     </select>
+
+    <select id="getWomenProductListByLimit" resultType="com.chloe.leizu_pro.bean.Product">
+        select id, product_name, price, promoPrice, image from tbl_product where category like '2%' order by rand() limit #{index}, #{count}
+    </select>
+
+    <select id="getMenProductListByLimit" resultType="com.chloe.leizu_pro.bean.Product">
+        select id, product_name, price, promoPrice, image from tbl_product where category like '1%' order by rand() limit #{index}, #{count}
+    </select>
+
 </mapper>

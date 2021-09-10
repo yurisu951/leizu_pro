@@ -72,28 +72,12 @@ public class ProductServiceImpl implements ProductService {
         return result;
     }
 
-
-
+    @Override
+    public List<Product> getProductListByLimit(Integer index, Integer count, String gender) {
+        if ("women".equals(gender)) return productMapper.getWomenProductListByLimit(index, count);
+        if ("men".equals((gender))) return productMapper.getMenProductListByLimit(index,count);
+        return null;
+    }
 
 
 }
-
-//    @Override
-//    public Map<String, Map<Product, List<ColorImage>>> getProductListByCategory(Integer category) {
-//        List<SubCategory> subcategoryListByCategory = subCategoryMapper.getSubcategoryListByCategory(category);
-//        Map<String, Map<Product, List<ColorImage>>> result = new LinkedHashMap<>();
-//
-//        for (SubCategory subCategory :subcategoryListByCategory) {
-//            Integer categoryId = subCategory.getId();
-//            String subTitle = subCategory.getSubCategoryName();
-//            List<Product> productListByCategory = productMapper.getProductListByCategory(categoryId);
-//            Map<Product, List<ColorImage>> productListMap = new LinkedHashMap<>();
-//            for (Product product:productListByCategory) {
-//                Integer productId = product.getId();
-//                List<ColorImage> colorList = colorImageMapper.getColorImageAndNameOfListByProductId(productId);
-//                productListMap.put(product, colorList);
-//            }
-//            result.put(subTitle, productListMap);
-//        }
-//        return result;
-//    }

@@ -27,265 +27,30 @@
 
 
         <div class="product_block">
-           <h2>聯名印花短T</h2>
-            <h4>可口可樂</h4>
-            <div class="product_section">
-                <ul>
-                    <li>
-                        <a href="#">
-                            <img src="../static/images/products/product_52264_M_01_n.jpeg" title="">
+           <h2 th:text="${subTitle}">聯名印花短T</h2>
+            <div class="product_section" th:each="productList :${categoryListMap}">
+                <h4 th:text="${productList.key}">可口可樂</h4>
+                <ul class="clearfix">
+                    <li th:each="product : ${productList.value}">
+                        <a href="#" th:href="@{/details(i=${product.id})}">
+                            <img th:src="${product.image}" th:alt-title="${product.productName}">
                         </a>
                         <ul class="color_list">
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
+                            <li class="color_sample" th:each="color:${product.colorImageList}"><a th:href="@{/details(i=${color.productId})}"><img th:src="${color.productColorImage}" th:alt-title="${color.productColor}"></a></li>
                         </ul>
-                        <h6>細肩帶印花洋裝-女</h6>
-                        <p><del>NT$690</del> 活動價 NT$ 490</p>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="../static/images/products/product_52264_M_01_n.jpeg" title="">
-                        </a>
-                        <ul class="color_list">
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                        </ul>
-                        <h6>細肩帶印花洋裝-女</h6>
-                        <p>NT$ 490</p>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="../static/images/products/product_52264_M_01_n.jpeg" title="">
-                        </a>
-                        <ul class="color_list">
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                        </ul>
-                        <h6>細肩帶印花洋裝-女</h6>
-                        <p><del>NT$690</del> 活動價 NT$ 490</p>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="../static/images/products/product_52264_M_01_n.jpeg" title="">
-                        </a>
-                        <ul class="color_list">
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                        </ul>
-                        <h6>細肩帶印花洋裝-女</h6>
-                        <p>NT$ 6687</p>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="../static/images/products/product_52264_M_01_n.jpeg" title="">
-                        </a>
-                        <ul class="color_list">
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                        </ul>
-                        <h6>細肩帶印花洋裝-女</h6>
-                        <p><del>NT$690</del> 活動價 NT$ 490</p>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="../static/images/products/product_52264_M_01_n.jpeg" title="">
-                        </a>
-                        <ul class="color_list">
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                        </ul>
-                        <h6>細肩帶印花洋裝-女</h6>
-                        <p>NT$ 490</p>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="../static/images/products/product_52264_M_01_n.jpeg" title="">
-                        </a>
-                        <ul class="color_list">
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                        </ul>
-                        <h6>細肩帶印花洋裝-女</h6>
-                        <p><del>NT$690</del> 活動價 NT$ 490</p>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="../static/images/products/product_52264_M_01_n.jpeg" title="">
-                        </a>
-                        <ul class="color_list">
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                        </ul>
-                        <h6>細肩帶印花洋裝-女</h6>
-                        <p>NT$ 6687</p>
+                        <h6 th:text="${product.productName}">細肩帶印花洋裝-女</h6>
+                        <p th:unless="${product.promoPrice}" th:text="'NT$'+${product.price}">NT$ 490</p>
+                        <p th:if="${product.promoPrice}"><del th:text="'NT$'+${product.price}">NT$690</del> <span th:text="'活動價NT$'+${product.promoPrice}">活動價NT$ 490</span></p>
                     </li>
                 </ul>
             </div>
-            <h4>可口可樂</h4>
-            <div class="product_section">
-                <ul>
-                    <li>
-                        <a href="#">
-                            <img src="../static/images/products/product_52264_M_01_n.jpeg" title="">
-                        </a>
-                        <ul class="color_list">
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                        </ul>
-                        <h6>細肩帶印花洋裝-女</h6>
-                        <p><del>NT$690</del> 活動價 NT$ 490</p>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="../static/images/products/product_52264_M_01_n.jpeg" title="">
-                        </a>
-                        <ul class="color_list">
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                        </ul>
-                        <h6>細肩帶印花洋裝-女</h6>
-                        <p>NT$ 490</p>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="../static/images/products/product_52264_M_01_n.jpeg" title="">
-                        </a>
-                        <ul class="color_list">
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                        </ul>
-                        <h6>細肩帶印花洋裝-女</h6>
-                        <p><del>NT$690</del> 活動價 NT$ 490</p>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="../static/images/products/product_52264_M_01_n.jpeg" title="">
-                        </a>
-                        <ul class="color_list">
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                        </ul>
-                        <h6>細肩帶印花洋裝-女</h6>
-                        <p>NT$ 6687</p>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="../static/images/products/product_52264_M_01_n.jpeg" title="">
-                        </a>
-                        <ul class="color_list">
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                        </ul>
-                        <h6>細肩帶印花洋裝-女</h6>
-                        <p><del>NT$690</del> 活動價 NT$ 490</p>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="../static/images/products/product_52264_M_01_n.jpeg" title="">
-                        </a>
-                        <ul class="color_list">
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                        </ul>
-                        <h6>細肩帶印花洋裝-女</h6>
-                        <p>NT$ 490</p>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="../static/images/products/product_52264_M_01_n.jpeg" title="">
-                        </a>
-                        <ul class="color_list">
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                        </ul>
-                        <h6>細肩帶印花洋裝-女</h6>
-                        <p><del>NT$690</del> 活動價 NT$ 490</p>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="../static/images/products/product_52264_M_01_n.jpeg" title="">
-                        </a>
-                        <ul class="color_list">
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                            <li class="color_sample"><a href="#"><img src="../static/images/products/inner_color_5364301_48.jpeg" alt=""></a></li>
-                        </ul>
-                        <h6>細肩帶印花洋裝-女</h6>
-                        <p>NT$ 6687</p>
-                    </li>
-                </ul>
-            </div>
+
         </div>
     </div>
 
 
-    <footer>
-        <p> 測試用的footer</p>
-        <p> 測試用的footer</p>
-        <p> 測試用的footer</p>
-        <p> 測試用的footer</p>
-        <p> 測試用的footer</p>
-        <p> 測試用的footer</p>
-    </footer>
+    <hr>
+    <div th:replace="commons::footer"></div>
 </body>
 
 </html>

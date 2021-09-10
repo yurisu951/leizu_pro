@@ -60,11 +60,11 @@
                 <h2 th:if="${gender=='women'}">女裝新品 & 熱銷</h2>
                 <h2 th:if="${gender=='men'}">男裝新品 & 熱銷</h2>
                 <ul>
-                    <li><a th:href="@{activites/2P198}">限時搶購．任選2件198</a></li>
-                    <li><a th:href="@{activites/D100}">四季百搭．任選299起</a></li>
-                    <li><a th:href="@{activites/3P80DUP}">秋裝上市．任兩件享優惠</a></li>
-                    <li><a th:href="@{activites/sale}">超值精選．滿2件58折起</a></li>
-                    <li><a th:href="@{activites/sport}">運動一夏．任選149起</a></li>
+                    <li><a th:href="@{/activites/2P198}">限時搶購．任選2件198</a></li>
+                    <li><a th:href="@{/activites/D100}">四季百搭．任選299起</a></li>
+                    <li><a th:href="@{/activites/3P80DUP}">秋裝上市．任兩件享優惠</a></li>
+                    <li><a th:href="@{/activites/sale}">超值精選．滿2件58折起</a></li>
+                    <li><a th:href="@{/activites/sport}">運動一夏．任選149起</a></li>
                 </ul>
             </div>
             <ul>
@@ -72,7 +72,8 @@
                     <h2 class="categoryMain"  th:text="${category.key}">上衣類</h2>
                     <ul>
                         <li th:each="value:${category.value}">
-                            <a th:href="@{/products(i=${#strings.substring(value,0,6)})}" th:text="${#strings.substring(value,6)}">聯名印花短T</a>
+                            <a th:if="${gender=='women'}" th:href="@{/women/products(i=${#strings.substring(value,0,6)})}" th:text="${#strings.substring(value,6)}">聯名印花短T</a>
+                            <a th:if="${gender=='men'}" th:href="@{/men/products(i=${#strings.substring(value,0,6)})}" th:text="${#strings.substring(value,6)}">聯名印花短T</a>
                         </li>
                     </ul>
                 </li>

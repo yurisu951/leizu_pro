@@ -16,4 +16,9 @@ public interface ProductMapper {
 
     List<Product> getProductListWithColorByCategoryId(Integer category);
 
+    List<Product> getWomenProductListByLimit(Integer index, Integer count);
+
+    List<Product> getMenProductListByLimit(Integer index, Integer count);
+
+
 }

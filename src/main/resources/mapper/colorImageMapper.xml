@@ -5,7 +5,7 @@
 <mapper namespace="com.chloe.leizu_pro.mapper.ColorImageMapper">
 
     <select id="getColorImageAndNameOfListByProductId" resultType="com.chloe.leizu_pro.bean.ColorImage">
-        select product_color, product_color_image from tbl_color_image where product_id = #{productId}
+        select product_id, product_color, product_color_image from tbl_color_image where product_id = #{productId}
     </select>
 
 </mapper>

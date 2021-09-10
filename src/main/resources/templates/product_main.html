@@ -23,68 +23,23 @@
         <div th:replace="commons::leftNav"></div>
 
         <div class="product_block">
-            <div class="banner">
+            <div th:if="${gender=='women'}" class="banner">
                 <img src="../images/uploads/55075_1010X400_210823_TW.jpeg" alt="">
-
+            </div>
+            <div th:if="${gender=='men'}" class="banner">
+                <img src="../images/uploads/54364_1010X400_210726_TW2.jpeg" alt="">
             </div>
             <div class="product_section">
                 <ul>
-                    <li>
-                        <a href="#">
-                            <img src="../images/products/product_52264_M_01_n.jpeg" title="">
+                    <li th:each="product:${productList}">
+                        <a href="#" th:href="@{/details(i=${product.id})}">
+                            <img src="../images/products/product_52264_M_01_n.jpeg" th:src="${product.image}" th:alt-title="${product.productName}">
                         </a>
-                        <h3>細肩帶印花洋裝-女</h3>
-                        <p>NT$690 活動價 NT$ 490</p>
+                        <h3 th:text="${product.productName}">細肩帶印花洋裝-女</h3>
+                        <p th:unless="${product.promoPrice}" th:text="'NT$'+${product.price}">NT$ 490</p>
+                        <p th:if="${product.promoPrice}"><del th:text="'NT$'+${product.price}">NT$690</del> <span th:text="'活動價NT$'+${product.promoPrice}">活動價NT$ 490</span></p>
                     </li>
-                    <li>
-                        <a href="#">
-                            <img src="../images/products/product_52264_M_01_n.jpeg" title="">
-                        </a>
-                        <h3>細肩帶印花洋裝-女</h3>
-                        <p>NT$690 活動價 NT$ 490</p>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="../images/products/product_52264_M_01_n.jpeg" title="">
-                        </a>
-                        <h3>細肩帶印花洋裝-女</h3>
-                        <p>NT$690 活動價 NT$ 490</p>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="../images/products/product_52264_M_01_n.jpeg" title="">
-                        </a>
-                        <h3>細肩帶印花洋裝-女</h3>
-                        <p>NT$690 活動價 NT$ 490</p>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="../images/products/product_52264_M_01_n.jpeg" title="">
-                        </a>
-                        <h3>細肩帶印花洋裝-女</h3>
-                        <p>NT$690 活動價 NT$ 490</p>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="../images/products/product_52264_M_01_n.jpeg" title="">
-                        </a>
-                        <h3>細肩帶印花洋裝-女</h3>
-                        <p>NT$690 活動價 NT$ 490</p>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="../images/products/product_52264_M_01_n.jpeg" title="">
-                        </a>
-                        <h3>細肩帶印花洋裝-女</h3>
-                        <p>NT$690 活動價 NT$ 490</p>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="../images/products/product_52264_M_01_n.jpeg" title="">
-                        </a>
-                        <h3>細肩帶印花洋裝-女</h3>
-                        <p>NT$690 活動價 NT$ 490</p>
-                    </li>
+
                 </ul>
             </div>
         </div>

@@ -14,6 +14,7 @@
     font-weight: 600;
     font-size: 14px;
     left: 5px;
+    cursor: default;
 }
 
 .category a {
@@ -33,10 +34,17 @@
     transform: rotate(45deg);
 }
 
+.category:hover h2::before {
+    transform: rotate(135deg);
+}
+
+.category li:hover a{
+    color: #BC9369;
+}
+
 .category_product_main li {
     list-style:disc;
     margin-left: 15px;
-  
 }
 
 .category > ul {
@@ -51,8 +59,13 @@
     position: relative;
 }
 
+.category_promo a {
+    color: #4D3028;
+}
+
 .category_product_main li > a{
     text-indent: 1rem;
 }
+
 
 

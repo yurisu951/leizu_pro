@@ -19,7 +19,7 @@ public interface ProductService {
 
     Map<String, List<Product>> getProductListWithColorByCategory(Integer category);
 
-
+    List<Product> getProductListByLimit(Integer index, Integer count, String gender);
 
 
 
@@ -27,4 +27,3 @@ public interface ProductService {
 
 }
 
-//    Map<String,Map<Product,List<ColorImage>>> getProductListByCategory(Integer category);

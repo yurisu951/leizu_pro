@@ -4,6 +4,7 @@ package com.chloe.leizu_pro.controller;
 import com.chloe.leizu_pro.bean.Product;
 import com.chloe.leizu_pro.bean.SuperCategory;
 import com.chloe.leizu_pro.service.ProductService;
+import com.chloe.leizu_pro.utils.ProductPageUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,32 +30,25 @@ public class ProductController {
     @RequestMapping("/women")
     public ModelAndView womenMainPage(){
         ModelAndView mav = new ModelAndView();
-        Map<String, List<String>> women = productService.getSuperCategoryList("women");
-        mav.setViewName("product_main");
-        mav.addObject("categoryList", women);
-        mav.addObject("gender", "women");
-        return mav;
+        return ProductPageUtils.categoryMainPage(mav, productService, "women");
     }
 
     @RequestMapping("/men")
     public ModelAndView menMainPage(){
         ModelAndView mav = new ModelAndView();
-        Map<String, List<String>> men = productService.getSuperCategoryList("men");
-        mav.setViewName("product_main");
-        mav.addObject("categoryList", men);
-        mav.addObject("gender", "men");
-        return mav;
+        return ProductPageUtils.categoryMainPage(mav, productService, "men");
     }
 
-    @RequestMapping(value = {"/products"},method = RequestMethod.GET,params = "i")
-    public ModelAndView categoryPage(@RequestParam("i") Integer categoryId){
+    @RequestMapping(value = {"/men/products"},method = RequestMethod.GET,params = "i")
+    public ModelAndView menCategoryPage(@RequestParam("i") Integer categoryId){
         ModelAndView mav = new ModelAndView();
-        Map<String, List<Product>> categoryListMap = productService.getProductListWithColorByCategory(categoryId);
-        String subCategoryName = productService.getSuperCategoryById(categoryId).getSubCategoryName();
-        mav.addObject("subTitle", subCategoryName);
-        mav.addObject("categoryListMap", categoryListMap);
-        mav.setViewName("product_category");
-        return mav;
+        return ProductPageUtils.categoryListPage(mav, productService, "men", categoryId);
+    }
+
+    @RequestMapping(value = {"/women/products"},method = RequestMethod.GET,params = "i")
+    public ModelAndView womenCategoryPage(@RequestParam("i") Integer categoryId){
+        ModelAndView mav = new ModelAndView();
+        return ProductPageUtils.categoryListPage(mav, productService, "women", categoryId);
     }
 
 

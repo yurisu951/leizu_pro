@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class SuperCategory {
     private Integer id;
-    private Integer gender;
+//    private Integer gender;
     private String category;
     private String subCategoryName;
-    private String url;
+//    private String url;
 }

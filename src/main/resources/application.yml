@@ -21,8 +21,8 @@ spring:
 #    context-path: /leizu    # 設定訪問路徑
 
 mybatis:
-  mapper-locations: classpath:/mybatis/mapper/*.xml
-  type-aliases-package: com.example.leizu.bean
+  mapper-locations: classpath:/mapper/*.xml
+  type-aliases-package: com.chloe.leizu_pro.bean
   configuration:
     map-underscore-to-camel-case: true
 

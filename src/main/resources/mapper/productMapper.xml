@@ -2,11 +2,11 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.leizu.mapper.ProductMapper">
+<mapper namespace="com.chloe.leizu_pro.mapper.ProductMapper">
 
-<!--    <select id="getProductById" resultType="com.example.leizu.bean.Product">-->
-<!--        select * from tbl_product where id = #{id}-->
-<!--    </select>-->
+    <select id="getProductById" resultType="com.chloe.leizu_pro.bean.Product">
+        select * from tbl_product where id = #{id}
+    </select>
 
 <!--    <insert id="addProduct" useGeneratedKeys="true" keyProperty="id" parameterType="com.example.leizu.bean.Product">-->
 <!--        insert into tbl_product(category, product_name, price, promo, promoPrice)-->

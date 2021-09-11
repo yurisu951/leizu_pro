@@ -10,168 +10,22 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
-    <link rel="stylesheet" th:href="@{/css/base.css}">
-    <link rel="stylesheet" th:href="@{/css/common.css}">
-    <link rel="stylesheet" th:href="@{/css/main_left_nav.css}">
-    <link rel="stylesheet" th:href="@{/css/product_details.css}">
-
-    <script th:src="@{/js/jQuery3.6.0.js}"></script>
+    <link rel="stylesheet" href="../static/css/base.css" th:href="@{/css/base.css}">
+    <link rel="stylesheet" href="../static/css/common.css" th:href="@{/css/common.css}">
+    <link rel="stylesheet" href="../static/css/main_left_nav.css" th:href="@{/css/main_left_nav.css}">
+    <link rel="stylesheet" href="../static/css/product_details.css" th:href="@{/css/product_details.css}">
+    <script src="../static/js/jQuery3.6.0.js"  th:src="@{/js/jQuery3.6.0.js}"></script>
 
 </head>
 
 <body>
     <!-- Commons部分 -->
-    <div class="header">
-        <div class="wrapper clearfix">
-            <div class="logo"><a href="javascript:;">Leizu</a></div>
-            <nav>
-                <ul>
-                    <li><a href="javascript:;">WOMEN</a></li>
-                    <li><a href="javascript:;">MEN</a></li>
-                </ul>
-            </nav>
-            <div class="userConsole">
-                <div class="search">
-                    <form>
-                        <input type="text" placeholder="SREACH...">
-                        <input type="submit" class="icomoon" value="">
-                    </form>
-                </div>
-                <div class="sub_nav">
-                    <ul>
-                        <li>
-                            <i class="icomoon"></i>
-                            <div class="sub_sub_nav">
-                                <ul>
-                                    <li><a href="#">訂單查詢</a></li>
-                                    <li><a href="#">會員專區</a></li>
-                                    <li><a href="#">我的收藏</a></li>
-                                    <li><a href="#">會員登錄/註冊</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="icomoon"></i>
-                            <div class="sub_sub_nav">
-
-                                <p>購物車清單</p>
-                            </div>
-
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-        </div>
-    </div>
+    <div th:replace="commons::header"></div>
 
 
     <div class="center wrapper">
         <!-- Women Main Left -->
-        <div class="left_nav">
-            <div class="category category_promo">
-                <h2>女裝新品 & 熱銷</h2>
-                <ul>
-                    <li><a href="#">超值特惠．任兩件享優惠</a></li>
-                    <li><a href="#">牛仔大賞．任選330起</a></li>
-                    <li><a href="#">秋裝上市．任兩件享優惠</a></li>
-                    <li><a href="#">運動一夏．任選149元起</a></li>
-                    <li><a href="#">驚喜特惠．任選299元</a></li>
-                </ul>
-            </div>
-
-            <ul>
-                <li class="category category_product_main">
-                    <h2 class="categoryMain">上衣類</h2>
-                    <ul>
-                        <li><a href="#">聯名印花短T</a></li>
-                        <li><a href="#">聯名印花長T</a></li>
-                        <li><a href="#">設計印花T</a></li>
-                        <li><a href="#">短袖上衣</a></li>
-                        <li><a href="#">快乾系列</a></li>
-                        <li><a href="#">條紋系列</a></li>
-                        <li><a href="#">莫代爾系列</a></li>
-                        <li><a href="#">polo系列</a></li>
-                        <li><a href="#">針織衫/毛衣</a></li>
-                        <li><a href="#">五/七分袖</a></li>
-                        <li><a href="#">長袖上衣</a></li>
-                        <li><a href="#">立領/高領</a></li>
-                        <li><a href="#">長版上衣</a></li>
-                        <li><a href="#">輕涼系列</a></li>
-                        <li><a href="#">Bra系列</a></li>
-                        <li><a href="#">細肩帶/背心</a></li>
-                        <li><a href="#">厚棉系列</a></li>
-                    </ul>
-                </li>
-                <li class="category category_product_main">
-                    <h2 class="categoryMain">襯衫類</h2>
-                    <ul>
-                        <li><a href="#">商務襯衫</a></li>
-                        <li><a href="#">嫘縈/雪紡</a></li>
-                        <li><a href="#">休閒襯衫</a></li>
-                        <li><a href="#">亞麻/棉麻襯衫</a></li>
-                        <li><a href="#">格紋襯衫</a></li>
-                        <li><a href="#">法蘭絨襯衫</a></li>
-                    </ul>
-                </li>
-                <li class="category category_product_main">
-                    <h2 class="categoryMain">外套類</h2>
-                    <ul>
-                        <li><a href="#">機能風衣</a></li>
-                        <li><a href="#">抗UV系列</a></li>
-                        <li><a href="#">休閒外套</a></li>
-                        <li><a href="#">針織外套</a></li>
-                        <li><a href="#">西裝/大衣</a></li>
-                        <li><a href="#">Fleece系列</a></li>
-                    </ul>
-                </li>
-
-                <li class="category category_product_main">
-                    <h2 class="categoryMain">上衣類</h2>
-                    <ul>
-                        <li><a href="#">聯名印花短T</a></li>
-                        <li><a href="#">聯名印花長T</a></li>
-                        <li><a href="#">設計印花T</a></li>
-                        <li><a href="#">短袖上衣</a></li>
-                        <li><a href="#">快乾系列</a></li>
-                        <li><a href="#">條紋系列</a></li>
-                        <li><a href="#">莫代爾系列</a></li>
-                        <li><a href="#">polo系列</a></li>
-                        <li><a href="#">針織衫/毛衣</a></li>
-                        <li><a href="#">五/七分袖</a></li>
-                        <li><a href="#">長袖上衣</a></li>
-                        <li><a href="#">立領/高領</a></li>
-                        <li><a href="#">長版上衣</a></li>
-                        <li><a href="#">輕涼系列</a></li>
-                        <li><a href="#">Bra系列</a></li>
-                        <li><a href="#">細肩帶/背心</a></li>
-                        <li><a href="#">厚棉系列</a></li>
-                    </ul>
-                </li>
-                <li class="category category_product_main">
-                    <h2 class="categoryMain">襯衫類</h2>
-                    <ul>
-                        <li><a href="#">商務襯衫</a></li>
-                        <li><a href="#">嫘縈/雪紡</a></li>
-                        <li><a href="#">休閒襯衫</a></li>
-                        <li><a href="#">亞麻/棉麻襯衫</a></li>
-                        <li><a href="#">格紋襯衫</a></li>
-                        <li><a href="#">法蘭絨襯衫</a></li>
-                    </ul>
-                </li>
-                <li class="category category_product_main">
-                    <h2 class="categoryMain">外套類</h2>
-                    <ul>
-                        <li><a href="#">機能風衣</a></li>
-                        <li><a href="#">抗UV系列</a></li>
-                        <li><a href="#">休閒外套</a></li>
-                        <li><a href="#">針織外套</a></li>
-                        <li><a href="#">西裝/大衣</a></li>
-                        <li><a href="#">Fleece系列</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
+        <div th:replace="commons::leftNav"></div>
 
         <!-- 详细页面部分 -->
         <div class="detail_content">
@@ -181,23 +35,20 @@
                 </div>
                 <div class="right">
                     <div class="product_info">
-                        <h4>細肩帶印花洋裝-女（ <span id="inventory">黑色 -S</span>）</h4>
-                        <div class="price">
-                            <p class="originPrice"><del>299</del></p>
+                        <h4 th:text="${productDetails.productName}">細肩帶印花洋裝-女 <span id="inventory">（黑色 -S）</span></h4>
+                        <div class="price" th:if="${productDetails.promoPrice}">
+                            <p class="originPrice"><del th:text="${productDetails.price}">299</del></p>
                             <p class="showPrice">
-                                <span class="showPriceMark">NT$</span><strong>690</strong>
+                                <span class="showPriceMark">NT$</span><strong th:text="${productDetails.price}">690</strong>
                             </p>
-                            <a class="activities" href="javascript:;">秋裝上市．任兩件享優惠 > ></a>
+                            <a class="activities" href="javascript:;" th:href="@{'/'+${gender}+'/activities'}" th:text="${productDetails.promo}">秋裝上市．任兩件享優惠 > ></a>
                         </div>
                     </div>
                     <hr>
                     <div class="color_and_size">
                         <div class="color">
                             <ul>
-                                <li class="current"><img src="../images/products/inner_color_5364301_48.jpeg" alt="">
-                                </li>
-                                <li><img src="../images/products/inner_color_5364301_48.jpeg" alt=""></li>
-                                <li><img src="../images/products/inner_color_5364301_48.jpeg" alt=""></li>
+                                <li th:each="colorItem :${productDetails.colorImageList}"><img src="../images/products/inner_color_5364301_48.jpeg" th:src="${colorItem.productColorImage}"  th:alt-title="${colorItem.productColor}"></li>
                             </ul>
                         </div>
                         <div class="size">
@@ -223,8 +74,11 @@
 
             <div class="content_images">
                 <ul>
-                    <li> <img src="../images/products/inner_content_52264_D_12.jpeg" alt=""></li>
-                    <li> <img src="../images/products/inner_content_52264_D_13.jpeg" alt=""></li>
+                    <li th:each="contentImage:${productDetails.contentImageList}">
+                        <a th:if="${contentImage.searchWord}" th:href="${contentImage.searchWord}"><img src="../images/products/inner_content_52264_D_12.jpeg" th:src="${contentImage.image}"></a>
+                        <img th:unless="${contentImage.searchWord}" src="../images/products/inner_content_52264_D_12.jpeg" th:src="${contentImage.image}">
+                    </li>
+
                 </ul>
             </div>
         </div>

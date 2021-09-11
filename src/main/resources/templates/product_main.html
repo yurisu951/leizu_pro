@@ -32,7 +32,7 @@
             <div class="product_section">
                 <ul>
                     <li th:each="product:${productList}">
-                        <a href="#" th:href="@{/details(i=${product.id})}">
+                        <a  href="#" th:href="@{'/' + ${gender} + '/details/' + ${product.id}}">
                             <img src="../images/products/product_52264_M_01_n.jpeg" th:src="${product.image}" th:alt-title="${product.productName}">
                         </a>
                         <h3 th:text="${product.productName}">細肩帶印花洋裝-女</h3>

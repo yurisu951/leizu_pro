@@ -21,6 +21,8 @@ public interface ProductService {
 
     List<Product> getProductListByLimit(Integer index, Integer count, String gender);
 
+    Product getProductDetailsById(Integer id);
+
 
 
 

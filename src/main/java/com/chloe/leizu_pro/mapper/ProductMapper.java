@@ -1,5 +1,6 @@
 package com.chloe.leizu_pro.mapper;
 
+import com.chloe.leizu_pro.bean.ContentImage;
 import com.chloe.leizu_pro.bean.Product;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
@@ -19,6 +20,8 @@ public interface ProductMapper {
     List<Product> getWomenProductListByLimit(Integer index, Integer count);
 
     List<Product> getMenProductListByLimit(Integer index, Integer count);
+
+    Product getProductWithColorAndContentById(Integer id);
 
 
 }

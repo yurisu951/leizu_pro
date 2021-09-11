@@ -79,5 +79,9 @@ public class ProductServiceImpl implements ProductService {
         return null;
     }
 
+    @Override
+    public Product getProductDetailsById(Integer id) {
+        return productMapper.getProductWithColorAndContentById(id);
+    }
 
 }

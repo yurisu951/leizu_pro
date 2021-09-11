@@ -72,8 +72,7 @@
                     <h2 class="categoryMain"  th:text="${category.key}">上衣類</h2>
                     <ul>
                         <li th:each="value:${category.value}">
-                            <a th:if="${gender=='women'}" th:href="@{/women/products(i=${#strings.substring(value,0,6)})}" th:text="${#strings.substring(value,6)}">聯名印花短T</a>
-                            <a th:if="${gender=='men'}" th:href="@{/men/products(i=${#strings.substring(value,0,6)})}" th:text="${#strings.substring(value,6)}">聯名印花短T</a>
+                            <a th:href="@{'/' + ${gender} + '/products/' + ${#strings.substring(value,0,6)}}" th:text="${#strings.substring(value,6)}">聯名印花短T</a>
                         </li>
                     </ul>
                 </li>

@@ -2,10 +2,10 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.leizu.mapper.ContentImageMapper">
+<mapper namespace="com.chloe.leizu_pro.mapper.ContentImageMapper">
 
-<!--    <insert id="addContentImageByCrawler" useGeneratedKeys="true"  keyProperty="id" parameterType="com.example.leizu.bean.ContentImage">-->
-<!--        insert into tbl_content_image(product_id, image) values(#{productId}, #{image});-->
-<!--    </insert>-->
+    <select id="getContentImageListByProductId" resultType="com.chloe.leizu_pro.bean.ContentImage">
+        select image, search_word from  tbl_content_image where product_id = #{productId}
+    </select>
 
 </mapper>

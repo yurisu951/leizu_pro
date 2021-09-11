@@ -20,4 +20,5 @@ public class Product {
     private String image;
 
     private List<ColorImage> colorImageList;
+    private List<ContentImage> contentImageList;
 }

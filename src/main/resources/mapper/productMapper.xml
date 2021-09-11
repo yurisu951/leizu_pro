@@ -32,4 +32,17 @@
         select id, product_name, price, promoPrice, image from tbl_product where category like '1%' order by rand() limit #{index}, #{count}
     </select>
 
+
+    <resultMap id="contentAndColorMap" type="com.chloe.leizu_pro.bean.Product">
+        <id property="id" column="id" />
+        <result property="productName" column="product_name" />
+        <result property="price" column="price" />
+        <result property="promoPrice" column="promoPrice" />
+        <collection property="colorImageList" column="id" select="com.chloe.leizu_pro.mapper.ColorImageMapper.getColorImageAndNameOfListByProductId" />
+        <collection property="contentImageList" column="id" select="com.chloe.leizu_pro.mapper.ContentImageMapper.getContentImageListByProductId" />
+    </resultMap>
+    <select id="getProductWithColorAndContentById" resultMap="contentAndColorMap">
+        select id,product_name, price, promoPrice  from tbl_product where id = #{id}
+    </select>
+
 </mapper>

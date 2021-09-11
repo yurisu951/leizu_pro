@@ -32,11 +32,13 @@
                 <h4 th:text="${productList.key}">可口可樂</h4>
                 <ul class="clearfix">
                     <li th:each="product : ${productList.value}">
-                        <a href="#" th:href="@{/details(i=${product.id})}">
+                        <a href="#" th:href="@{'/'+${gender}+'/details/'+${product.id}}">
                             <img th:src="${product.image}" th:alt-title="${product.productName}">
                         </a>
                         <ul class="color_list">
-                            <li class="color_sample" th:each="color:${product.colorImageList}"><a th:href="@{/details(i=${color.productId})}"><img th:src="${color.productColorImage}" th:alt-title="${color.productColor}"></a></li>
+                            <li class="color_sample" th:each="color:${product.colorImageList}">
+                                <a th:href="@{'/'+${gender}+'/details/'+${product.id}}">
+                                <img th:src="${color.productColorImage}" th:alt-title="${color.productColor}"></a></li>
                         </ul>
                         <h6 th:text="${product.productName}">細肩帶印花洋裝-女</h6>
                         <p th:unless="${product.promoPrice}" th:text="'NT$'+${product.price}">NT$ 490</p>

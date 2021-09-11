@@ -15,10 +15,12 @@
     <link rel="stylesheet" href="../static/css/main_left_nav.css" th:href="@{/css/main_left_nav.css}">
     <link rel="stylesheet" href="../static/css/product_details.css" th:href="@{/css/product_details.css}">
     <script src="../static/js/jQuery3.6.0.js"  th:src="@{/js/jQuery3.6.0.js}"></script>
+    <script src="../static/js/productDetails.js"  th:src="@{/js/productDetails.js}"></script>
 
 </head>
 
 <body>
+    <div class="toUp"><span>TOP</span></div>
     <!-- Commons部分 -->
     <div th:replace="commons::header"></div>
 
@@ -31,31 +33,40 @@
         <div class="detail_content">
             <div class="cart_section">
                 <div class="left">
-                    <img src="../images/products/inner_main_5226401_500.jpeg" alt="">
+                    <ul>
+                        <li class="product_main_image" th:each="colorImage :${productDetails.colorImageList}">
+                            <img th:src="${colorImage.productImage}" th:alt-title="${productDetails.productName}"></li>
+                    </ul>
                 </div>
                 <div class="right">
                     <div class="product_info">
-                        <h4 th:text="${productDetails.productName}">細肩帶印花洋裝-女 <span id="inventory">（黑色 -S）</span></h4>
-                        <div class="price" th:if="${productDetails.promoPrice}">
+                        <h4 id="product_title" th:text="${productDetails.productName}">細肩帶印花洋裝-女 <span id="inventory">（黑色 -S）</span></h4>
+                        <div class="price" th:if="${promoName}">
                             <p class="originPrice"><del th:text="${productDetails.price}">299</del></p>
+                            <p class="showPrice">
+                                <span class="showPriceMark">NT$</span><strong th:text="${productDetails.promoPrice}">690</strong>
+                            </p>
+                            <a class="activities" href="javascript:;" th:href="@{'/'+${gender}+'/activities/'+${productDetails.promo}}" th:text="${promoName}">秋裝上市．任兩件享優惠 > ></a>
+                        </div>
+                        <div class="price" th:unless="${promoName}">
+                            <p class="originPrice"></p>
                             <p class="showPrice">
                                 <span class="showPriceMark">NT$</span><strong th:text="${productDetails.price}">690</strong>
                             </p>
-                            <a class="activities" href="javascript:;" th:href="@{'/'+${gender}+'/activities'}" th:text="${productDetails.promo}">秋裝上市．任兩件享優惠 > ></a>
                         </div>
                     </div>
                     <hr>
                     <div class="color_and_size">
                         <div class="color">
                             <ul>
-                                <li th:each="colorItem :${productDetails.colorImageList}"><img src="../images/products/inner_color_5364301_48.jpeg" th:src="${colorItem.productColorImage}"  th:alt-title="${colorItem.productColor}"></li>
+                                <li th:each="colorItem :${productDetails.colorImageList}" th:value="${colorItem.productColor}"><img src="../images/products/inner_color_5364301_48.jpeg" th:src="${colorItem.productColorImage}"  th:alt-title="${colorItem.productColor}"></li>
                             </ul>
                         </div>
                         <div class="size">
                             <ul>
-                                <li class="current">S</li>
-                                <li>M</li>
-                                <li>L</li>
+                                <li class="current" value="S">S</li>
+                                <li value="M">M</li>
+                                <li value="L">L</li>
                             </ul>
                         </div>
                     </div>
@@ -64,7 +75,7 @@
                         <span>
                             <label for="buyNumber">數量</label>&nbsp;
                             <a href="javascript:;" class="minus"></a>
-                            <input type="text" id="buyNumber" maxlength="2" value="1" name="">
+                            <input type="text" id="buyNumber" maxlength="2" value="1" name="" oninput = "value=value.replace(/[^\d]/g,'')">
                             <a href="javascript:;" class="plus"></a>
                         </span>
                         <button class="addCart">加入購物車</button>
@@ -82,23 +93,9 @@
                 </ul>
             </div>
         </div>
-
-
     </div>
+    <div th:replace="commons::footer"></div>
 
 
-    <footer>
-        <p> 測試用的footer</p>
-        <p> 測試用的footer</p>
-        <p> 測試用的footer</p>
-        <p> 測試用的footer</p>
-        <p> 測試用的footer</p>
-        <p> 測試用的footer</p>
-    </footer>
 </body>
-
 </html>
-
-<script>
-
-</script>

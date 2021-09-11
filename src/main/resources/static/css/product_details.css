@@ -69,6 +69,11 @@
     padding: 3px 7px;
     background-color: #ea273e;
     color: #fff;
+    text-decoration: none;
+}
+
+.price .activities:hover {
+    background-color: #bc6262;
 }
 
 .cart_section hr {
@@ -121,7 +126,6 @@
 #buyNumber {
     display: inline-block;
     margin: 0 -5px;
-    text-indent: 1rem;
     width: 35px;
     line-height: 30px;
     outline: none;
@@ -129,6 +133,7 @@
     border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
     box-sizing: border-box;
+    text-align: center;
 }
 
 .minus, .plus {
@@ -174,4 +179,55 @@
 
 .content_images li {
     margin: 35px;
+}
+
+
+.product_main_image {
+    display: none;
+}
+
+.product_main_image[class*=current] {
+    display: block;
+}
+
+
+
+.toUp {
+    position: fixed;
+    display: none;
+    right: 50px;
+    bottom: 50px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: #aaa 3px solid;
+    opacity: .3;
+    cursor: pointer;
+}
+
+.toUp:hover {
+    opacity: .6;
+}
+
+.toUp::after {
+    content: "";
+    display: block;
+    position: relative;
+    width: 15px;
+    height: 15px;
+    top: 38%;
+    transform: rotate(-135deg);
+    margin: 0 auto;
+    border: #aaa 3px solid;
+    border-top: none;
+    border-left: none;
+}
+
+.toUp > span {
+    position: absolute;
+    bottom: -24px;
+    left: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: default;
 }

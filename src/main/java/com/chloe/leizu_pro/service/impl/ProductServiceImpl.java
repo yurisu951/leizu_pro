@@ -1,13 +1,7 @@
 package com.chloe.leizu_pro.service.impl;
 
-import com.chloe.leizu_pro.bean.ColorImage;
-import com.chloe.leizu_pro.bean.Product;
-import com.chloe.leizu_pro.bean.SubCategory;
-import com.chloe.leizu_pro.bean.SuperCategory;
-import com.chloe.leizu_pro.mapper.ColorImageMapper;
-import com.chloe.leizu_pro.mapper.ProductMapper;
-import com.chloe.leizu_pro.mapper.SubCategoryMapper;
-import com.chloe.leizu_pro.mapper.SuperCategoryMapper;
+import com.chloe.leizu_pro.bean.*;
+import com.chloe.leizu_pro.mapper.*;
 import com.chloe.leizu_pro.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,6 +18,9 @@ public class ProductServiceImpl implements ProductService {
     ProductMapper productMapper;
     @Autowired
     ColorImageMapper colorImageMapper;
+    @Autowired
+    PromoCodeMapper promoCodeMapper;
+
 
     @Override
     public SuperCategory getSuperCategoryById(Integer id) {
@@ -82,6 +79,11 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Product getProductDetailsById(Integer id) {
         return productMapper.getProductWithColorAndContentById(id);
+    }
+
+    @Override
+    public String getPromoName(String promoId) {
+        return (promoCodeMapper.getPromoById(promoId)).getPromoName();
     }
 
 }

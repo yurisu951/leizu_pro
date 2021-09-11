@@ -23,6 +23,8 @@ public interface ProductService {
 
     Product getProductDetailsById(Integer id);
 
+    String getPromoName(String promoId);
+
 
 
 

@@ -2,11 +2,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.leizu.mapper.PromoCodeMapper">
-
-<!--    <insert id="addPromo" parameterType="com.example.leizu.bean.PromoCode">-->
-<!--        insert into tbl_promotion( promo_code, promo_name) values(#{promoCode}, #{promoName})-->
-<!--    </insert>-->
-
+<mapper namespace="com.chloe.leizu_pro.mapper.PromoCodeMapper">
+    <select id="getPromoById" resultType="com.chloe.leizu_pro.bean.PromoCode">
+        select * from tbl_promotion where promo_code = #{id}
+    </select>
 
 </mapper>

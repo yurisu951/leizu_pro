@@ -41,8 +41,14 @@ public class ProductPageUtils {
         mav.addObject("categoryList", genderCategoryList);
 
         Product productDetails = productService.getProductDetailsById(productId);
+        String promo = productDetails.getPromo();
+        if (promo != null) {
+            String promoName = productService.getPromoName(promo);
+            mav.addObject("promoName", promoName);
+        }
         mav.addObject("productDetails", productDetails);
         mav.setViewName("product_details");
+
         return mav;
     }
 

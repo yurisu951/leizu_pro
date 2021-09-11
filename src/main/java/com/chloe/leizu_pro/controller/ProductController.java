@@ -60,14 +60,7 @@ public class ProductController {
     @RequestMapping(value = {"/women/details/{id}"}, method = RequestMethod.GET)
     public ModelAndView productDetailsWomenPage(@PathVariable("id") Integer productId){
         ModelAndView mav = new ModelAndView();
-//        ProductPageUtils.productDetailsPage(mav, productService, "women", productId);
-        Map<String, List<String>> genderCategoryList = productService.getSuperCategoryList("women");
-        mav.addObject("gender", "women");
-        mav.addObject("categoryList", genderCategoryList);
-
-        Product productDetails = productService.getProductDetailsById(productId);
-        mav.addObject("productDetails", productDetails);
-        mav.setViewName("product_details");
+        ProductPageUtils.productDetailsPage(mav, productService, "women", productId);
         return mav;
     }
 

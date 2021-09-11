@@ -7,6 +7,5 @@ import org.springframework.stereotype.Repository;
 @Mapper
 @Repository
 public interface PromoCodeMapper {
-
-    void addPromo(PromoCode promo);
+    PromoCode getPromoById(String id);
 }

@@ -37,12 +37,13 @@
         <id property="id" column="id" />
         <result property="productName" column="product_name" />
         <result property="price" column="price" />
+        <result property="promo" column="promo" />
         <result property="promoPrice" column="promoPrice" />
         <collection property="colorImageList" column="id" select="com.chloe.leizu_pro.mapper.ColorImageMapper.getColorImageAndNameOfListByProductId" />
         <collection property="contentImageList" column="id" select="com.chloe.leizu_pro.mapper.ContentImageMapper.getContentImageListByProductId" />
     </resultMap>
     <select id="getProductWithColorAndContentById" resultMap="contentAndColorMap">
-        select id,product_name, price, promoPrice  from tbl_product where id = #{id}
+        select id,product_name, price,promo, promoPrice  from tbl_product where id = #{id}
     </select>
 
 </mapper>

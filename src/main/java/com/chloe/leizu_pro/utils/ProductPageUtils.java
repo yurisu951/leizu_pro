@@ -35,7 +35,7 @@ public class ProductPageUtils {
         return mav;
     }
 
-    public static ModelAndView productDetailsPage(ModelAndView mav, ProductService productService, String gender, Integer productId){
+    public static ModelAndView productDetailsPage(ModelAndView mav, ProductService productService, String gender, Integer productId, String colorName){
         Map<String, List<String>> genderCategoryList = productService.getSuperCategoryList(gender);
         mav.addObject("gender", gender);
         mav.addObject("categoryList", genderCategoryList);
@@ -46,6 +46,8 @@ public class ProductPageUtils {
             String promoName = productService.getPromoName(promo);
             mav.addObject("promoName", promoName);
         }
+        if (colorName!=null)  mav.addObject("colorName", colorName);
+
         mav.addObject("productDetails", productDetails);
         mav.setViewName("product_details");
 

@@ -50,17 +50,19 @@ public class ProductController {
         return ProductPageUtils.categoryListPage(mav, productService, "women", categoryId);
     }
 
-    @RequestMapping(value = {"/men/details/{id}"}, method = RequestMethod.GET)
-    public ModelAndView productDetailsMenPage(@PathVariable("id") Integer productId){
+    @RequestMapping(value = {"/men/details/{id}","/men/details/{id}/{color}"}, method = RequestMethod.GET)
+    public ModelAndView productDetailsMenPage(@PathVariable("id") Integer productId,
+                                              @PathVariable(value = "color", required = false) String colorName){
         ModelAndView mav = new ModelAndView();
-        ProductPageUtils.productDetailsPage(mav, productService, "men", productId);
+        ProductPageUtils.productDetailsPage(mav, productService, "men", productId, colorName);
         return mav;
     }
 
-    @RequestMapping(value = {"/women/details/{id}"}, method = RequestMethod.GET)
-    public ModelAndView productDetailsWomenPage(@PathVariable("id") Integer productId){
+    @RequestMapping(value = {"/women/details/{id}","/women/details/{id}/{color}"}, method = RequestMethod.GET)
+    public ModelAndView productDetailsWomenPage(@PathVariable("id") Integer productId,
+                                                @PathVariable(value = "color", required = false) String colorName){
         ModelAndView mav = new ModelAndView();
-        ProductPageUtils.productDetailsPage(mav, productService, "women", productId);
+        ProductPageUtils.productDetailsPage(mav, productService, "women", productId, colorName);
         return mav;
     }
 

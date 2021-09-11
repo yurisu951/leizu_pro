@@ -20,6 +20,9 @@
 </head>
 
 <body>
+<script th:inline="javascript">
+    var colorName = [[${colorName}]];
+</script>
     <div class="toUp"><span>TOP</span></div>
     <!-- Commons部分 -->
     <div th:replace="commons::header"></div>
@@ -59,7 +62,9 @@
                     <div class="color_and_size">
                         <div class="color">
                             <ul>
-                                <li th:each="colorItem :${productDetails.colorImageList}" th:value="${colorItem.productColor}"><img src="../images/products/inner_color_5364301_48.jpeg" th:src="${colorItem.productColorImage}"  th:alt-title="${colorItem.productColor}"></li>
+                                <li th:each="colorItem :${productDetails.colorImageList}" th:value="${colorItem.productColor}">
+                                    <img src="../images/products/inner_color_5364301_48.jpeg" th:src="${colorItem.productColorImage}"  th:alt-title="${colorItem.productColor}">
+                                </li>
                             </ul>
                         </div>
                         <div class="size">

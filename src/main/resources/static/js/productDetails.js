@@ -53,7 +53,17 @@ $(function(){
             $(".price .activities").children().eq(tempIndex%2).css({color: "#fff"}).siblings().css({color: "#aaa"});
         }, 500);
     }
-
-
-
+    if(colorName!= null){
+        var $colorLi = $(".color").find("li");
+        for (var i = 0; i < $colorLi.length; i++){
+            var temp = $colorLi.eq(i).children().attr("title");
+            if (temp === colorName){
+                $colorLi.eq(i).addClass("current").siblings().removeClass("current");
+                $(".product_main_image").eq(i).addClass("current").siblings().removeClass("current");
+                color = colorName;
+                $("#product_title").text(productTitle + '（' + color + ' -' + size +'）');
+                break;
+            }
+        }
+    }
 });

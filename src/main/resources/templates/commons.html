@@ -5,8 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../static/css/base.css" th:href="@{/css/base.css}">
-    <link rel="stylesheet" href="../static/css/common.css" th:href="@{/css/common.css}">
+
+    <div th:fragment="inputCommons" th:remove="tag">
+        <link rel="stylesheet" href="../static/css/base.css" th:href="@{/css/base.css}">
+        <link rel="stylesheet" href="../static/css/common.css" th:href="@{/css/common.css}">
+        <script src="../static/js/jQuery3.6.0.js"  th:src="@{/js/jQuery3.6.0.js}"></script>
+        <script th:src="@{/js/commons.js}"></script>
+    </div>
 
 </head>
 <body>
@@ -40,10 +45,33 @@
                         </div>
                         </li>
                         <li>
-                            <i class="icomoon"></i>
-                            <div class="sub_sub_nav">
-                                
-                                <p>購物車清單</p>
+                            <i class="icomoon" id="cart_info"></i>
+                            <div class="sub_sub_nav clearfix" id="cart_list">
+                                <table>
+                                    <tr>
+                                        <th>商品名稱</th>
+                                        <th>顏色</th>
+                                        <th>尺寸</th>
+                                        <th>數量</th>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#">船領七分袖上衣船領七分袖上衣船領七分袖上衣-女</a></td>
+                                        <td>黃色</td>
+                                        <td>M</td>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#">船領七分袖上衣-女</a></td>
+                                        <td>黃色</td>
+                                        <td>M</td>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr class="last_row">
+                                        <td colspan="4">
+                                            <a href="#">前往結帳</a>
+                                        </td>
+                                    </tr>
+                                </table>
                             </div>
 
                         </li>

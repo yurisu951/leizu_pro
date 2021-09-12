@@ -1,21 +1,28 @@
+var productTitle;
+var color;
+var size;
+
 $(function(){
-    var color = $(".color").find("li").eq(0).attr("value");
-    var size = $(".size").find("li").eq(0).attr("value");
-    const productTitle =$("#product_title").text();
+    productTitle =$("#product_title").text();
+    color = $(".color").find("li").eq(0).children("img").attr("title");
+    size = $(".size").find("li").eq(0).text();
+
+    $("#product_title").text(productTitle + '（' + color + ' -' + size +'）');
     $(".color").find("li").eq(0).addClass("current");
     $(".product_main_image").eq(0).addClass("current");
+
 
     $(".color").find("li").click(function(){
         var index = $(this).index();
         $(this).addClass("current").siblings().removeClass("current");
         $(".product_main_image").eq(index).addClass("current").siblings().removeClass("current");
-        color = $(this).attr("value");
+        color = $(this).children("img").attr("title");
         $("#product_title").text(productTitle + '（' + color + ' -' + size +'）');
     });
 
     $(".size").find("li").click(function(){
         $(this).addClass("current").siblings().removeClass("current");
-        size = $(this).attr("value");
+        size = $(this).text();
         $("#product_title").text(productTitle + '（' + color + ' -' + size +'）');
     });
 
@@ -31,18 +38,6 @@ $(function(){
         $("#buyNumber").val(value);
     });
 
-    $(".toUp").click(function(){
-        $("html, body").animate({scrollTop:0}, 500, function(){
-            $(".toUp").fadeOut();
-        });
-    });
-
-    $(window).scroll(function(){
-        var top = $(this).scrollTop();
-        if(top > 600){
-            $(".toUp").fadeIn();
-        }
-    });
 
     if($(".activities")){
         $(".price .activities").append("<span> &gt; </span>");
@@ -53,6 +48,7 @@ $(function(){
             $(".price .activities").children().eq(tempIndex%2).css({color: "#fff"}).siblings().css({color: "#aaa"});
         }, 500);
     }
+
     if(colorName!= null){
         var $colorLi = $(".color").find("li");
         for (var i = 0; i < $colorLi.length; i++){

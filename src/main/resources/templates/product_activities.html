@@ -6,11 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leizu 國際服飾品牌</title>
-
-    <link rel="stylesheet" href="../static/css/base.css" th:href="@{/css/base.css}">
-    <link rel="stylesheet" href="../static/css/common.css" th:href="@{/css/common.css}">
-    <script src="../static/js/jQuery3.6.0.js" th:src="@{/js/jQuery3.6.0.js}"></script>
-
+    <div th:replace="commons::inputCommons"></div>
     <link rel="stylesheet" href="../static/css/product_activities.css" th:href="@{/css/product_activities.css}">
 
 
@@ -249,12 +245,3 @@
 </body>
 
 </html>
-
-<!-- <script>
-    $(".category").mouseenter(function(){
-        $(this).children("ul").stop().slideUp();
-    }).mouseleave(function(){
-        $(this).children("ul").stop().slideDown();
-    });
-    
-</script> -->

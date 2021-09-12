@@ -7,17 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leizu 國際服飾品牌</title>
 
-    <link rel="stylesheet" href="../static/css/base.css" th:href="@{/css/base.css}">
-    <link rel="stylesheet" href="../static/css/common.css" th:href="@{/css/common.css}">
-    <link rel="stylesheet" href="../static/css/main_left_nav.css" th:href="@{/css/main_left_nav.css}">
-    <script src="../static/js/jQuery3.6.0.js"  th:src="@{/js/jQuery3.6.0.js}"></script>
+<div th:replace="commons::inputCommons"></div>
 
+    <link rel="stylesheet" href="../static/css/main_left_nav.css" th:href="@{/css/main_left_nav.css}">
     <link rel="stylesheet" href="../static/css/main_category.css" th:href="@{/css/main_category.css}">
 
 
 </head>
 
 <body>
+<div class="toUp"><span>TOP</span></div>
     <!-- Commons部分 -->
     <div th:replace="commons::header"></div>
 

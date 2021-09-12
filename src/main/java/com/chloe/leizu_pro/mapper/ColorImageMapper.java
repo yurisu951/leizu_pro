@@ -11,4 +11,6 @@ import java.util.List;
 public interface ColorImageMapper {
 
     List<ColorImage> getColorImageAndNameOfListByProductId(Integer productId);
+
+    String getColorNameById(Integer id);
 }

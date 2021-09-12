@@ -14,4 +14,6 @@ public class Inventory {
     private String size;
     private Integer quantity;
     private String status;
+
+    private String colorName;
 }

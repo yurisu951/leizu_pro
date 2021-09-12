@@ -3,6 +3,7 @@ package com.chloe.leizu_pro.bean;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.beans.Transient;
 import java.util.List;
@@ -21,4 +22,8 @@ public class Product {
 
     private List<ColorImage> colorImageList;
     private List<ContentImage> contentImageList;
+
+    private Integer buyNumber;
+    private Inventory thisProductInfo;
+    private List<Inventory> otherProductsInfo;
 }

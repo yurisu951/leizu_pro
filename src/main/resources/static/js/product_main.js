@@ -1,11 +1,9 @@
 
 
 $(function (){
-    var height = $("html body").innerHeight() - 450;
     var $dest =  $(".product_section > ul");
-
-    $(window).stop().scroll(function (){
-        if (height - $(this).scrollTop() < 0){
+    $(window).scroll(function (){
+        if ($(document).scrollTop() >= $(document).height() - $(window).height()){
             $.ajax({
                 url: "/load/" + gender,
                 type: "post",

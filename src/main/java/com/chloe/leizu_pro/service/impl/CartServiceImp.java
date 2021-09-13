@@ -23,7 +23,7 @@ public class CartServiceImp implements CartService {
     InventoryMapper inventoryMapper;
 
     @Override
-    public Cart getCartOnAjax(JSONObject obj, Cart cart) {
+    public Cart addCartOnAjax(JSONObject obj, Cart cart) {
         String inventoryId = (String) obj.get("id");
         Integer buyNumber = Integer.valueOf((String) obj.get("buyNumber"));
         Integer productId = Integer.valueOf(inventoryId.substring(0, 5));
@@ -41,6 +41,18 @@ public class CartServiceImp implements CartService {
             cart.setProductList(productList);
         }
         productList.add(product);
+        return cart;
+    }
+
+    @Override
+    public Cart removeItemFromCart(Cart cart, Integer inventoryId) {
+        List<Product> productList = cart.getProductList();
+        for (Product product:productList) {
+            if (product.getThisProductInfo().getId().equals(inventoryId)){
+                productList.remove(product);
+                break;
+            }
+        }
         return cart;
     }
 }

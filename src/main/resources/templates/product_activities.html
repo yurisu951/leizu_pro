@@ -34,7 +34,10 @@
             <hr>
             <div class="cart_bottom">
                 <ul>
-
+<!--                    <li class="cart_list" th:each="product :${#session.getAttribute('cart').productList}" th:value="${product.thisProductInfo.id}" >-->
+<!--                        <img th:src="${product.image}" th:value="${product.id}">-->
+<!--                        <p th:value="${product.price+','+product.promoPrice}" th:text="${product.thisProductInfo.colorName +' -'+ product.buyNumber+'件'}"></p>-->
+<!--                    </li>-->
                 </ul>
             </div>
         </div>

@@ -8,6 +8,7 @@ $(function(){
         colorIdAndName = $(".color").find(".current").attr("value");
         sizeId = $(".size").find(".current").attr("value");
         quantity = $("#buyNumber").val();
+
         product_cart = {
             id: colorIdAndName.substr(0,7) + sizeId,
             buyNumber: quantity
@@ -17,9 +18,7 @@ $(function(){
             url: "/shop/cart",
             type: "post",
             data: {product:JSON.stringify(product_cart)},
-            success: function (data){
-                console.log("add success");
-                console.log(data);
+            success: function (){
             },
             error: function (error){
                 console.log(error);

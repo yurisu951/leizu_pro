@@ -5,5 +5,7 @@ import org.json.JSONObject;
 
 public interface CartService {
 
-    Cart getCartOnAjax(JSONObject obj, Cart cart);
+    Cart addCartOnAjax(JSONObject obj, Cart cart);
+
+    Cart removeItemFromCart(Cart cart, Integer inventoryId);
 }

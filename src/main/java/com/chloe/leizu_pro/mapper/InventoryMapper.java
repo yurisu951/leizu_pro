@@ -15,4 +15,8 @@ public interface InventoryMapper {
 
     List<Inventory> getInventoryListByProductId(Integer productId);
 
+    List<Inventory> getInventoryListByColorId(Integer colorId);
+
+    Integer getQuantityByInventoryId(Integer inventoryId);
+
 }

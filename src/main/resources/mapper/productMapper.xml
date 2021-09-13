@@ -46,4 +46,16 @@
         select id,product_name, price,promo, promoPrice  from tbl_product where id = #{id}
     </select>
 
+    <select id="getProductListByPromoWomen" resultType="java.lang.Integer">
+        select id from tbl_product where promo = #{promo} and category like '2%'
+    </select>
+
+    <select id="getProductListByPromoMen" resultType="java.lang.Integer">
+        select id from tbl_product where promo = #{promo} and category like '1%'
+    </select>
+
+    <select id="getProductPromoInfoById" resultType="com.chloe.leizu_pro.bean.Product">
+        select product_name, price, promo, promoPrice  from tbl_product where id = #{id}
+    </select>
+
 </mapper>

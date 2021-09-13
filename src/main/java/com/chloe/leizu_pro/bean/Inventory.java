@@ -13,7 +13,6 @@ public class Inventory {
     private Integer color;  // Color Id
     private String size;
     private Integer quantity;
-    private String status;
 
     private String colorName;
 }

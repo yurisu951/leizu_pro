@@ -2,7 +2,6 @@ package com.chloe.leizu_pro.controller;
 
 
 import com.chloe.leizu_pro.bean.Product;
-import com.chloe.leizu_pro.bean.PromoCode;
 import com.chloe.leizu_pro.service.ActivitiesService;
 import com.chloe.leizu_pro.service.ProductService;
 import com.chloe.leizu_pro.utils.ProductPageUtils;
@@ -12,14 +11,11 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
-import java.util.Map;
 
 @Controller
 public class ProductController {
     @Autowired
     ProductService productService;
-    @Autowired
-    ActivitiesService activitiesService;
 
 
     @RequestMapping("/index")
@@ -74,22 +70,6 @@ public class ProductController {
         List<Product> productListByLimit = productService.getProductListByLimit( indexRan, 20, gender);
         return productListByLimit;
     }
-
-
-    @RequestMapping("/{gender}/activites/{promoCode}")
-    public ModelAndView activites(@PathVariable("gender") String gender,
-                                  @PathVariable("promoCode") String promoCode){
-        ModelAndView mav = new ModelAndView();
-        Map<String, List<PromoCode>> promoList = activitiesService.getPromoList(promoCode);
-
-        mav.addObject("gender", gender);
-        mav.addObject("promoList", promoList);
-        mav.setViewName("product_activities");
-        return mav;
-    }
-
-
-
 
 
 }

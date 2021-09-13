@@ -23,5 +23,10 @@ public interface ProductMapper {
 
     Product getProductWithColorAndContentById(Integer id);
 
+    List<Integer> getProductListByPromoWomen(String promo);
+
+    List<Integer> getProductListByPromoMen(String promo);
+
+    Product getProductPromoInfoById(Integer id);
 
 }

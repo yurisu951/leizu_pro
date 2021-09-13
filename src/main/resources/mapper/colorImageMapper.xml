@@ -12,4 +12,33 @@
         select product_color from tbl_color_image where id = #{id}
     </select>
 
+    <resultMap id="getInventoryMap" type="com.chloe.leizu_pro.bean.ColorImage">
+        <id property="id" column="id" />
+        <result property="productColor" column="product_color" />
+        <result property="productImage" column="product_image" />
+        <association property="productInfo" column="product_id" select="com.chloe.leizu_pro.mapper.ProductMapper.getProductPromoInfoById" />
+        <collection property="inventoryList" column="id" select="com.chloe.leizu_pro.mapper.InventoryMapper.getInventoryListByColorId" />
+    </resultMap>
+
+    <select id="getColorImageListWithInventoryByProductIdLimit"  resultMap="getInventoryMap">
+        select id, product_id, product_color, product_image
+        from tbl_color_image
+        where product_id in
+        <foreach collection="pidList" item="productId" open="(" close=")" separator=",">
+            #{productId}
+        </foreach>
+        order by id asc limit #{index}, 18
+    </select>
+
+    <select id="getPromoCount" resultType="java.lang.Integer">
+        select count(id)
+        from tbl_color_image
+        where product_id in
+        <foreach collection="pidList" item="productId" open="(" close=")" separator=",">
+            #{productId}
+        </foreach>
+
+    </select>
+
+
 </mapper>

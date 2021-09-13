@@ -20,4 +20,12 @@
         select id, color, `size`, quantity  from tbl_inventory where product_id = #{productId}
     </select>
 
+    <select id="getInventoryListByColorId" resultType="com.chloe.leizu_pro.bean.Inventory">
+        select id, color, `size` from  tbl_inventory where color = #{colorId} and status = '在架'
+    </select>
+
+    <select id="getQuantityByInventoryId" resultType="java.lang.Integer">
+        select quantity from tbl_inventory where id = #{inventoryId}
+    </select>
+
 </mapper>

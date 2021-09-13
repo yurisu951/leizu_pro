@@ -13,4 +13,8 @@ public interface ColorImageMapper {
     List<ColorImage> getColorImageAndNameOfListByProductId(Integer productId);
 
     String getColorNameById(Integer id);
+
+    List<ColorImage> getColorImageListWithInventoryByProductIdLimit(List<Integer> pidList, Integer index);
+
+    Integer getPromoCount(List<Integer> pidList);
 }

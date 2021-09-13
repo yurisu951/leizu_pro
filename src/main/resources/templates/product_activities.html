@@ -8,64 +8,21 @@
     <title>Leizu 國際服飾品牌</title>
     <div th:replace="commons::inputCommons"></div>
     <link rel="stylesheet" href="../static/css/product_activities.css" th:href="@{/css/product_activities.css}">
+    <script th:src="@{/js/activities.js}"></script>
 
 
 </head>
 
 <body>
     <!-- Commons部分 -->
-    <div class="header">
-        <div class="wrapper clearfix">
-            <div class="logo"><a href="javascript:;">Leizu</a></div>
-            <nav>
-                <ul>
-                    <li><a href="javascript:;">WOMEN</a></li>
-                    <li><a href="javascript:;">MEN</a></li>
-                </ul>
-            </nav>
-            <div class="userConsole">
-                <div class="search">
-                    <form>
-                        <input type="text" placeholder="SREACH...">
-                        <input type="submit" class="icomoon" value="">
-                    </form>
-                </div>
-                <div class="sub_nav">
-                    <ul>
-                        <li>
-                            <i class="icomoon"></i>
-                            <div class="sub_sub_nav">
-                                <ul>
-                                    <li><a href="#">訂單查詢</a></li>
-                                    <li><a href="#">會員專區</a></li>
-                                    <li><a href="#">我的收藏</a></li>
-                                    <li><a href="#">會員登錄/註冊</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="icomoon"></i>
-                            <div class="sub_sub_nav">
-
-                                <p>購物車清單</p>
-                            </div>
-
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-        </div>
-    </div>
+    <div th:replace="commons::header"></div>
 
 
     <div class="center wrapper">
         <div class="promo_nav">
-            <ul>
-                <li class="promo_nav_link"><a href="#"><span class="nav_front">限時搶購</span>任選2件198</a></li>
-                <li class="promo_nav_link current"><a href="#"><span class="nav_front">限時搶購</span>任選2件198</a></li>
-                <li class="promo_nav_link"><a href="#"><span class="nav_front">限時搶購</span>任選2件198</a></li>
-                <li class="promo_nav_link"><a href="#"><span class="nav_front">限時搶購</span>任選2件198</a></li>
+            <ul th:each="promoMap:${promoList}">
+                <li th:class="${(promo.promoCode == promoMap.key) ? 'promo_nav_link current' : 'promo_nav_link'}" th:each="promo : ${promoMap.value}">
+                    <a th:href="@{'/' + ${gender} +'/activites/'+ ${promo.promoCode}}" ><span class="nav_front" th:text="${#strings.arraySplit(promo.promoName,'．')[0]}">限時搶購</span>[[${#strings.arraySplit(promo.promoName,'．')[1]}]]</a></li>
             </ul>
         </div>
         <div class="cartBlock">
@@ -78,8 +35,8 @@
         </div>
         <div class="gender_nav">
             <ul>
-                <li class="gender_nav_link"><a href="#">WOMEN</li>
-                <li class="gender_nav_link current"><a href="#">MEN</a></li>
+                <li th:class="${(gender == 'women') ? 'gender_nav_link current': 'gender_nav_link'}" th:each="promoMap:${promoList}"><a th:href="@{'/women/activites/'+ ${promoMap.key}}">WOMEN</a></li>
+                <li th:class="${(gender == 'men') ? 'gender_nav_link current': 'gender_nav_link'}" th:each="promoMap:${promoList}"><a th:href="@{'/men/activites/'+ ${promoMap.key}}">MEN</a></li>
             </ul>
         </div>
         <div class="product_section">

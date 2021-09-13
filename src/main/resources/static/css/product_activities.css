@@ -112,6 +112,7 @@
 
 .gender_nav_link[class*=current] a {
     color: #666;
+    pointer-events: none;
 }
 
 .gender_nav_link:hover a  {

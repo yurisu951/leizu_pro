@@ -1,3 +1,7 @@
+del {
+    color: #777;
+}
+
 .left_nav {
     position: sticky;
     top: 35px;

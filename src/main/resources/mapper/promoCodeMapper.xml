@@ -7,4 +7,7 @@
         select * from tbl_promotion where promo_code = #{id}
     </select>
 
+    <select id="getAllPromoCode" resultType="com.chloe.leizu_pro.bean.PromoCode">
+        select * from tbl_promotion;
+    </select>
 </mapper>

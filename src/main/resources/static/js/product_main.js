@@ -16,10 +16,10 @@ $(function (){
                         var $img = $('<img src="'+ product["image"]+'" alt="'+ product["productName"] +'" title="'+ product["productName"] +'">');
                         var $h3 = $('<h3>'+ product["productName"]  +'</h3>');
                         var $p;
-                        if (product["promo"] == null){
+                        if (product["promoPrice"] == null){
                             $p = $('<p>NT$ '+ product["price"] +'</p>');
                         } else {
-                            $p = $('<p><del>NT$'+ product["price"] +'</del><span>活動價NT$ '+ product["promoPrice"] +'</span></p>');
+                            $p = $('<p><del>NT$'+ product["price"] +'</del><span> 活動價NT$ '+ product["promoPrice"] +'</span></p>');
                         }
                         $a.append($img);
                         $li.append($a).append($h3).append($p);

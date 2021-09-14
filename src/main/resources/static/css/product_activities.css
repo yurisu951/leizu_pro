@@ -91,6 +91,11 @@
     border-radius: 3px
 }
 
+.cart_top > a:hover {
+    background-color: #A69793;
+    text-decoration: none;
+}
+
 .cartBlock hr {
     width: 97%;
 }

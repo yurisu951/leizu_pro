@@ -4,7 +4,7 @@ $(function (){
     $("#cart_info").mouseenter(function (){
         var $table_structure = $("<table></table>");
         var $table_head = $("<tr><th>商品名稱</th><th>顏色</th><th>尺寸</th><th>數量</th></tr>");
-        var $table_end = $('<tr class="last_row"><td colspan="4"><a href="#">前往結帳</a></td></tr>');
+        var $table_end = $('<tr class="last_row"><td colspan="4"><a href="/cart">前往結帳</a></td></tr>');
 
         $.ajax({
             url: "/shop/getCart",

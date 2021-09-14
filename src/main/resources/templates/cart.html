@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leizu 國際服飾品牌</title>
+    <div th:replace="commons::inputCommons"></div>
+    <link rel="stylesheet"  th:href="@{/css/cart.css}">
+    <script th:src="@{/js/cart.js}"></script>
+
+
+</head>
+
+<body>
+    <!-- Commons部分 -->
+    <div th:replace="commons::header"></div>
+
+
+    <div class="center wrapper">
+        <div class="cart_top">
+            <ul>
+                <li class="current">
+                    <div class="circle_index">1</div>
+                    <div class="arrow"></div>
+                    <p>確認購物車</p>
+                </li>
+                <li class="">
+                    <div class="circle_index">2</div>
+                    <div class="arrow"></div>
+                    <p>付款與填寫資料</p>
+                </li>
+                
+                <li class="last_item">
+                    <div class="circle_index">3</div>
+                    <p>完成訂購</p>
+                </li>
+            </ul>
+        </div>
+        <div class="cart_bottom" th:unless="${cart}">
+            <div class="no_product">
+                <span></span>
+                <p>您的購物車內沒有任何商品</p>
+                <a href="#">去購物</a>
+
+            </div>
+            
+        </div>
+
+        <div class="cart_bottom" th:if="${cart}">
+            <div class="with_product">
+                <form action="" method="">
+                    <table>
+                        <thead>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="" value="" id="addAll"></td>
+                            </td>
+                            <td colspan="4">全選</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="product, loop:${cart.productList}">
+                            <td>
+                                <input type="checkbox" name="productId" th:value="product.thisProductInfo.id"></td>
+                            <td>
+                                <div><img th:src="${product.thisProductInfo.colorInfo.productImage}" th:alt-title="${product.productName}"></div>
+                            </td>
+                            <td>
+                                <h5 th:text="${product.productName}" th:value="${product.price+','+product.promoPrice}">商品名稱</h5>
+                                <select name="" th:with="invId=${product.thisProductInfo.id}">
+                                    <option th:each="otherInven:${product.otherProductsInfo}" th:if="${otherInven.color==product.thisProductInfo.color}" th:text="${otherInven.colorInfo.productColor+' - '+otherInven.size}" th:selected="${(invId== otherInven.id)?true:false}" >1</option>
+                                </select>
+                                <p></p>
+                            </td>
+                            <td>
+                                    <span>
+                                        <a href="javascript:;" class="minus"></a>
+                                        <input type="text" class="buyNumber" maxlength="2" th:value="${product.buyNumber}" name="" oninput="value=value.replace(/[^\d]/g,'')">
+                                        <a href="javascript:;" class="plus"></a>
+                                    </span>
+                            </td>
+                            <td th:if="${product.promoPrice}">
+                                <a href="#">x</a>
+                                <p th:text="${'$ '+product.promoPrice}">$ 250</p>
+                                <del th:text="${'$ '+product.price}">$ 299</del>
+                            </td>
+                            <td th:unless="${product.promoPrice}">
+                                <a href="#">x</a>
+                                <p th:text="${'$ '+product.price}">$ 250</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <td colspan="3">共<span>2</span>件商品</td>
+                            <td>商品金額</td>
+                            <td id="product_price">NT$ 0</td>
+                        </tr>
+                        <tr class="promo">
+                            <td colspan="4">活動特惠</td>
+                            <td id="discount_price">NT$ 0</td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">運費</td>
+                            <td>NT$ 60</td>
+                        </tr>
+                        <tr>
+                            <td  colspan="4">小計</td>
+                            <td class="total" id="total_price">NT$ 60</td>
+                        </tr>
+                        </tfoot>
+                    </table>
+                    <div class="btn_link clearfix">
+                        <a href="#">繼續購物</a>
+                        <input type="submit" value="下一步">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+   <hr class="wrapper">
+
+    <div th:replace="commons::footer"></div>
+
+</body>
+
+</html>
+

@@ -2,6 +2,7 @@ $(function (){
     var promo_total = 0;
     var ori_total = 0;
     var total = 0;
+
     $(".size_select").change(function (){
         var $item = $(this).children("option:selected");
 
@@ -26,7 +27,9 @@ $(function (){
         });
     });
 
+    // 添加点击事件
     $(".add_cart").click(function (){
+
         var $dest = $(".cart_bottom").children("ul");
         var dest_num = $dest.children().length;
         var $item_li = $(this).parents("li");
@@ -57,25 +60,72 @@ $(function (){
                 }
             }
         }
-
-
-            $item_li.addClass("select");
-            if (number != '數量'){
-                var $li = $("<li class='cart_list'></li>");
-                var $img = $("<img src='"+img_src +"'>");
-                var $p = $("<p value='"+ori_price + "," + promo_price +"'>" +color +" -"+ number +"件</p>");
-                $li.attr("value", inven_id);
-                $li.append($img).append($p);
-                $dest.append($li);
-
-                changeCartNumber(number, ori_price, promo_price);
-                addIntoSession(inven_id, number);
-            }
+        addInventoryIntoBlock($item_li, inven_id, number, img_src, ori_price, promo_price, color, $dest, true);
 
     });
 
+    // 将新的Inventory添加到CartBlock 事件
+    function addInventoryIntoBlock($item_li, inven_id, number, img_src, ori_price, promo_price, color, $dest, canAdd){
+        if ($item_li != null) $item_li.addClass("select");
+        if (!isNaN(number)){
+            var $li = $("<li class='cart_list'></li>");
+            var $img = $("<img src='"+img_src +"'>");
+            var $p = $("<p value='"+ori_price + "," + promo_price +"'>" +color +" -"+ number +"件</p>");
+            $li.attr("value", inven_id);
+            $li.append($img).append($p);
+            $dest.append($li);
+            changeCartNumber(number, ori_price, promo_price);
+
+            if (canAdd){
+                addIntoSession(inven_id, number);
+            }
+        }
+    }
+
+    // show session内容
+    function showCartBlockItemfromSession(){
+        if (cart != null ) {
+            var $dest = $(".cart_bottom").children("ul");
+            for (const product of cart["productList"]) {
+                if (promoCode === product["promo"]) {
+                    var number = product["buyNumber"];
+                    var ori_price = product["price"];
+                    var promo_price = product["promoPrice"];
+                    var inven_id = product["thisProductInfo"]["id"];
+                    var tempColorObj = product["thisProductInfo"]["colorInfo"];
+                    var color = tempColorObj["productColor"]+' -'+product["thisProductInfo"]["size"];
+                    var img_src = tempColorObj["productImage"];
+
+                    addInventoryIntoBlock(null, inven_id, number, img_src, ori_price, promo_price, color, $dest, false);
+                    searchSelect(inven_id, number);
+                }
+            }
+        }
+    }
+
+    function searchSelect(inventoryId, number){
+        var colorId = (inventoryId+'').substring(0,7);
+        var $arr = $(".product_section").find("li");
+        for (var i = 0; i < $arr.length; i++){
+            if ($arr.eq(i).attr("value") == colorId){
+                var $tempObj = $arr.eq(i);
+                $tempObj.addClass("select");
+                var $sizeArr = $tempObj.children(".size_select").children("option");
+                for (var j = 0; j <$sizeArr.length; j++){
+                    if ($sizeArr.eq(j).attr("value") == inventoryId){
+                        $sizeArr.eq(j).attr("selected", "selected");
+                        break;
+                    }
+                }
+                $tempObj.find(".quantity_select").children("option").text(number);
+                break;
+            }
+        }
+
+    }
+
+    // 算錢區
     function changeCartNumber(number, ori_price,  promo_price){
-        // 算錢區
         promo_total += promo_price * number;
         ori_total += ori_price * number;
         total += number;
@@ -84,8 +134,8 @@ $(function (){
         $("#cart_selected_number").text(total);
     }
 
+    // 添加到Session裡面
     function addIntoSession(inventoryId, quantity){
-        // 添加到Session裡面
         var product_cart = {
             id: inventoryId,
             buyNumber: quantity +''
@@ -95,8 +145,6 @@ $(function (){
             type: "post",
             data: {product:JSON.stringify(product_cart)},
             success: function (data){
-                console.log("add success");
-                // console.log(data);
             },
             error: function (error){
                 console.log(error);
@@ -104,6 +152,7 @@ $(function (){
         });
     }
 
+    // 从session移除
     function removeFromSession(inventoryId){
         $.ajax({
             url: "/shop/cart/"+inventoryId,
@@ -111,8 +160,6 @@ $(function (){
             data: {inventoryId: inventoryId},
             contentType:"application/json",
             success: function (data){
-                console.log("delete success");
-                console.log(data);
             },
             error: function (error){
                 console.log(error);
@@ -121,17 +168,19 @@ $(function (){
     }
 
 
-
-    $(".cart_bottom").children("ul").delegate("p", "click",
+    // 删除功能
+    $(".cart_bottom").delegate("p", "click",
         function (){
             var $item_remove = $(this).parents("li");
-            var id = $item_remove.attr("value");
+            var color_id = $item_remove.attr("value").substring(0,7);
             var $arr = $(".product_section").find("li[class*=select]");
             for (var i = 0; i < $arr.length; i++){
-                if($arr.eq(i).attr("value") === id ){
+                if($arr.eq(i).attr("value") === color_id ){
                     $arr.eq(i).removeClass("select");
+                    break;
                 }
             }
+
 
             // 算錢區
             var array_info_num = $item_remove.find("p").text().split("-")[2];
@@ -140,7 +189,13 @@ $(function (){
             var ori_price = parseInt(array_price[0]);
             var promo_price = parseInt(array_price[1]);
             changeCartNumber(-num, ori_price, promo_price);
+            // 移除session
+            removeFromSession($item_remove.attr("value"));
 
             $(this).parents("li").remove();
         });
+
+
+
+    showCartBlockItemfromSession();
 });

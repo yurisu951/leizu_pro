@@ -23,7 +23,7 @@ $(function (){
                     var product = productList[index];
                     var productName = product["productName"];
                     var quantity = product["buyNumber"];
-                    var color = product["thisProductInfo"]["colorName"];
+                    var color = product["thisProductInfo"]["colorInfo"]["productColor"];
                     var size = product["thisProductInfo"]["size"];
 
                     var $table_body_li = $('<tr><td>' + productName +'</td><td>'+ color +
@@ -44,14 +44,14 @@ $(function (){
 
     $(".toUp").click(function(){
         $("html, body").animate({scrollTop:0}, 500, function(){
-            $(".toUp").fadeOut();
+            $(".toUp").stop().fadeOut();
         });
     });
 
     $(window).scroll(function(){
         var top = $(this).scrollTop();
         if(top > 600){
-            $(".toUp").fadeIn();
+            $(".toUp").stop().fadeIn();
         }
     });
 

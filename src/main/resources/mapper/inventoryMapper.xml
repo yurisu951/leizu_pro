@@ -10,7 +10,7 @@
         <result property="color" column="color" />
         <result property="size" column="size" />
         <result property="quantity" column="quantity"/>
-        <association property="colorName" column="color" select="com.chloe.leizu_pro.mapper.ColorImageMapper.getColorNameById" />
+        <association property="colorInfo" column="color" select="com.chloe.leizu_pro.mapper.ColorImageMapper.getColorNameById" />
     </resultMap>
     <select id="getInventoryById" resultMap="inventoryWithColorNameMap">
         select id, color, `size`, quantity  from tbl_inventory where id = #{id}

@@ -8,8 +8,8 @@
         select id, product_id, product_color, product_color_image,product_image from tbl_color_image where product_id = #{productId}
     </select>
 
-    <select id="getColorNameById" resultType="java.lang.String">
-        select product_color from tbl_color_image where id = #{id}
+    <select id="getColorNameById" resultType="com.chloe.leizu_pro.bean.ColorImage">
+        select product_color,product_image from tbl_color_image where id = #{id}
     </select>
 
     <resultMap id="getInventoryMap" type="com.chloe.leizu_pro.bean.ColorImage">

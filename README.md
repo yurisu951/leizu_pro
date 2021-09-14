@@ -4,9 +4,9 @@ categoryPage 完成（数据库有些资料不全，需整理分类）
 
 mainPage - 完成
 
-DetailsPage - 缺 商品收藏功能。  連結功能？？
+DetailsPage - 缺 商品收藏功能。 
 
-ActivitiesPage - 前端完成，后端准备开始
+ActivitiesPage - 差购物车和session的连动
 
 CartPage  - 尚未开始. + 金流
 

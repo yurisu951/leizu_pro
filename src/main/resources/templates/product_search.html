@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leizu 國際服飾品牌</title>
+    <div th:replace="commons::inputCommons"></div>
+    <link rel="stylesheet" href="../static/css/product_search.css" th:href="@{/css/product_search.css}">
+
+</head>
+
+<body>
+    <!-- Commons部分 -->
+    <div class="toUp"><span>TOP</span></div>
+    <div th:replace="commons::header"></div>
+
+
+    <div class="center wrapper">
+        <div class="gender_nav">
+            <ul>
+                <li class="gender_nav_link current"><a href="#">ALL</a></li>
+                <li class="gender_nav_link"><a href="#">WOMEN</a></li>
+                <li class="gender_nav_link"><a href="#">MEN</a></li>
+            </ul>
+        </div>
+        <div class="product_section">
+            <ul>
+                <li th:each="product:${productList}" th:with="gender=${#strings.startsWith(product.productInfo.category,'1')?'men':'women'}">
+                    <a th:href="@{'/' + ${gender} +'/details/' + ${product.productId} +'/'+${product.productColor}}">
+                        <img th:src="${product.productImage}" th:alt-title="${product.productInfo.productName}">
+                        <p>
+                            <span>S</span><span>M</span><span>L</span>
+                        </p>
+                    </a>
+                    <h3 th:text="${product.productInfo.productName}">細肩帶印花洋裝-女</h3>
+                    <p th:inline="javascript">NT$[[${product.productInfo.price}]] 活動價 NT$ [[${product.productInfo.promoPrice}]] </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <hr class="wrapper">
+    <div th:replace="commons::footer"></div>
+
+</body>
+
+</html>
+

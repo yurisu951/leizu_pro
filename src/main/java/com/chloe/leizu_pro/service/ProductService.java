@@ -26,8 +26,5 @@ public interface ProductService {
     String getPromoName(String promoId);
 
 
-
-
-
 }
 

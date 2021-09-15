@@ -37,8 +37,31 @@
         <foreach collection="pidList" item="productId" open="(" close=")" separator=",">
             #{productId}
         </foreach>
-
     </select>
 
+    <resultMap id="colorMap" type="com.chloe.leizu_pro.bean.ColorImage">
+        <id property="id" column="id" />
+        <result property="productId" column="product_id" />
+        <result property="productColor" column="product_color" />
+        <result property="productImage" column="product_image" />
+        <association property="productInfo" column="product_id" select="com.chloe.leizu_pro.mapper.ProductMapper.getProductPromoInfoById" />
+    </resultMap>
+    <select id="getImageAndNameByid" resultMap="colorMap">
+        select id, product_id, product_color, product_image from tbl_color_image
+        where  product_id in
+        <foreach collection="productIds" item="p" separator="," close=")" open="(">
+                #{p}
+        </foreach>
+        <if test="index != null">
+            order by id asc limit #{index}, 20
+        </if>
+    </select>
+    <select id="getMaxPageForImageAndNameByid" resultType="java.lang.Integer">
+        select count(*) from tbl_color_image
+        where  product_id in
+        <foreach collection="productIds" item="p" separator="," close=")" open="(">
+            #{p}
+        </foreach>
+    </select>
 
 </mapper>

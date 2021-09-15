@@ -26,8 +26,8 @@
             </nav>
             <div class="userConsole">
                 <div class="search">
-                    <form>
-                        <input type="text" placeholder="SREACH...">
+                    <form method="get" th:action="@{/search}">
+                        <input type="text" placeholder="SREACH..." name="keyWords">
                         <input type="submit" class="icomoon" value="">
                     </form>
                 </div>

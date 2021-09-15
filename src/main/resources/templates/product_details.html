@@ -90,7 +90,7 @@
             <div class="content_images">
                 <ul>
                     <li th:each="contentImage:${productDetails.contentImageList}">
-                        <a th:if="${contentImage.searchWord}" th:href="${contentImage.searchWord}"><img src="../images/products/inner_content_52264_D_12.jpeg" th:src="${contentImage.image}"></a>
+                        <a th:if="${contentImage.searchWord}" th:href="@{/search(keyWord=${contentImage.searchWord})}" ><img src="../images/products/inner_content_52264_D_12.jpeg" th:src="${contentImage.image}"></a>
                         <img th:unless="${contentImage.searchWord}" src="../images/products/inner_content_52264_D_12.jpeg" th:src="${contentImage.image}">
                     </li>
 

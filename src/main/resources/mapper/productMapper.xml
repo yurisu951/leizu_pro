@@ -55,7 +55,15 @@
     </select>
 
     <select id="getProductPromoInfoById" resultType="com.chloe.leizu_pro.bean.Product">
-        select product_name, price, promo, promoPrice  from tbl_product where id = #{id}
+        select category, product_name, price, promo, promoPrice  from tbl_product where id = #{id}
     </select>
+
+    <select id="getidListByKeyWord" resultType="java.lang.Integer">
+        select id from tbl_product where product_name
+        <foreach collection="keys" item="key" separator="or" open="like">
+            "%"#{key}"%"
+        </foreach>
+    </select>
+
 
 </mapper>

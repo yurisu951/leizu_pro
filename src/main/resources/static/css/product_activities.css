@@ -103,27 +103,31 @@
 
 .gender_nav_link {
     display: inline-block;
-    font-size: 16px;
-    padding: 8px 18px;
-    background-color: #f3f3f3;
-    width: 160px;
     text-align: center;
     margin-right: 10px;
 }
 
 .gender_nav_link a {
+    display: block;
+    font-size: 16px;
+    padding: 8px 18px;
+    background-color: #f3f3f3;
+    width: 160px;
     color: #bbb;
-}
-
-.gender_nav_link[class*=current] a {
-    color: #666;
-    pointer-events: none;
 }
 
 .gender_nav_link:hover a  {
     text-decoration: none;
     color: #666;
 }
+
+
+.gender_nav_link[class*=current] a {
+    color: #444;
+    pointer-events: none;
+}
+
+
 
 .product_section {
     margin: 50px 0;

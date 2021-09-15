@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Set;
 
 @Mapper
 @Repository
@@ -28,5 +29,7 @@ public interface ProductMapper {
     List<Integer> getProductListByPromoMen(String promo);
 
     Product getProductPromoInfoById(Integer id);
+
+    List<Integer> getidListByKeyWord(List<Character> keys);
 
 }

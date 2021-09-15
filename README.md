@@ -6,11 +6,11 @@ mainPage - 完成
 
 DetailsPage - 缺 商品收藏功能。 
 
-ActivitiesPage - 基本完成
+ActivitiesPage - 九成完成。
 
-CartPage  - 基本完成 + 金流
+CartPage  - 九成完成 + 金流  ommons頁面的購物車待優化，& 購物車頁面跑版問題待釐清
 
-SearchPage - 未開始
+SearchPage - 50%完成，搜索功能開發中
 
 会员页面 - 尚未开始
 

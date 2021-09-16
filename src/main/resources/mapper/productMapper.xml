@@ -59,11 +59,41 @@
     </select>
 
     <select id="getidListByKeyWord" resultType="java.lang.Integer">
-        select id from tbl_product where product_name
-        <foreach collection="keys" item="key" separator="or" open="like">
-            "%"#{key}"%"
-        </foreach>
+        select id from tbl_product where
+            <choose>
+                <when test="gender == 'women'">
+                    category like '2%' and (
+                </when>
+                <when test="gender == 'men'">
+                    category like '1%' and (
+                </when>
+                <otherwise>
+
+                </otherwise>
+            </choose>
+            product_name
+            <foreach collection="keys" item="key" separator="or" open="like">
+                "%"#{key}"%"
+            </foreach>
+            <if test="gender != null">)</if>
     </select>
 
 
+    <select id="getRandomListByGender" resultType="java.lang.Integer">
+        select id from tbl_product
+        <if test="gender != null">
+            <where>
+                <choose>
+                    <when test="gender == 'women'">
+                        category like '2%'
+                    </when>
+                    <when test="gender == 'men'">
+                        category like '1%'
+                    </when>
+                    <otherwise></otherwise>
+                </choose>
+            </where>
+        </if>
+        order by rand() limit 7
+    </select>
 </mapper>

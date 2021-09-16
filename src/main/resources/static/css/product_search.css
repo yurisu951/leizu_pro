@@ -43,6 +43,7 @@
     display: inline-block;
     text-align: center;
     margin: 35px 15px 22px 0;
+    width: 220px;
 }
 
 .product_section li:nth-child(5){

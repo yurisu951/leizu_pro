@@ -27,7 +27,7 @@
             <div class="userConsole">
                 <div class="search">
                     <form method="get" th:action="@{/search}">
-                        <input type="text" placeholder="SREACH..." name="keyWords">
+                        <input type="text" placeholder="SREACH..." name="keyWords" th:value="${keyWords}">
                         <input type="submit" class="icomoon" value="">
                     </form>
                 </div>

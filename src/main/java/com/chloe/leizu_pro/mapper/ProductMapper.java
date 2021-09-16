@@ -3,6 +3,7 @@ package com.chloe.leizu_pro.mapper;
 import com.chloe.leizu_pro.bean.ContentImage;
 import com.chloe.leizu_pro.bean.Product;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -30,6 +31,8 @@ public interface ProductMapper {
 
     Product getProductPromoInfoById(Integer id);
 
-    List<Integer> getidListByKeyWord(List<Character> keys);
+    List<Integer> getidListByKeyWord(List<Character> keys, @Param("gender") String gender);
+
+    List<Integer> getRandomListByGender(@Param("gender") String gender);
 
 }

@@ -7,6 +7,7 @@ import com.chloe.leizu_pro.service.ActivitiesService;
 import com.chloe.leizu_pro.service.ProductService;
 import com.chloe.leizu_pro.service.SearchService;
 import com.chloe.leizu_pro.utils.ProductPageUtils;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +16,8 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 @Controller
 public class ProductController {
@@ -85,19 +88,51 @@ public class ProductController {
         ModelAndView mav = new ModelAndView();
         List<ColorImage> productList = null;
         Integer maxPage = 0;
+        List<Integer> ids = null;
 
         if (keyWord != null){
             productList = searchService.getListByIds(keyWord);
+            keyWords =keyWord;
+        } else {
+            if (keyWords != null && !(keyWords.trim().equals(""))){
+                ids = searchService.getIdListByKeyword(keyWords ,gender);
+                maxPage = searchService.getMaxPageFronIdList(ids);
+                productList = searchService.getListLimit(ids, 0);
+                maxPage = maxPage /20 +(maxPage%20>0? 1:0);
+            } else {
+                productList = searchService.getRandList(gender);
+                maxPage = 20;
+            }
         }
-        if (keyWords != null){
-            productList = searchService.getListByKeywordLimit(keyWords, 0 ,maxPage);
-            maxPage = maxPage /20 +(maxPage%20>0? 1:0);
-        }
+
 
         mav.addObject("productList", productList);
         mav.addObject("maxPage", maxPage);
+        mav.addObject("list", ids);
+        mav.addObject("keyWords", keyWords);
+        mav.addObject("gender",gender);
         mav.setViewName("product_search");
         return mav;
+    }
+
+    @PostMapping(value = {"/load/search"})
+    @ResponseBody
+    public List<ColorImage> LoadSearchResult(@RequestBody Map<String, Object> params){
+        List<Integer> ids = (List<Integer>) params.get("productList");
+        Integer maxPage = (Integer) params.get("maxPage");
+        Integer index = (Integer) params.get("index");
+        List<ColorImage> productList = null;
+        if (index < maxPage) {
+            productList = searchService.getListLimit(ids, index * 20);
+        }
+        return productList;
+    }
+
+    @PostMapping(value = {"/load/search/r"})
+    @ResponseBody
+    public List<ColorImage> LoadRandSearch(@RequestBody Map<String, Object> params){
+        String gender = (String) params.get("gender");
+        return searchService.getRandList(gender);
     }
 
 

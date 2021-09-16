@@ -23,4 +23,6 @@ public interface ColorImageMapper {
 
     Integer getMaxPageForImageAndNameByid(List<Integer> productIds);
 
+    List<ColorImage> getRandListBypId(List<Integer> productIds);
+
 }

@@ -8,21 +8,32 @@
     <title>Leizu 國際服飾品牌</title>
     <div th:replace="commons::inputCommons"></div>
     <link rel="stylesheet" href="../static/css/product_search.css" th:href="@{/css/product_search.css}">
-
+    <script th:src="@{/js/product_search.js}"></script>
 </head>
 
 <body>
     <!-- Commons部分 -->
     <div class="toUp"><span>TOP</span></div>
     <div th:replace="commons::header"></div>
+    <script th:inline="javascript">
+        var maxPage = [[${maxPage}]];
+        var list = [[${list}]];
+        var keyWords = [[${keyWords}]]!=null ? [[${keyWords}]]:'';
+        var gender = [[${gender}]];
+    </script>
 
 
     <div class="center wrapper">
-        <div class="gender_nav">
+        <div class="gender_nav" th:unless="${(list == null && keyWords != '')}">
             <ul>
-                <li class="gender_nav_link current"><a href="#">ALL</a></li>
-                <li class="gender_nav_link"><a href="#">WOMEN</a></li>
-                <li class="gender_nav_link"><a href="#">MEN</a></li>
+                <li th:class="${gender==null?'gender_nav_link current':'gender_nav_link'}"><a th:href="@{/search(keyWords=${keyWords})}">ALL</a></li>
+                <li th:class="${gender=='women'?'gender_nav_link current':'gender_nav_link'}"><a th:href="@{/search/women(keyWords=${keyWords})}">WOMEN</a></li>
+                <li th:class="${gender=='men'?'gender_nav_link current':'gender_nav_link'}"><a th:href="@{/search/men(keyWords=${keyWords})}">MEN</a></li>
+            </ul>
+        </div>
+        <div class="gender_nav" th:if="${(list == null && keyWords != '')}">
+            <ul>
+                <li class="gender_nav_link current"><a href="javascript:;">ALL</a></li>
             </ul>
         </div>
         <div class="product_section">
@@ -35,7 +46,8 @@
                         </p>
                     </a>
                     <h3 th:text="${product.productInfo.productName}">細肩帶印花洋裝-女</h3>
-                    <p th:inline="javascript">NT$[[${product.productInfo.price}]] 活動價 NT$ [[${product.productInfo.promoPrice}]] </p>
+                    <p th:if="${product.productInfo.promoPrice}" th:inline="javascript">NT$[[${product.productInfo.price}]] 活動價 NT$ [[${product.productInfo.promoPrice}]] </p>
+                    <p th:unless="${product.productInfo.promoPrice}" th:inline="javascript">NT$[[${product.productInfo.price}]]</p>
                 </li>
             </ul>
         </div>

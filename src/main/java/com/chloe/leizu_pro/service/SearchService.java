@@ -8,6 +8,11 @@ public interface SearchService {
 
     List<ColorImage> getListByIds(String keyWord);
 
-    List<ColorImage> getListByKeywordLimit(String keyWords, Integer index, Integer maxPage);
+    List<Integer> getIdListByKeyword(String keyWords, String gender);
+    Integer getMaxPageFronIdList(List<Integer> ids);
+
+    List<ColorImage> getListLimit(List<Integer> ids, Integer index);
+
+    List<ColorImage> getRandList(String gender);
 
 }

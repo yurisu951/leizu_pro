@@ -64,4 +64,13 @@
         </foreach>
     </select>
 
+    <select id="getRandListBypId" resultMap="colorMap">
+        select id, product_id, product_color, product_image from tbl_color_image
+        where  product_id in
+        <foreach collection="productIds" item="p" separator="," close=")" open="(">
+            #{p}
+        </foreach>
+        order by rand() limit 20
+    </select>
+
 </mapper>

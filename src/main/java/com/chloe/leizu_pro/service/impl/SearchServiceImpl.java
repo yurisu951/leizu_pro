@@ -36,16 +36,30 @@ public class SearchServiceImpl implements SearchService {
     }
 
     @Override
-    public List<ColorImage> getListByKeywordLimit(String keyWords, Integer index, Integer maxPage) {
+    public List<Integer> getIdListByKeyword(String keyWords, String gender){
         List<Character> set = new ArrayList<>();
         char[] chars = keyWords.toCharArray();
         for (char a:chars) {
             set.add(a);
         }
+        return  productMapper.getidListByKeyWord(set, gender);
+    }
 
-        List<Integer> ids = productMapper.getidListByKeyWord(set);
-        maxPage = colorImageMapper.getMaxPageForImageAndNameByid(ids);
+    @Override
+    public Integer getMaxPageFronIdList(List<Integer> ids){
+        return  colorImageMapper.getMaxPageForImageAndNameByid(ids);
+    }
+
+
+    @Override
+    public List<ColorImage> getListLimit(List<Integer> ids, Integer index) {
         return colorImageMapper.getImageAndNameByid(ids, index);
+    }
+
+    @Override
+    public List<ColorImage> getRandList(String gender) {
+        List<Integer> ids = productMapper.getRandomListByGender(gender);
+        return colorImageMapper.getRandListBypId(ids);
     }
 
 }

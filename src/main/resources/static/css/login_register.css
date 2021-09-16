@@ -1,0 +1,165 @@
+.center {
+    width: 60%;
+    margin-top: 75px;
+}
+
+.nav_top {
+    height: 45px;
+}
+
+.nav_top li {
+    display: inline-block;
+    padding: 0 15px;
+    width: 150px;
+    height: 46px;
+    line-height: 46px;
+    font-size: 17px;
+    text-align: center;
+    border: 1px solid #eee;
+    border-top: #eee 3px solid;
+    border-collapse: collapse;
+    background-color: #f9f9f9;
+    color: #777;
+    opacity: .7;
+    cursor: pointer;;
+}
+
+.nav_top li[class*=current] {
+    border-top-color: #C0A886;
+    border-bottom: none;
+    background-color: #fff;
+    color: #222;
+    opacity: 1;
+    cursor: default;
+}
+
+.nav_bottom {
+    height: 410px;
+    border: 1px solid #eee;
+    overflow: hidden;
+    font-size: 13px;
+}
+
+
+.nav_bottom li {
+    display: none;
+    padding: 50px;
+    height: 410px;
+    width: 859px;
+    box-sizing: border-box;
+}
+
+.nav_bottom li input[type=text],
+.nav_bottom li input[type=password],
+.nav_bottom li input[type=tel],
+.nav_bottom li input[type=submit],
+.nav_bottom li input[type=email]  {
+    display: block;
+    margin: 20px auto;
+    width: 300px;
+    height: 40px;
+    border: none;
+    border-bottom: 1px solid #eee;
+    outline: none;   
+}
+
+.nav_bottom li input[type=submit] {
+    margin-top: 35px;
+    background-color: #4D3126;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.nav_bottom li input[type=submit]:hover {
+    background-color: #AF9D92;
+}
+
+
+.nav_bottom input::placeholder {
+    color: #ccc;
+    font-size: 14px;
+}
+
+.nav_bottom li input[type=checkbox] {
+    cursor: pointer;
+}
+
+.nav_bottom label {
+    position: relative;
+    top: -1px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.nav_bottom .clearfix {
+    margin: 0 auto;
+    width: 39%;
+}
+
+.nav_bottom .clearfix input {
+    float: left;
+}
+
+.nav_bottom .clearfix a {
+    float: right;
+}
+
+.nav_bottom .clearfix a:hover {
+    text-decoration: none;
+    color: #AF9D92;
+}
+
+.nav_bottom .current {
+    display: block;
+}
+
+.nav_bottom h4,
+.nav_bottom p {
+    font-size: 14px;
+    margin: 25px auto;
+    text-align: center;
+    color: #999;
+}
+
+.nav_bottom h4 {
+    font-size: 17px;
+    color: #666;   
+}
+
+.register li input[type=text],
+.register li input[type=password],
+.register li input[type=email] {
+    display: inline-block;
+}
+
+.register  div {
+    text-align: center;
+}
+
+.register label {
+    font-size: 15px;
+    color: #999;
+    margin:  10px;
+}
+
+.registered p {
+    font-size: 16px;
+}
+
+.registered a {
+    display: inline-block;
+    padding: 10px 50px;
+    margin-top: 35px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    background-color: #4D3126;
+    color: #fff;
+    border-radius: 3px;
+}
+
+.registered a:hover {
+    background-color: #AF9D92;
+    text-decoration: none;
+}

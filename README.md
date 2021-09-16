@@ -10,9 +10,9 @@ ActivitiesPage - 九成完成。
 
 CartPage  - 九成完成 + 金流  ommons頁面的購物車待優化，& 購物車頁面跑版問題待釐清
 
-SearchPage - 50%完成，搜索功能開發中
+SearchPage - 完成
 
-会员页面 - 尚未开始
+会员页面 - 前端七成完成。待後台連動與部分微調
 
 common頁面 -  會員頁面功能
 

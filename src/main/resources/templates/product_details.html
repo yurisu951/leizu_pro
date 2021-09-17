@@ -74,6 +74,9 @@
                             </ul>
                         </div>
                     </div>
+                    <div class="clearfix">
+                        <span th:class="${#lists.contains(keepList,id)? 'keep keeped' :'keep'}" th:value="${id}">收藏商品</span>
+                    </div>
                     <hr>
                     <div class="cart">
                         <span>

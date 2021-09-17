@@ -90,4 +90,47 @@ $(function(){
             }
         });
     });
+
+
+//    收藏功能
+    $(".keep").click(function (){
+        var $this = $(this);
+        var productId = $this.attr("value");
+        if($(this).hasClass("keeped")){
+            $.ajax({
+                url: "/user/keep/" +productId,
+                data:{
+                    productId: productId
+                },
+                type: "delete",
+                success: function (data){
+                    if (data === 'success'){
+                        $this.removeClass("keeped");
+                        alert("已移除收藏");
+                    }
+                }, error: function (error){
+                    console.log(error);
+                }
+            });
+            return;
+        }
+
+        $.ajax({
+            url: "/user/keep/" + productId,
+            data: productId,
+            type: "post",
+            success: function (data){
+                if (data === 'success'){
+                    $this.addClass("keeped");
+                    alert("已添加到收藏");
+                } else {
+                    alert("請登入會員")
+                }
+            },
+            error: function (error){
+                console.log(error)
+            }
+        });
+    });
+
 });

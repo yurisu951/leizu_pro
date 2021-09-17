@@ -41,6 +41,7 @@
 }
 
 
+
 .nav_bottom li {
     display: none;
     padding: 50px;
@@ -49,13 +50,21 @@
     box-sizing: border-box;
 }
 
+.nav_bottom li form div {
+    margin: 10px auto;
+}
+
+.nav_bottom li input {
+    font-size: 15px;
+}
+
 .nav_bottom li input[type=text],
 .nav_bottom li input[type=password],
 .nav_bottom li input[type=tel],
 .nav_bottom li input[type=submit],
 .nav_bottom li input[type=email]  {
     display: block;
-    margin: 20px auto;
+    margin: 0px auto;
     width: 300px;
     height: 40px;
     border: none;
@@ -63,8 +72,17 @@
     outline: none;   
 }
 
+.msg {
+    display: block;
+    margin: 0px auto;
+    width: 300px;
+    height: 25px;
+    line-height: 25px;
+    color: brown;
+}
+
 .nav_bottom li input[type=submit] {
-    margin-top: 35px;
+    margin: 25px auto;
     background-color: #4D3126;
     color: #fff;
     border-radius: 5px;

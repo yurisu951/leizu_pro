@@ -7,5 +7,14 @@
         insert into tbl_user(password, user_name, email, phone, address)
         values(#{password}, #{userName}, #{email}, #{phone}, #{address});
     </insert>
+    <select id="getUserByEmailOrPhone" resultType="com.chloe.leizu_pro.bean.user.User">
+        select user_id, password, user_name, email, phone, address from tbl_user where
+            <if test="email != null">
+                email = #{email}
+            </if>
+            <if test="phone != null">
+                phone = #{phone}
+            </if>
+    </select>
 </mapper>
 

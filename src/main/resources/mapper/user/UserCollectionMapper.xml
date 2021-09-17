@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chloe.leizu_pro.mapper.user.UserCollectionMapper">
+
+    <insert id="addUserCollection" parameterType="com.chloe.leizu_pro.bean.user.UserCollection" useGeneratedKeys="true" keyColumn="id">
+        insert into tbl_user_collection(user_id, product_id) value(#{userId}, #{productId});
+    </insert>
+    <delete id="removeUserCollection" parameterType="java.lang.Integer">
+        delete from tbl_user_collection where user_id = #{userId} and product_id = #{productId}
+    </delete>
+
+    <select id="getUserKeeps" resultType="java.lang.Integer">
+        select product_id from tbl_user_collection where user_id = #{userId}
+    </select>
+
+</mapper>

@@ -2,6 +2,7 @@ package com.chloe.leizu_pro.utils;
 
 import com.chloe.leizu_pro.bean.product.Product;
 import com.chloe.leizu_pro.service.ProductService;
+import com.chloe.leizu_pro.service.UserService;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -45,6 +46,7 @@ public class ProductPageUtils {
             mav.addObject("promoName", promoName);
         }
         if (colorName!=null)  mav.addObject("colorName", colorName);
+
 
         mav.addObject("productDetails", productDetails);
         mav.setViewName("product_details");

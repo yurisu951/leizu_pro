@@ -1,18 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
-    <link rel="stylesheet" href="../css/base.css">
-    <link rel="stylesheet" href="../css/common.css">
-    <link rel="stylesheet" href="../css/login_register.css">
-
-    <script src="../js/jQuery3.6.0.js"></script>
-
+    <title>Leizu 國際服飾品牌</title>
+    <div th:replace="commons::inputCommons"></div>
+    <link rel="stylesheet" href="../css/login_register.css"  th:href="@{/css/login_register.css}">
+    <script th:src="@{/js/login_register.js}"></script>
 </head>
 
 <body>
@@ -65,24 +61,30 @@
     <div class="center wrapper">
         <div class="nav_top">
             <ul>
-                <li >會員登入</li>
-                <li class="current">註冊</li>
+                <li class="current">會員登入</li>
+                <li >註冊</li>
             </ul>
         </div>
         <div class="nav_bottom">
             <ul>
-                <li class="">
-                    <form action="" method="POST">
-                        <input type="text" placeholder="請輸入Email / 手機號碼">
-                        <input type="password" placeholder="請輸入密碼（6-20英數字）">
+                <li class="current">
+                    <form th:action="@{/user/login}" method="POST">
+                        <div>
+                            <input type="text" placeholder="請輸入Email / 手機號碼" name="account" id="account">
+                            <span class="msg"></span>
+                        </div>
+                        <div>
+                            <input type="password" placeholder="請輸入密碼（6-20英數字）" name="password" id="password" maxlength="21">
+                            <span class="msg" th:text="${(failMsg!=null)?failMsg:''}"></span>
+                        </div>
                         <input type="submit" value="登入">
                         <div class="clearfix">
-                            <input type="checkbox" value="" name="" id="remenber"><label for="remenber">記住我</label>
+                            <input type="checkbox" value="true" name="remenber" id="remenber"><label for="remenber">記住我</label>
                             <a href="">忘記密碼？</a>
                         </div>
                     </form> 
                 </li>
-                <li class="current">
+                <li class="">
                     <form action="" method="POST">
                         <h4>加入專屬會員</h4>
                         <p>我們將發送簡訊驗證碼至您的手機內</p>
@@ -98,14 +100,8 @@
     </div>
 
 
-    <footer>
-        <p> 測試用的footer</p>
-        <p> 測試用的footer</p>
-        <p> 測試用的footer</p>
-        <p> 測試用的footer</p>
-        <p> 測試用的footer</p>
-        <p> 測試用的footer</p>
-    </footer>
+    <hr class="wrapper">
+    <div th:replace="commons::footer"></div>
 </body>
 
 </html>

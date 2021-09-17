@@ -5,12 +5,14 @@ import com.chloe.leizu_pro.bean.product.ColorImage;
 import com.chloe.leizu_pro.bean.product.Product;
 import com.chloe.leizu_pro.service.ProductService;
 import com.chloe.leizu_pro.service.SearchService;
+import com.chloe.leizu_pro.service.UserService;
 import com.chloe.leizu_pro.utils.ProductPageUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Map;
 
@@ -20,6 +22,8 @@ public class ProductController {
     ProductService productService;
     @Autowired
     SearchService searchService;
+    @Autowired
+    UserService userService;
 
 
 
@@ -53,18 +57,26 @@ public class ProductController {
     }
 
     @RequestMapping(value = {"/men/details/{id}","/men/details/{id}/{color}"}, method = RequestMethod.GET)
-    public ModelAndView productDetailsMenPage(@PathVariable("id") Integer productId,
+    public ModelAndView productDetailsMenPage(HttpSession session,@PathVariable("id") Integer productId,
                                               @PathVariable(value = "color", required = false) String colorName){
         ModelAndView mav = new ModelAndView();
         ProductPageUtils.productDetailsPage(mav, productService, "men", productId, colorName);
+        Integer userid = (Integer) session.getAttribute("user");
+        if (userid != null){
+            mav.addObject("keepList", userService.getUserKeep(userid));
+        }
         return mav;
     }
 
     @RequestMapping(value = {"/women/details/{id}","/women/details/{id}/{color}"}, method = RequestMethod.GET)
-    public ModelAndView productDetailsWomenPage(@PathVariable("id") Integer productId,
+    public ModelAndView productDetailsWomenPage(HttpSession session, @PathVariable("id") Integer productId,
                                                 @PathVariable(value = "color", required = false) String colorName){
         ModelAndView mav = new ModelAndView();
         ProductPageUtils.productDetailsPage(mav, productService, "women", productId, colorName);
+        Integer userid = (Integer) session.getAttribute("user");
+        if (userid != null){
+            mav.addObject("keepList", userService.getUserKeep(userid));
+        }
         return mav;
     }
 

@@ -1,11 +1,9 @@
-package com.chloe.leizu_pro.bean;
+package com.chloe.leizu_pro.bean.product;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-import java.beans.Transient;
 import java.util.List;
 
 @Data

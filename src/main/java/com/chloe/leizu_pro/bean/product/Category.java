@@ -1,4 +1,4 @@
-package com.chloe.leizu_pro.bean;
+package com.chloe.leizu_pro.bean.product;
 
 import lombok.Data;
 

@@ -1,11 +1,9 @@
 package com.chloe.leizu_pro.utils;
 
-import com.chloe.leizu_pro.bean.Product;
+import com.chloe.leizu_pro.bean.product.Product;
 import com.chloe.leizu_pro.service.ProductService;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Map;
 

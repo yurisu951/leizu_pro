@@ -1,7 +1,7 @@
-package com.chloe.leizu_pro.mapper;
+package com.chloe.leizu_pro.mapper.product;
 
 
-import com.chloe.leizu_pro.bean.Inventory;
+import com.chloe.leizu_pro.bean.product.Inventory;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 

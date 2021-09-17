@@ -1,7 +1,9 @@
 package com.chloe.leizu_pro.service.impl;
 
-import com.chloe.leizu_pro.bean.*;
-import com.chloe.leizu_pro.mapper.*;
+import com.chloe.leizu_pro.bean.product.Product;
+import com.chloe.leizu_pro.bean.product.SubCategory;
+import com.chloe.leizu_pro.bean.product.SuperCategory;
+import com.chloe.leizu_pro.mapper.product.*;
 import com.chloe.leizu_pro.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

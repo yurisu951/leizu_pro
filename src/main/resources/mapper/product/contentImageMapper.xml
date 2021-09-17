@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.chloe.leizu_pro.mapper.ContentImageMapper">
+<mapper namespace="com.chloe.leizu_pro.mapper.product.ContentImageMapper">
 
-    <select id="getContentImageListByProductId" resultType="com.chloe.leizu_pro.bean.ContentImage">
+    <select id="getContentImageListByProductId" resultType="com.chloe.leizu_pro.bean.product.ContentImage">
         select image, search_word from  tbl_content_image where product_id = #{productId}
     </select>
 

@@ -1,8 +1,8 @@
 package com.chloe.leizu_pro.service.impl;
 
-import com.chloe.leizu_pro.bean.ColorImage;
-import com.chloe.leizu_pro.mapper.ColorImageMapper;
-import com.chloe.leizu_pro.mapper.ProductMapper;
+import com.chloe.leizu_pro.bean.product.ColorImage;
+import com.chloe.leizu_pro.mapper.product.ColorImageMapper;
+import com.chloe.leizu_pro.mapper.product.ProductMapper;
 import com.chloe.leizu_pro.service.SearchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

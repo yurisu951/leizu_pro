@@ -1,10 +1,9 @@
 package com.chloe.leizu_pro.service;
 
 
-import com.chloe.leizu_pro.bean.ColorImage;
-import com.chloe.leizu_pro.bean.Product;
-import com.chloe.leizu_pro.bean.SubCategory;
-import com.chloe.leizu_pro.bean.SuperCategory;
+import com.chloe.leizu_pro.bean.product.Product;
+import com.chloe.leizu_pro.bean.product.SubCategory;
+import com.chloe.leizu_pro.bean.product.SuperCategory;
 
 import java.util.List;
 import java.util.Map;

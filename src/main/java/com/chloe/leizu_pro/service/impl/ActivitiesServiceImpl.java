@@ -1,11 +1,11 @@
 package com.chloe.leizu_pro.service.impl;
 
-import com.chloe.leizu_pro.bean.ColorImage;
-import com.chloe.leizu_pro.bean.PromoCode;
-import com.chloe.leizu_pro.mapper.ColorImageMapper;
-import com.chloe.leizu_pro.mapper.InventoryMapper;
-import com.chloe.leizu_pro.mapper.ProductMapper;
-import com.chloe.leizu_pro.mapper.PromoCodeMapper;
+import com.chloe.leizu_pro.bean.product.ColorImage;
+import com.chloe.leizu_pro.bean.product.PromoCode;
+import com.chloe.leizu_pro.mapper.product.ColorImageMapper;
+import com.chloe.leizu_pro.mapper.product.InventoryMapper;
+import com.chloe.leizu_pro.mapper.product.ProductMapper;
+import com.chloe.leizu_pro.mapper.product.PromoCodeMapper;
 import com.chloe.leizu_pro.service.ActivitiesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

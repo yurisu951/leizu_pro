@@ -1,7 +1,7 @@
 package com.chloe.leizu_pro.controller;
 
-import com.chloe.leizu_pro.bean.ColorImage;
-import com.chloe.leizu_pro.bean.PromoCode;
+import com.chloe.leizu_pro.bean.product.ColorImage;
+import com.chloe.leizu_pro.bean.product.PromoCode;
 import com.chloe.leizu_pro.service.ActivitiesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

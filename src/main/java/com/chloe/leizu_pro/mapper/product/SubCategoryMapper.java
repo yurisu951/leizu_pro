@@ -1,6 +1,6 @@
-package com.chloe.leizu_pro.mapper;
+package com.chloe.leizu_pro.mapper.product;
 
-import com.chloe.leizu_pro.bean.SubCategory;
+import com.chloe.leizu_pro.bean.product.SubCategory;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 

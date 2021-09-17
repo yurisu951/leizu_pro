@@ -1,6 +1,6 @@
 package com.chloe.leizu_pro.service;
 
-import com.chloe.leizu_pro.bean.ColorImage;
+import com.chloe.leizu_pro.bean.product.ColorImage;
 
 import java.util.List;
 

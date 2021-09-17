@@ -2,22 +2,22 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.chloe.leizu_pro.mapper.ColorImageMapper">
+<mapper namespace="com.chloe.leizu_pro.mapper.product.ColorImageMapper">
 
-    <select id="getColorImageAndNameOfListByProductId" resultType="com.chloe.leizu_pro.bean.ColorImage">
+    <select id="getColorImageAndNameOfListByProductId" resultType="com.chloe.leizu_pro.bean.product.ColorImage">
         select id, product_id, product_color, product_color_image,product_image from tbl_color_image where product_id = #{productId}
     </select>
 
-    <select id="getColorNameById" resultType="com.chloe.leizu_pro.bean.ColorImage">
+    <select id="getColorNameById" resultType="com.chloe.leizu_pro.bean.product.ColorImage">
         select product_color,product_image from tbl_color_image where id = #{id}
     </select>
 
-    <resultMap id="getInventoryMap" type="com.chloe.leizu_pro.bean.ColorImage">
+    <resultMap id="getInventoryMap" type="com.chloe.leizu_pro.bean.product.ColorImage">
         <id property="id" column="id" />
         <result property="productColor" column="product_color" />
         <result property="productImage" column="product_image" />
-        <association property="productInfo" column="product_id" select="com.chloe.leizu_pro.mapper.ProductMapper.getProductPromoInfoById" />
-        <collection property="inventoryList" column="id" select="com.chloe.leizu_pro.mapper.InventoryMapper.getInventoryListByColorId" />
+        <association property="productInfo" column="product_id" select="com.chloe.leizu_pro.mapper.product.ProductMapper.getProductPromoInfoById" />
+        <collection property="inventoryList" column="id" select="com.chloe.leizu_pro.mapper.product.InventoryMapper.getInventoryListByColorId" />
     </resultMap>
 
     <select id="getColorImageListWithInventoryByProductIdLimit"  resultMap="getInventoryMap">
@@ -39,12 +39,12 @@
         </foreach>
     </select>
 
-    <resultMap id="colorMap" type="com.chloe.leizu_pro.bean.ColorImage">
+    <resultMap id="colorMap" type="com.chloe.leizu_pro.bean.product.ColorImage">
         <id property="id" column="id" />
         <result property="productId" column="product_id" />
         <result property="productColor" column="product_color" />
         <result property="productImage" column="product_image" />
-        <association property="productInfo" column="product_id" select="com.chloe.leizu_pro.mapper.ProductMapper.getProductPromoInfoById" />
+        <association property="productInfo" column="product_id" select="com.chloe.leizu_pro.mapper.product.ProductMapper.getProductPromoInfoById" />
     </resultMap>
     <select id="getImageAndNameByid" resultMap="colorMap">
         select id, product_id, product_color, product_image from tbl_color_image

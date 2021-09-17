@@ -1,13 +1,11 @@
-package com.chloe.leizu_pro.mapper;
+package com.chloe.leizu_pro.mapper.product;
 
-import com.chloe.leizu_pro.bean.ContentImage;
-import com.chloe.leizu_pro.bean.Product;
+import com.chloe.leizu_pro.bean.product.Product;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Set;
 
 @Mapper
 @Repository

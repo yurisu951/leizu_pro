@@ -1,23 +1,18 @@
 package com.chloe.leizu_pro.controller;
 
 
-import com.chloe.leizu_pro.bean.ColorImage;
-import com.chloe.leizu_pro.bean.Product;
-import com.chloe.leizu_pro.service.ActivitiesService;
+import com.chloe.leizu_pro.bean.product.ColorImage;
+import com.chloe.leizu_pro.bean.product.Product;
 import com.chloe.leizu_pro.service.ProductService;
 import com.chloe.leizu_pro.service.SearchService;
 import com.chloe.leizu_pro.utils.ProductPageUtils;
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 @Controller
 public class ProductController {

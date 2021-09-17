@@ -1,6 +1,6 @@
-package com.chloe.leizu_pro.mapper;
+package com.chloe.leizu_pro.mapper.product;
 
-import com.chloe.leizu_pro.bean.ColorImage;
+import com.chloe.leizu_pro.bean.product.ColorImage;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;

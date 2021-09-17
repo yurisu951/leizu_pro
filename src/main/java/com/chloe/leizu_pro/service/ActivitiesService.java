@@ -1,7 +1,7 @@
 package com.chloe.leizu_pro.service;
 
-import com.chloe.leizu_pro.bean.ColorImage;
-import com.chloe.leizu_pro.bean.PromoCode;
+import com.chloe.leizu_pro.bean.product.ColorImage;
+import com.chloe.leizu_pro.bean.product.PromoCode;
 
 import java.util.List;
 import java.util.Map;

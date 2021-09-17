@@ -1,13 +1,11 @@
 package com.chloe.leizu_pro.service.impl;
 
 import com.chloe.leizu_pro.bean.Cart;
-import com.chloe.leizu_pro.bean.Inventory;
-import com.chloe.leizu_pro.bean.Product;
-import com.chloe.leizu_pro.mapper.InventoryMapper;
-import com.chloe.leizu_pro.mapper.ProductMapper;
+import com.chloe.leizu_pro.bean.product.Inventory;
+import com.chloe.leizu_pro.bean.product.Product;
+import com.chloe.leizu_pro.mapper.product.InventoryMapper;
+import com.chloe.leizu_pro.mapper.product.ProductMapper;
 import com.chloe.leizu_pro.service.CartService;
-import com.chloe.leizu_pro.service.ProductService;
-import lombok.Setter;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

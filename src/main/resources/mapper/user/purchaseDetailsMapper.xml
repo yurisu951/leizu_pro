@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chloe.leizu_pro.mapper.user.PurchaseDetailsMapper">
+
+    <insert id="addPurchaseDetails" keyColumn="id" useGeneratedKeys="true" parameterType="com.chloe.leizu_pro.bean.user.PurchaseDetails">
+        insert into tbl_purchase_details(cart_id, product_id, inventory_id, price, discount, quantity)
+        values(#{cartId}, #{productId}, #{inventoryId}, #{price}, #{discount}, #{quantity})
+    </insert>
+
+    <insert id="addPurchaseDetailsList" keyColumn="id" useGeneratedKeys="true" parameterType="com.chloe.leizu_pro.bean.user.PurchaseDetails">
+        insert into tbl_purchase_details(cart_id, product_id, inventory_id, price, discount, quantity) values
+        <foreach collection="recordList" item="r"  separator=",">
+            (#{r.cartId}, #{r.productId}, #{r.inventoryId}, #{r.price}, #{r.discount}, #{r.quantity})
+        </foreach>
+    </insert>
+</mapper>

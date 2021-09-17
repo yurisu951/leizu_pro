@@ -2,45 +2,45 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.chloe.leizu_pro.mapper.ProductMapper">
+<mapper namespace="com.chloe.leizu_pro.mapper.product.ProductMapper">
 
-    <select id="getProductById" resultType="com.chloe.leizu_pro.bean.Product">
+    <select id="getProductById" resultType="com.chloe.leizu_pro.bean.product.Product">
         select * from tbl_product where id = #{id}
     </select>
 
-    <select id="getProductListByCategory" resultType="com.chloe.leizu_pro.bean.Product">
+    <select id="getProductListByCategory" resultType="com.chloe.leizu_pro.bean.product.Product">
         select id, category, product_name, price, promo, promoPrice, image from tbl_product where category = #{category}
     </select>
 
-    <resultMap id="colorMap" type="com.chloe.leizu_pro.bean.Product">
+    <resultMap id="colorMap" type="com.chloe.leizu_pro.bean.product.Product">
         <id property="id" column="id" />
         <result property="productName" column="product_name" />
         <result property="price" column="price" />
         <result property="promoPrice" column="promoPrice" />
         <result property="image" column="image" />
-        <collection property="colorImageList" column="id" select="com.chloe.leizu_pro.mapper.ColorImageMapper.getColorImageAndNameOfListByProductId" />
+        <collection property="colorImageList" column="id" select="com.chloe.leizu_pro.mapper.product.ColorImageMapper.getColorImageAndNameOfListByProductId" />
     </resultMap>
     <select id="getProductListWithColorByCategoryId" resultMap="colorMap">
         select id,product_name, price, promoPrice, image  from tbl_product where category = #{category}
     </select>
 
-    <select id="getWomenProductListByLimit" resultType="com.chloe.leizu_pro.bean.Product">
+    <select id="getWomenProductListByLimit" resultType="com.chloe.leizu_pro.bean.product.Product">
         select id, product_name, price, promoPrice, image from tbl_product where category like '2%' order by rand() limit #{index}, #{count}
     </select>
 
-    <select id="getMenProductListByLimit" resultType="com.chloe.leizu_pro.bean.Product">
+    <select id="getMenProductListByLimit" resultType="com.chloe.leizu_pro.bean.product.Product">
         select id, product_name, price, promoPrice, image from tbl_product where category like '1%' order by rand() limit #{index}, #{count}
     </select>
 
 
-    <resultMap id="contentAndColorMap" type="com.chloe.leizu_pro.bean.Product">
+    <resultMap id="contentAndColorMap" type="com.chloe.leizu_pro.bean.product.Product">
         <id property="id" column="id" />
         <result property="productName" column="product_name" />
         <result property="price" column="price" />
         <result property="promo" column="promo" />
         <result property="promoPrice" column="promoPrice" />
-        <collection property="colorImageList" column="id" select="com.chloe.leizu_pro.mapper.ColorImageMapper.getColorImageAndNameOfListByProductId" />
-        <collection property="contentImageList" column="id" select="com.chloe.leizu_pro.mapper.ContentImageMapper.getContentImageListByProductId" />
+        <collection property="colorImageList" column="id" select="com.chloe.leizu_pro.mapper.product.ColorImageMapper.getColorImageAndNameOfListByProductId" />
+        <collection property="contentImageList" column="id" select="com.chloe.leizu_pro.mapper.product.ContentImageMapper.getContentImageListByProductId" />
     </resultMap>
     <select id="getProductWithColorAndContentById" resultMap="contentAndColorMap">
         select id,product_name, price,promo, promoPrice  from tbl_product where id = #{id}
@@ -54,7 +54,7 @@
         select id from tbl_product where promo = #{promo} and category like '1%'
     </select>
 
-    <select id="getProductPromoInfoById" resultType="com.chloe.leizu_pro.bean.Product">
+    <select id="getProductPromoInfoById" resultType="com.chloe.leizu_pro.bean.product.Product">
         select category, product_name, price, promo, promoPrice  from tbl_product where id = #{id}
     </select>
 

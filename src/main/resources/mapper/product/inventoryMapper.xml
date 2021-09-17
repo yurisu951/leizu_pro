@@ -2,15 +2,15 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.chloe.leizu_pro.mapper.InventoryMapper">
+<mapper namespace="com.chloe.leizu_pro.mapper.product.InventoryMapper">
 
 
-    <resultMap id="inventoryWithColorNameMap" type="com.chloe.leizu_pro.bean.Inventory">
+    <resultMap id="inventoryWithColorNameMap" type="com.chloe.leizu_pro.bean.product.Inventory">
         <id property="id" column="id" />
         <result property="color" column="color" />
         <result property="size" column="size" />
         <result property="quantity" column="quantity"/>
-        <association property="colorInfo" column="color" select="com.chloe.leizu_pro.mapper.ColorImageMapper.getColorNameById" />
+        <association property="colorInfo" column="color" select="com.chloe.leizu_pro.mapper.product.ColorImageMapper.getColorNameById" />
     </resultMap>
     <select id="getInventoryById" resultMap="inventoryWithColorNameMap">
         select id, color, `size`, quantity  from tbl_inventory where id = #{id}
@@ -20,7 +20,7 @@
         select id, color, `size`, quantity  from tbl_inventory where product_id = #{productId}
     </select>
 
-    <select id="getInventoryListByColorId" resultType="com.chloe.leizu_pro.bean.Inventory">
+    <select id="getInventoryListByColorId" resultType="com.chloe.leizu_pro.bean.product.Inventory">
         select id, color, `size` from  tbl_inventory where color = #{colorId} and status = '在架'
     </select>
 

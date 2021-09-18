@@ -8,6 +8,7 @@ import com.chloe.leizu_pro.bean.user.UserCollection;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
+import java.util.Map;
 
 public interface UserService {
 
@@ -26,4 +27,6 @@ public interface UserService {
     List<Inventory> getInventoryListByColorId(Integer colorId);
 
     User getUserProfile(Integer userId);
+
+    boolean updateUserProfile(Map<String,String> params,Integer userId);
 }

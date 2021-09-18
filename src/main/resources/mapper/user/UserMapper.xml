@@ -20,5 +20,17 @@
     <select id="getUserProfileById" resultType="com.chloe.leizu_pro.bean.user.User">
         select * from tbl_user where user_id = #{userId}
     </select>
+
+    <update id="updateUser" parameterType="com.chloe.leizu_pro.bean.user.User">
+        update tbl_user
+        <trim prefix="set" suffixOverrides=",">
+            <if test="user.password != null"> password = #{user.password} ,</if>
+            <if test="user.userName != null"> user_name = #{user.userName} ,</if>
+            <if test="user.email != null"> email = #{user.email} ,</if>
+            <if test="user.phone != null"> phone = #{user.phone} ,</if>
+            <if test="user.address != null"> address = #{user.address} ,</if>
+        </trim>
+         where user_id = #{user.userId}
+    </update>
 </mapper>
 

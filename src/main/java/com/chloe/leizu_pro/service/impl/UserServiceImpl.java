@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -100,6 +101,31 @@ public class UserServiceImpl implements UserService {
     @Override
     public User getUserProfile(Integer userId) {
         return userMapper.getUserProfileById(userId);
+    }
+
+    @Override
+    public boolean updateUserProfile(Map<String, String> params, Integer userId) {
+        String userName = params.get("userName").trim();
+        String email = params.get("email").trim();
+        String password = params.get("password").trim();
+        String address = params.get("address").trim();
+        String phone = params.get("phone").trim();
+        User user = userMapper.getUserProfileById(userId);
+        if (userName!= null && !("".equals(userName))) user.setUserName(userName);
+
+        if (email!= null && !("".equals(email))) user.setEmail(email);
+
+        if (password!= null && !("".equals(password))){
+            user.setPassword(UserUtils.pwdEncode(password));
+        };
+
+        if (address!= null && !("".equals(address))) user.setAddress(address);
+
+        if (phone!= null && !("".equals(phone))) user.setPhone(phone);
+
+        int i = userMapper.updateUser(user);
+        if (i>0) return true;
+        return false;
     }
 
 

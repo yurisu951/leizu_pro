@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class UserController {
@@ -43,6 +44,17 @@ public class UserController {
             mav.setViewName("user/login_register");
             return mav;
         }
+        mav.addObject("userProfile", userService.getUserProfile(userId));
+        mav.setViewName("user/user_profile");
+        return mav;
+    }
+
+    @PostMapping("/user/profile")
+    public ModelAndView updateUserProfile(@RequestParam Map<String,String> params, HttpSession session){
+        ModelAndView mav = new ModelAndView();
+        Integer userId = (Integer) session.getAttribute("user");
+        boolean result = userService.updateUserProfile(params, userId);
+
         mav.addObject("userProfile", userService.getUserProfile(userId));
         mav.setViewName("user/user_profile");
         return mav;

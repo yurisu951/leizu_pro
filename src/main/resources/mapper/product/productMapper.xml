@@ -96,4 +96,11 @@
         </if>
         order by rand() limit 7
     </select>
+    <select id="getProductWithColorNames" resultMap="colorMap">
+        select id, product_name, price, promoPrice, image from tbl_product  where id in
+        <foreach collection="products" separator="," open="(" item="id" close=")">
+            #{id}
+        </foreach>
+    </select>
+
 </mapper>

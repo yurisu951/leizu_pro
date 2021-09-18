@@ -1,5 +1,5 @@
 .center {
-    width: 60%;
+    width: 70%;
     margin-top: 75px;
 }
 
@@ -44,4 +44,5 @@
 .nav_top li .current {
     background-color: #fff;
     color: #554840;
+    pointer-events: none;
 }

@@ -33,4 +33,6 @@ public interface ProductMapper {
 
     List<Integer> getRandomListByGender(@Param("gender") String gender);
 
+    List<Product> getProductWithColorNames(List<Integer> products);
+
 }

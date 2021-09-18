@@ -1,14 +1,19 @@
 package com.chloe.leizu_pro.controller;
 
+import com.chloe.leizu_pro.bean.product.ColorImage;
+import com.chloe.leizu_pro.bean.product.Inventory;
+import com.chloe.leizu_pro.bean.product.Product;
 import com.chloe.leizu_pro.bean.user.User;
 import com.chloe.leizu_pro.bean.user.UserCollection;
 import com.chloe.leizu_pro.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -42,6 +47,7 @@ public class UserController {
         User temp = new User(null, password, null,email,phone,null);
         System.out.println(temp);
         boolean result = userService.loginUser(temp, session);
+
         if (result){
             mav.setViewName("index");
             return mav;
@@ -90,6 +96,29 @@ public class UserController {
             if (b)  return "success";
         }
         return "false";
+    }
+
+    @RequestMapping("/user/keepes")
+    public ModelAndView userKeep(HttpSession session){
+        ModelAndView mav = new ModelAndView();
+        Integer userId = (Integer) session.getAttribute("user");
+        if (userId == null) {
+            mav.setViewName("user/login_register");
+            return mav;
+        }
+        List<Integer> userKeep = userService.getUserKeep(userId);
+
+        List<Product> colorNameByProduct = userService.getColorNameByProductId(userKeep);
+
+        mav.addObject("userKeepProductList", colorNameByProduct);
+        mav.setViewName("/user/user_mykeep");
+        return mav;
+    }
+
+    @RequestMapping(value = "/user/keep/inventory/{colorId}", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Inventory> getInventory(@PathVariable("colorId") Integer colorId){
+        return userService.getInventoryListByColorId(colorId);
     }
 
 

@@ -46,7 +46,7 @@ public class ActivitiesController {
         mav.addObject("start", start);
         mav.addObject("index", index);
         mav.addObject("promoCode", promoCode);
-        mav.setViewName("product_activities");
+        mav.setViewName("product/product_activities");
         return mav;
     }
 

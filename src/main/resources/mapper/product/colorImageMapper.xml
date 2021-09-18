@@ -73,4 +73,6 @@
         order by rand() limit 20
     </select>
 
+
+
 </mapper>

@@ -195,7 +195,5 @@ $(function (){
             $(this).parents("li").remove();
         });
 
-
-
     showCartBlockItemfromSession();
 });

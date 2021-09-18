@@ -124,7 +124,8 @@ $(function(){
                     $this.addClass("keeped");
                     alert("已添加到收藏");
                 } else {
-                    alert("請登入會員")
+                    alert("請登入會員");
+                    window.location.assign("/login_register");
                 }
             },
             error: function (error){

@@ -1,5 +1,8 @@
 package com.chloe.leizu_pro.service;
 
+import com.chloe.leizu_pro.bean.product.ColorImage;
+import com.chloe.leizu_pro.bean.product.Inventory;
+import com.chloe.leizu_pro.bean.product.Product;
 import com.chloe.leizu_pro.bean.user.User;
 import com.chloe.leizu_pro.bean.user.UserCollection;
 
@@ -17,4 +20,8 @@ public interface UserService {
     List<Integer> getUserKeep(Integer userId);
 
     boolean removeKeep(UserCollection userCollection);
+
+    List<Product> getColorNameByProductId(List<Integer> productIds);
+
+    List<Inventory> getInventoryListByColorId(Integer colorId);
 }

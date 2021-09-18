@@ -2,7 +2,6 @@ package com.chloe.leizu_pro.utils;
 
 import com.chloe.leizu_pro.bean.product.Product;
 import com.chloe.leizu_pro.service.ProductService;
-import com.chloe.leizu_pro.service.UserService;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -17,7 +16,7 @@ public class ProductPageUtils {
 
         List<Product> productListByLimit = productService.getProductListByLimit(0, 20, gender);
         mav.addObject("productList", productListByLimit);
-        mav.setViewName("product_main");
+        mav.setViewName("product/product_main");
         return mav;
     }
 
@@ -30,7 +29,7 @@ public class ProductPageUtils {
         String subCategoryName = productService.getSuperCategoryById(categoryId).getSubCategoryName();
         mav.addObject("subTitle", subCategoryName);
         mav.addObject("categoryListMap", categoryListMap);
-        mav.setViewName("product_category");
+        mav.setViewName("product/product_category");
         return mav;
     }
 
@@ -49,7 +48,7 @@ public class ProductPageUtils {
 
 
         mav.addObject("productDetails", productDetails);
-        mav.setViewName("product_details");
+        mav.setViewName("product/product_details");
 
         return mav;
     }

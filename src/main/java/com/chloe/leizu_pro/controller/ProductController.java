@@ -118,7 +118,7 @@ public class ProductController {
         mav.addObject("list", ids);
         mav.addObject("keyWords", keyWords);
         mav.addObject("gender",gender);
-        mav.setViewName("product_search");
+        mav.setViewName("product/product_search");
         return mav;
     }
 

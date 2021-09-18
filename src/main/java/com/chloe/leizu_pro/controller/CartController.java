@@ -29,7 +29,7 @@ public class CartController {
             cart = new Cart();
         }
         Cart cartOnAjax = cartService.addCartOnAjax(jsonObject, cart);
-        session.setAttribute("cart", cart);
+        session.setAttribute("cart", cartOnAjax);
         return cart;
     }
 

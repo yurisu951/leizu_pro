@@ -15,7 +15,7 @@ public interface UserService {
 
     boolean addKeep(UserCollection userCollection);
 
-    boolean loginUser(User user, HttpSession session);
+    boolean loginUser(HttpSession session, String account, String password, String remember);
 
     List<Integer> getUserKeep(Integer userId);
 
@@ -24,4 +24,6 @@ public interface UserService {
     List<Product> getColorNameByProductId(List<Integer> productIds);
 
     List<Inventory> getInventoryListByColorId(Integer colorId);
+
+    User getUserProfile(Integer userId);
 }

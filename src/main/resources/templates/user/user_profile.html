@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leizu 國際服飾品牌</title>
+
+    <div th:replace="commons::inputCommons"></div>
+    <link rel="stylesheet" href="../css/user.css" th:href="@{/css/user.css}">
+
+</head>
+
+<body>
+    <!-- Commons部分 -->
+    <div th:replace="commons::header"></div>
+
+
+    <div class="center wrapper">
+        <div class="nav_top">
+            <ul>
+                <li><a class="current" th:href="@{/user/keepes}">我的收藏</a></li>
+                <li><a href="#">訂單狀況</a></li>
+                <li><a th:href="#">個人資料與密碼修改</a></li>
+            </ul>
+        </div>
+        <div class="nav_bottom">
+            
+           
+
+        </div>
+        
+    </div>
+
+
+    <hr class="wrapper">
+    <div th:replace="commons::footer"></div>
+</body>
+
+</html>
+

@@ -51,13 +51,25 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean loginUser(User searchUser, HttpSession session){
-        User user = userMapper.getUserByEmailOrPhone(searchUser.getEmail(), searchUser.getPhone());
-        System.out.println(user);
-        String keyinpwd = searchUser.getPassword();
+    public boolean loginUser(HttpSession session, String account, String password,String remember){
+        String email = null;
+        String phone = null;
+        if (account.contains("@")){
+            email = account;
+        } else {
+            phone = account;
+        }
+        User user = userMapper.getUserByEmailOrPhone(email, phone);
+
         String dbPwd = user.getPassword();
-        if (UserUtils.pwdMatches(keyinpwd, dbPwd)){
+        if (UserUtils.pwdMatches(password, dbPwd)){
             session.setAttribute("user", user.getUserId());
+            if ("yes".equals(remember)){
+                User temp = new User(null,password,null, email,phone, null);
+                session.setAttribute("remember", temp);
+            } else {
+                session.removeAttribute("remember");
+            }
             return true;
         }
         return false;
@@ -85,6 +97,10 @@ public class UserServiceImpl implements UserService {
         return inventoryMapper.getInventoryListByColorId(colorId);
     }
 
+    @Override
+    public User getUserProfile(Integer userId) {
+        return userMapper.getUserProfileById(userId);
+    }
 
 
 }

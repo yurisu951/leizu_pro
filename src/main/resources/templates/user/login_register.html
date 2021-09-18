@@ -11,52 +11,10 @@
     <script th:src="@{/js/login_register.js}"></script>
 </head>
 
+
 <body>
     <!-- Commons部分 -->
-    <div class="header">
-        <div class="wrapper clearfix">
-            <div class="logo"><a href="javascript:;">Leizu</a></div>
-            <nav>
-                <ul>
-                    <li><a href="javascript:;">WOMEN</a></li>
-                    <li><a href="javascript:;">MEN</a></li>
-                </ul>
-            </nav>
-            <div class="userConsole">
-                <div class="search">
-                    <form>
-                        <input type="text" placeholder="SREACH...">
-                        <input type="submit" class="icomoon" value="">
-                    </form>
-                </div>
-                <div class="sub_nav">
-                    <ul>
-                        <li>
-                            <i class="icomoon"></i>
-                            <div class="sub_sub_nav">
-                                <ul>
-                                    <li><a href="#">訂單查詢</a></li>
-                                    <li><a href="#">會員專區</a></li>
-                                    <li><a href="#">我的收藏</a></li>
-                                    <li><a href="#">會員登錄/註冊</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="icomoon"></i>
-                            <div class="sub_sub_nav">
-
-                                <p>購物車清單</p>
-                            </div>
-
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
+    <div th:replace="commons::header"></div>
 
     <div class="center wrapper">
         <div class="nav_top">
@@ -70,16 +28,18 @@
                 <li class="current">
                     <form th:action="@{/user/login}" method="POST">
                         <div>
-                            <input type="text" placeholder="請輸入Email / 手機號碼" name="account" id="account">
+                            <input type="text" placeholder="請輸入Email / 手機號碼" name="account" id="account"
+                                   th:value="${(rememberInfo!=null) ? (rememberInfo.email != null ? rememberInfo.email: rememberInfo.phone):''}">
                             <span class="msg"></span>
                         </div>
                         <div>
-                            <input type="password" placeholder="請輸入密碼（6-20英數字）" name="password" id="password" maxlength="21">
+                            <input type="password" placeholder="請輸入密碼（6-20英數字）" name="password" id="password" maxlength="21"
+                            th:value="${rememberInfo != null ? rememberInfo.password: ''}">
                             <span class="msg" th:text="${(failMsg!=null)?failMsg:''}"></span>
                         </div>
                         <input type="submit" value="登入">
                         <div class="clearfix">
-                            <input type="checkbox" value="true" name="remenber" id="remenber"><label for="remenber">記住我</label>
+                            <input type="checkbox" value="yes" name="remember" id="remenber" th:checked="${rememberInfo!=null}"><label for="remenber">記住我</label>
                             <a href="">忘記密碼？</a>
                         </div>
                     </form> 

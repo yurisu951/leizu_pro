@@ -14,5 +14,7 @@ public interface UserMapper {
 
     User getUserByEmailOrPhone(@Param("email")String email, @Param("phone") String phone);
 
+    User getUserProfileById(Integer userId);
+
 
 }

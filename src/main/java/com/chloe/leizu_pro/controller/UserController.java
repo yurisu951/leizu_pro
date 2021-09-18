@@ -1,20 +1,17 @@
 package com.chloe.leizu_pro.controller;
 
-import com.chloe.leizu_pro.bean.product.ColorImage;
 import com.chloe.leizu_pro.bean.product.Inventory;
 import com.chloe.leizu_pro.bean.product.Product;
 import com.chloe.leizu_pro.bean.user.User;
 import com.chloe.leizu_pro.bean.user.UserCollection;
 import com.chloe.leizu_pro.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
-import java.util.Map;
 
 @Controller
 public class UserController {
@@ -22,8 +19,14 @@ public class UserController {
     UserService userService;
 
     @GetMapping("/login_register")
-    public String loginRegister(){
-        return "user/login_register";
+    public ModelAndView loginRegister(HttpSession session){
+        ModelAndView mav = new ModelAndView();
+        User remember = (User) session.getAttribute("remember");
+        if (remember != null){
+            mav.addObject("rememberInfo",remember);
+        }
+        mav.setViewName("user/login_register");
+        return mav;
     }
 
     @GetMapping("/logout")
@@ -32,47 +35,52 @@ public class UserController {
         return "redirect:index";
     }
 
-    @PostMapping(value = {"/user/login"}, params = {"account", "password"})
-    public ModelAndView login(HttpSession session, @RequestParam("account") String account,
-                              @RequestParam("password") String password, @RequestParam(value = "remember",required = false)String remember){
+    @GetMapping("/user/profile")
+    public ModelAndView userProfile(HttpSession session){
         ModelAndView mav = new ModelAndView();
-        String email = null;
-        String phone = null;
-        if (account.contains("@")){
-            email = account;
-        } else {
-            phone = account;
-        }
-
-        User temp = new User(null, password, null,email,phone,null);
-        System.out.println(temp);
-        boolean result = userService.loginUser(temp, session);
-
-        if (result){
-            mav.setViewName("index");
+        Integer userId = (Integer) session.getAttribute("user");
+        if (userId == null) {
+            mav.setViewName("user/login_register");
             return mav;
         }
-        mav.setViewName("user/login_register");
+        mav.addObject("userProfile", userService.getUserProfile(userId));
+        mav.setViewName("user/user_profile");
+        return mav;
+    }
+
+
+    @PostMapping(value = {"/user/login"}, params = {"account", "password"})
+    public ModelAndView login(HttpSession session, @RequestParam("account") String account,
+                              @RequestParam("password") String password, @RequestParam(value = "remember",required = false) String remember){
+        ModelAndView mav = new ModelAndView();
+
+        boolean result = userService.loginUser(session,account,password, remember);
+
+        if (result){
+            mav.setViewName("redirect:/index");
+            return mav;
+        }
+        mav.setViewName("redirect:/user/login_register");
         mav.addObject("failMsg", "密碼輸入錯誤");
         return mav;
     }
 
 
 
-    @PostMapping(value = "/test2", params = {"password", "userName", "email", "phone"})
-    public String registerUser(@RequestParam("password") String password,
-                               @RequestParam("userName") String userName,
-                               @RequestParam("email") String email,
-                               @RequestParam("phone") String phone,
-                               @RequestParam(value = "address", required = false) String address){
-        boolean addSuccess;
-        User user = null;
-        if (password != null && userName != null && email != null && phone != null){
-            user = new User(null, password, userName, email, phone, null);
-            addSuccess = userService.addUser(user);
-        }
-        return  "success";
-    }
+//    @PostMapping(value = "/test2", params = {"password", "userName", "email", "phone"})
+//    public String registerUser(@RequestParam("password") String password,
+//                               @RequestParam("userName") String userName,
+//                               @RequestParam("email") String email,
+//                               @RequestParam("phone") String phone,
+//                               @RequestParam(value = "address", required = false) String address){
+//        boolean addSuccess;
+//        User user = null;
+//        if (password != null && userName != null && email != null && phone != null){
+//            user = new User(null, password, userName, email, phone, null);
+//            addSuccess = userService.addUser(user);
+//        }
+//        return  "success";
+//    }
 
     @PostMapping("/user/keep/{productId}")
     @ResponseBody

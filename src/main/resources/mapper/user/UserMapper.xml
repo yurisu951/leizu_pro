@@ -16,5 +16,9 @@
                 phone = #{phone}
             </if>
     </select>
+
+    <select id="getUserProfileById" resultType="com.chloe.leizu_pro.bean.user.User">
+        select * from tbl_user where user_id = #{userId}
+    </select>
 </mapper>
 

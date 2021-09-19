@@ -70,13 +70,13 @@
                         <td th:text="${(detail.promoInfo!=null)?detail.promoInfo: '無'}">活動名稱</td>
                         <td th:text="${detail.quantity}">數量</td>
                         <td>
-                            <del th:if="${detail.discount}" th:text="${#numbers.formatInteger(detail.price,3,'COMMA')}"></del>
-                            <span th:unless="${detail.discount}" th:text="${#numbers.formatInteger(detail.price,3,'COMMA')}"></span>
+                            <del th:if="${detail.discount}" th:text="${#numbers.formatInteger(detail.price,0,'COMMA')}"></del>
+                            <span th:unless="${detail.discount}" th:text="${#numbers.formatInteger(detail.price,0,'COMMA')}"></span>
                         </td>
-                        <td th:text="${#numbers.formatInteger(((detail.discount!= null)? (detail.price - detail.discount): ''),3,'COMMA')}">折扣價</td>
+                        <td th:text="${#numbers.formatInteger(((detail.discount!= null)? (detail.price - detail.discount): ''),0,'COMMA')}">折扣價</td>
                         <td>
-                            <span th:unless="${detail.discount}" th:text="${#numbers.formatInteger((detail.price * detail.quantity),3,'COMMA')}"></span>
-                            <span th:if="${detail.discount}" th:text="${#numbers.formatInteger(((detail.price - detail.discount) * detail.quantity),3,'COMMA')}"></span>
+                            <span th:unless="${detail.discount}" th:text="${#numbers.formatInteger((detail.price * detail.quantity),0,'COMMA')}"></span>
+                            <span th:if="${detail.discount}" th:text="${#numbers.formatInteger(((detail.price - detail.discount) * detail.quantity),0,'COMMA')}"></span>
                         </td>
                     </tr>
                 </tbody>

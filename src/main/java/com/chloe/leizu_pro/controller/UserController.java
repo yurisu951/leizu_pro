@@ -50,13 +50,14 @@ public class UserController {
 
     @PostMapping(value = {"/user/login"}, params = {"account", "password"})
     public ModelAndView login(HttpSession session, @RequestParam("account") String account,
-                              @RequestParam("password") String password, @RequestParam(value = "remember",required = false) String remember){
+                              @RequestParam("password") String password, @RequestParam(value = "remember",required = false) String remember,
+                              @RequestParam("url") String url ){
         ModelAndView mav = new ModelAndView();
 
         boolean result = userService.loginUser(session,account,password, remember);
 
         if (result){
-            mav.setViewName("redirect:/index");
+            mav.setViewName("redirect:" + url);
             return mav;
         }
         mav.setViewName("redirect:/user/login_register");
@@ -139,10 +140,10 @@ public class UserController {
             return mav;
         }
         List<Integer> userKeep = userService.getUserKeep(userId);
-
-        List<Product> colorNameByProduct = userService.getColorNameByProductId(userKeep);
-
-        mav.addObject("userKeepProductList", colorNameByProduct);
+        if (userKeep != null && userKeep.size() > 0){
+            List<Product> colorNameByProduct = userService.getColorNameByProductId(userKeep);
+            mav.addObject("userKeepProductList", colorNameByProduct);
+        }
         mav.setViewName("/user/user_mykeep");
         return mav;
     }

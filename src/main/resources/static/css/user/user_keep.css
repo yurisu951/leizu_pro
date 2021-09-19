@@ -113,3 +113,8 @@ select {
     text-decoration: none;
     color: #fff;
 }
+
+.nav_bottom > p{
+    text-align: center;
+    font-size: 18px;
+}

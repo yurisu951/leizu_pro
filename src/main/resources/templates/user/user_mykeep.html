@@ -42,6 +42,7 @@
             </ul>
         </div>
         <div class="nav_bottom">
+                <p th:unless="${userKeepProductList}">目前沒有任何收藏</p>
                 <ul th:if="${userKeepProductList}">
                     <li th:each="keepProduct :${userKeepProductList}" th:value="${keepProduct.id}">
                         <span class="deleteKeep"></span>

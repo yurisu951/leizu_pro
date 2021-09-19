@@ -27,6 +27,7 @@
             <ul>
                 <li class="current">
                     <form th:action="@{/user/login}" method="POST">
+                        <input type="hidden" name="url">
                         <div>
                             <input type="text" placeholder="請輸入Email / 手機號碼" name="account" id="account"
                                    th:value="${(rememberInfo!=null) ? (rememberInfo.email != null ? rememberInfo.email: rememberInfo.phone):''}">

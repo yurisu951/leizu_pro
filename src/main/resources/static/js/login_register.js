@@ -19,6 +19,9 @@ $(function (){
             $(".msg").eq(1).text("密碼格式錯誤");
             return false;
         }
+        var url = document.referrer;
+        url = url.substring(url.indexOf("/", 7));
+        $("input[type=hidden]").val(url);
         return true;
     });
 

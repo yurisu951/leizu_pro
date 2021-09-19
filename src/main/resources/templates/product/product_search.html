@@ -24,14 +24,14 @@
 
 
     <div class="center wrapper">
-        <div class="gender_nav" th:unless="${(list == null && keyWords != '')}">
+        <div class="gender_nav" th:unless="${(list == null && keyWords != '' && keyWords != null)}">
             <ul>
                 <li th:class="${gender==null?'gender_nav_link current':'gender_nav_link'}"><a th:href="@{/search(keyWords=${keyWords})}">ALL</a></li>
                 <li th:class="${gender=='women'?'gender_nav_link current':'gender_nav_link'}"><a th:href="@{/search/women(keyWords=${keyWords})}">WOMEN</a></li>
                 <li th:class="${gender=='men'?'gender_nav_link current':'gender_nav_link'}"><a th:href="@{/search/men(keyWords=${keyWords})}">MEN</a></li>
             </ul>
         </div>
-        <div class="gender_nav" th:if="${(list == null && keyWords != '')}">
+        <div class="gender_nav" th:if="${(list == null  && keyWords != '' && keyWords != null )}">
             <ul>
                 <li class="gender_nav_link current"><a href="javascript:;">ALL</a></li>
             </ul>

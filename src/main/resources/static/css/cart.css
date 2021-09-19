@@ -145,12 +145,12 @@ input[type='checkbox'] {
 }
 
 
-table {
+.with_product table {
     margin: 0 auto;
     width: 85%;
 }
 
-table tr {
+.with_product table tr {
     display: flex;
     flex-wrap: nowrap;
     padding: 10px 0;
@@ -158,22 +158,22 @@ table tr {
     border-collapse: collapse;
 }
 
-thead tr {
+.with_product thead tr {
     line-height: 25px;
 }
 
-thead td:nth-child(1){
+.with_product thead td:nth-child(1){
     width: 35px;
     text-align: center;
 }
 
-tbody tr td:nth-child(1) {
+.with_product tbody tr td:nth-child(1) {
     width: 35px;
     text-align: center;
     line-height: 150px;
 } 
 
-tbody tr td:nth-child(2) div {
+.with_product tbody tr td:nth-child(2) div {
     padding: 10px;
     width: 150px; 
     text-align: center;
@@ -185,12 +185,12 @@ tbody tr td:nth-child(2) div {
     height: 130px;
 }
 
-tbody tr td:nth-child(3) {
+.with_product tbody tr td:nth-child(3) {
     flex: 1;
     padding: 15px;
 }
 
-tbody tr td:nth-child(3) select {
+.with_product tbody tr td:nth-child(3) select {
     margin: 15px 0;
     padding: 5px;
     font-size: 13px;
@@ -201,28 +201,28 @@ tbody tr td:nth-child(3) select {
     outline: none;
 }
 
-tbody tr td:nth-child(3) p {
+.with_product tbody tr td:nth-child(3) p {
     color: #ccc;
 }
 
-tbody tr td:nth-child(3) p[class*=warn] {
+.with_product tbody tr td:nth-child(3) p[class*=warn] {
     color: brown;
 }
 
 
-tbody tr td:nth-child(4) {
+.with_product tbody tr td:nth-child(4) {
     line-height: 150px;
     width: 130px;
     box-sizing: border-box;
 }
 
-tbody tr td:nth-child(4) > span {
+.with_product tbody tr td:nth-child(4) > span {
     display: inline-block;
     margin: 25px;
     line-height: 30px;
 }
 
-tbody tr td:nth-child(4) > span a:hover {
+.with_product tbody tr td:nth-child(4) > span a:hover {
     text-decoration: none;
 }
 

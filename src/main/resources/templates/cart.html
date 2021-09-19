@@ -42,7 +42,7 @@
             <div class="no_product">
                 <span></span>
                 <p>您的購物車內沒有任何商品</p>
-                <a href="#">去購物</a>
+                <a th:href="@{/search}">去購物</a>
             </div>
         </div>
 
@@ -50,7 +50,7 @@
                 <div class="no_product" th:if="${#arrays.isEmpty(cart.productList)}">
                     <span></span>
                     <p>您的購物車內沒有任何商品</p>
-                    <a href="#">去購物</a>
+                    <a th:href="@{/search}">去購物</a>
                 </div>
             </div>
             <div class="with_product" th:unless="${#arrays.isEmpty(cart.productList)}">
@@ -117,7 +117,7 @@
                         </tfoot>
                     </table>
                     <div class="btn_link clearfix">
-                        <a href="#">繼續購物</a>
+                        <a th:href="@{/search}">繼續購物</a>
                         <input type="submit" value="下一步">
                     </div>
                 </form>

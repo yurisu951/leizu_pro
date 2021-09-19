@@ -10,10 +10,25 @@
     <link rel="stylesheet" href="../css/user.css" th:href="@{/css/user/user.css}">
     <link rel="stylesheet" href="../css/user_keep.css" th:href="@{/css/user/user_keep.css}">
     <script th:src="@{/js/user_keep.js}"></script>
+    <script th:src="@{/js/user.js}"></script>
 
 </head>
 
 <body>
+<div class="block_check">
+    <div class="section_check">
+        <form onsubmit="return false;">
+            <h3>會員驗證</h3>
+            <input type="password" name="password" placeholder="請輸入密碼"><br/>
+            <input type="submit" value="送出">
+        </form>
+        <div>
+            <h3>個人資料安全認證</h3>
+            <p>為了保障您的資料安全，<br/>必須再次填入密碼驗證。</p>
+        </div>
+        <button id="cancel">X</button>
+    </div>
+</div>
     <!-- Commons部分 -->
     <div th:replace="commons::header"></div>
 
@@ -23,7 +38,7 @@
             <ul>
                 <li><a class="current" th:href="@{/user/keepes}">我的收藏</a></li>
                 <li><a href="#">訂單狀況</a></li>
-                <li><a th:href="@{/user/profile}">個人資料與密碼修改</a></li>
+                <li><a id="check" >個人資料與密碼修改</a></li>
             </ul>
         </div>
         <div class="nav_bottom">

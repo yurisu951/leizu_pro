@@ -5,10 +5,13 @@ $(function(){
         "../images/uploads/index_box/54224_COTTON_1180X630_210817_TW.jpeg", "../images/uploads/index_box/54243_54860_DISNEY_1180X630_210810a_TW.jpeg",
         "../images/uploads/index_box/54294_2PSALE_1180X630_210824_TW.jpeg"]
 
+    var siteArray = ["/search?keyWords=牛仔", "/women/activites/D100", "/women/activites/sport", "/women/activites/sale", "/women/activites/3P80DUP",
+    "/search?keyWords=迪士尼", "/women/activites/3P80DUP"];
+
     //  创建轮播图的li标签
     for (i = 0; i < array.length; i++) {
         var img = '<img src="' + array[i] + '" alt="">';
-        var $li = '<li><a href="#">' + img + '</a></li>';
+        var $li = '<li><a href="'+siteArray[i] +'">' + img + '</a></li>';
         $(".box_section").append($li);
 
         // 配置小圆点

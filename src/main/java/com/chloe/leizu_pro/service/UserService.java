@@ -12,6 +12,8 @@ import java.util.Map;
 
 public interface UserService {
 
+    String checkPwd(Integer userId, String password);
+
     boolean addUser(User user);
 
     boolean addKeep(UserCollection userCollection);

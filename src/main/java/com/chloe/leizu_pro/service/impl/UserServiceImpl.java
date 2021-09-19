@@ -128,5 +128,13 @@ public class UserServiceImpl implements UserService {
         return false;
     }
 
+    @Override
+    public String checkPwd(Integer userId, String password){
+        User userById = userMapper.getUserProfileById(userId);
+        if(UserUtils.pwdMatches(password, userById.getPassword())) return "true";
+        return "false";
+    }
+
+
 
 }

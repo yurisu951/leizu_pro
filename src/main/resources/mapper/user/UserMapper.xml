@@ -32,5 +32,6 @@
         </trim>
          where user_id = #{user.userId}
     </update>
+
 </mapper>
 

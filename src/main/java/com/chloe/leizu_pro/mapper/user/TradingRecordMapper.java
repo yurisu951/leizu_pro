@@ -12,4 +12,8 @@ public interface TradingRecordMapper {
     int addTradingRecord(TradingRecord tradingRecord);
     int addTradingRecordList(List<TradingRecord> records);
 
+    List<TradingRecord> getUserOrders(Integer userId);
+
+    Integer getUserOrdersLength(Integer userId);
+
 }

@@ -3,17 +3,22 @@ package com.chloe.leizu_pro.service.impl;
 import com.chloe.leizu_pro.bean.product.ColorImage;
 import com.chloe.leizu_pro.bean.product.Inventory;
 import com.chloe.leizu_pro.bean.product.Product;
+import com.chloe.leizu_pro.bean.user.PurchaseDetails;
+import com.chloe.leizu_pro.bean.user.TradingRecord;
 import com.chloe.leizu_pro.bean.user.User;
 import com.chloe.leizu_pro.bean.user.UserCollection;
 import com.chloe.leizu_pro.mapper.product.ColorImageMapper;
 import com.chloe.leizu_pro.mapper.product.InventoryMapper;
 import com.chloe.leizu_pro.mapper.product.ProductMapper;
+import com.chloe.leizu_pro.mapper.user.PurchaseDetailsMapper;
+import com.chloe.leizu_pro.mapper.user.TradingRecordMapper;
 import com.chloe.leizu_pro.mapper.user.UserCollectionMapper;
 import com.chloe.leizu_pro.mapper.user.UserMapper;
 import com.chloe.leizu_pro.service.UserService;
 import com.chloe.leizu_pro.utils.UserUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -29,6 +34,10 @@ public class UserServiceImpl implements UserService {
     ProductMapper productMapper;
     @Autowired
     InventoryMapper inventoryMapper;
+    @Autowired
+    TradingRecordMapper tradingRecordMapper;
+    @Autowired
+    PurchaseDetailsMapper purchaseDetailsMapper;
 
 
     @Override
@@ -126,6 +135,19 @@ public class UserServiceImpl implements UserService {
         int i = userMapper.updateUser(user);
         if (i>0) return true;
         return false;
+    }
+
+    @Override
+    public ModelAndView getUserOrders(ModelAndView mav, Integer userId){
+        mav.addObject("userOrders", tradingRecordMapper.getUserOrders(userId));
+        mav.addObject("orderLength", tradingRecordMapper.getUserOrdersLength(userId));
+        return mav;
+    }
+
+
+    @Override
+    public List<PurchaseDetails> getOrderDetails(Integer cartId) {
+        return purchaseDetailsMapper.getOrderDetails(cartId);
     }
 
     @Override

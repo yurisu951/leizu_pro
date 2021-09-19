@@ -54,7 +54,7 @@ public class CrawlerUtils {
                     buyList.add(pd);
                 }
             }
-            TradingRecord tradingRecord = new TradingRecord(cartId, userId, buyDate, totalQuantity, totalPrice);
+            TradingRecord tradingRecord = new TradingRecord(cartId, userId, buyDate, totalQuantity, totalPrice, null);
             tradingRecordMapper.addTradingRecord(tradingRecord);
             purchaseDetailsMapper.addPurchaseDetailsList(buyList);
             System.out.println("OK");

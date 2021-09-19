@@ -19,5 +19,4 @@ public interface InventoryMapper {
 
     Integer getQuantityByInventoryId(Integer inventoryId);
 
-
 }

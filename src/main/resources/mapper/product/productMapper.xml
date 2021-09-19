@@ -103,4 +103,15 @@
         </foreach>
     </select>
 
+    <select id="getPromoNameById" resultType="java.lang.String">
+        select m.promo_name
+        from tbl_product p
+        left join tbl_promotion m
+        on p.promo = m.promo_code
+        where p.id = #{id}
+    </select>
+
+    <select id="getProductName" resultType="java.lang.String">
+        select product_name from tbl_product where id =#{id}
+    </select>
 </mapper>

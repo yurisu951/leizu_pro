@@ -15,4 +15,21 @@
             (#{r.cartId}, #{r.productId}, #{r.inventoryId}, #{r.price}, #{r.discount}, #{r.quantity})
         </foreach>
     </insert>
+
+    <resultMap id="orderDetailsMap" type="com.chloe.leizu_pro.bean.user.PurchaseDetails">
+        <id property="id" column="id" />
+        <result property="cartId" column="cart_id" />
+        <result property="productId" column="product_id" />
+        <result property="inventoryId" column="inventory_id" />
+        <result property="price" column="price" />
+        <result property="discount" column="discount" />
+        <result property="quantity" column="quantity" />
+        <association property="productName" column="product_id" select="com.chloe.leizu_pro.mapper.product.ProductMapper.getProductName" />
+        <association property="promoInfo" column="product_id" select="com.chloe.leizu_pro.mapper.product.ProductMapper.getPromoNameById" />
+        <association property="inventoryInfo" column="inventory_id" select="com.chloe.leizu_pro.mapper.product.InventoryMapper.getInventoryById" />
+    </resultMap>
+    <select id="getOrderDetails" resultMap="orderDetailsMap">
+        select id, product_id, inventory_id, price, discount, quantity from tbl_purchase_details
+        where cart_id = #{cartId}
+    </select>
 </mapper>

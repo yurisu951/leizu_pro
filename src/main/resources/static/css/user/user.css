@@ -21,6 +21,7 @@
     border-collapse: collapse;
     background-color: #eee;
     color: #777;
+    border-bottom: 1px solid #CCCCCC;
     opacity: .7;
 }
 

@@ -1,0 +1,51 @@
+.nav_bottom {
+    margin: 45px 0;
+}
+.nav_bottom table {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.nav_bottom thead,
+.nav_bottom tfoot {
+    color: #706E6C;
+    background-color: #EBEBEB;
+    line-height: 45px;
+}
+
+.nav_bottom td,
+.nav_bottom th {
+    border: 1px solid #CCCCCC;
+    border-collapse: collapse;
+}
+
+.nav_bottom tbody td {
+    text-align: center;
+    line-height: 35px;
+    font-size: 12px;
+    color: #666;
+}
+
+.nav_bottom tfoot {
+    text-align: right;
+}
+
+.nav_bottom tfoot td {
+    padding-right: 17px;
+}
+
+.nav_bottom tbody td:nth-child(2) a {
+    color: #5D3B24;
+    cursor: pointer;
+}
+
+.nav_bottom tbody td:nth-child(2) a:hover {
+    color: orange;
+    text-decoration: none;
+}
+
+.nav_bottom tbody td:nth-child(2) a::before {
+    content: "";
+    font-family: "icomoon";
+    padding-right: 5px;
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leizu 國際服飾品牌</title>
+    <div th:replace="commons::inputCommons"></div>
+    <link rel="stylesheet" href="../css/user.css" th:href="@{/css/user/user.css}">
+    <link rel="stylesheet" href="../css/user_orders.css" th:href="@{/css/user/user_orders.css}">
+    <script th:src="@{/js/user.js}"></script>
+
+
+</head>
+
+<body>
+<div class="block_check">
+    <div class="section_check">
+        <form onsubmit="return false;">
+            <h3>會員驗證</h3>
+            <input type="password" name="password" placeholder="請輸入密碼"><br/>
+            <input type="submit" value="送出">
+        </form>
+        <div>
+            <h3>個人資料安全認證</h3>
+            <p>為了保障您的資料安全，<br/>必須再次填入密碼驗證。</p>
+        </div>
+        <button id="cancel">X</button>
+    </div>
+</div>
+    <!-- Commons部分 -->
+    <div th:replace="commons::header"></div>
+
+
+    <div class="center wrapper">
+        <div class="nav_top">
+            <ul>
+                <li><a th:href="@{/user/keepes}">我的收藏</a></li>
+                <li><a class="current" th:href="@{/user/orders}">訂單狀況</a></li>
+                <li><a th:href="@{/user/profile}">個人資料與密碼修改</a></li>
+            </ul>
+        </div>
+        <div class="nav_bottom">
+            <table>
+                <thead>
+                    <tr>
+                        <th>訂購日期</th>
+                        <th>訂單明細</th>
+                        <th>處理進度</th>
+                        <th>應付金額</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="order, loopStatus: ${userOrders}">
+                        <td th:text="${order.buyDate}">訂購日期</td>
+                        <td><a th:href="@{'/user/orders/detail/'+ ${order.cartId}}">明細</a></td>
+                        <td th:text="${order.status}">處理進度</td>
+                        <td th:text="${#numbers.formatInteger(order.totalPrice,3,'COMMA')}">應付金額</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4" th:inline="text">共 [[${orderLength}]] 筆訂單</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+
+
+
+<hr class="wrapper">
+<div th:replace="commons::footer"></div>
+</body>
+
+</html>
+

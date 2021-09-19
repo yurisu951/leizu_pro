@@ -35,4 +35,8 @@ public interface ProductMapper {
 
     List<Product> getProductWithColorNames(List<Integer> products);
 
+    String getPromoNameById(Integer id);
+
+    String getProductName(Integer id);
+
 }

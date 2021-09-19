@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leizu 國際服飾品牌</title>
+    <div th:replace="commons::inputCommons"></div>
+    <link rel="stylesheet" href="../css/user.css" th:href="@{/css/user/user.css}">
+    <link rel="stylesheet" href="../css/order_detail.css" th:href="@{/css/user/order_detail.css}">
+    <script th:src="@{/js/user.js}"></script>
+    <script th:src="@{/js/order_details.js}"></script>
+
+</head>
+
+<body>
+<div class="block_check">
+    <div class="section_check">
+        <form onsubmit="return false;">
+            <h3>會員驗證</h3>
+            <input type="password" name="password" placeholder="請輸入密碼"><br/>
+            <input type="submit" value="送出">
+        </form>
+        <div>
+            <h3>個人資料安全認證</h3>
+            <p>為了保障您的資料安全，<br/>必須再次填入密碼驗證。</p>
+        </div>
+        <button id="cancel">X</button>
+    </div>
+</div>
+    <!-- Commons部分 -->
+    <div th:replace="commons::header"></div>
+
+
+    <div class="center wrapper">
+        <div class="nav_top">
+            <ul>
+                <li><a th:href="@{/user/keepes}">我的收藏</a></li>
+                <li><a class="current" th:href="@{/user/orders}">訂單狀況</a></li>
+                <li><a th:href="@{/user/profile}">個人資料與密碼修改</a></li>
+            </ul>
+        </div>
+        <div class="nav_bottom">
+            <h2>購物明細</h2>
+            <hr>
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>商品名稱</th>
+                        <th>活動名稱</th>
+                        <th>數量</th>
+                        <th>單價</th>
+                        <th>折扣價</th>
+                        <th>小計</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="detail :${orderDetails}">
+                        <td>
+                            <img th:src="${detail.inventoryInfo.colorInfo.productImage}" th:alt-title="${detail.productName}">
+                        </td>
+                        <td >
+                            <p th:inline="text">
+                                [[${detail.productName}]] - [[${detail.inventoryInfo.colorInfo.productColor}]] <br/>
+                                尺寸：[[${detail.inventoryInfo.size}]]
+                            </p>
+                        </td>
+                        <td th:text="${(detail.promoInfo!=null)?detail.promoInfo: '無'}">活動名稱</td>
+                        <td th:text="${detail.quantity}">數量</td>
+                        <td>
+                            <del th:if="${detail.discount}" th:text="${#numbers.formatInteger(detail.price,3,'COMMA')}"></del>
+                            <span th:unless="${detail.discount}" th:text="${#numbers.formatInteger(detail.price,3,'COMMA')}"></span>
+                        </td>
+                        <td th:text="${#numbers.formatInteger(((detail.discount!= null)? (detail.price - detail.discount): ''),3,'COMMA')}">折扣價</td>
+                        <td>
+                            <span th:unless="${detail.discount}" th:text="${#numbers.formatInteger((detail.price * detail.quantity),3,'COMMA')}"></span>
+                            <span th:if="${detail.discount}" th:text="${#numbers.formatInteger(((detail.price - detail.discount) * detail.quantity),3,'COMMA')}"></span>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="6" >商品金額總計</td>
+                        <td id="priceTotal">NT$ 60</td>
+                    </tr>
+                    <tr>
+                        <td colspan="6">物流費</td>
+                        <td>NT$ 60</td>
+                    </tr>
+                    <tr class="detail_sum">
+                        <td colspan="6" >總計</td>
+                        <td id="ordertotal">NT$ 120</td>
+                    </tr>
+                </tfoot>
+            </table>
+
+        </div>
+    </div>
+    <a th:href="@{/user/orders}" class="back">返回上一頁</a>
+
+
+
+<hr class="wrapper">
+<div th:replace="commons::footer"></div>
+</body>
+
+</html>
+

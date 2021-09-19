@@ -1,0 +1,101 @@
+.nav_bottom {
+    margin: 50px auto ;
+    padding: 25px 35px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+.nav_bottom > h2::before {
+    display: inline-block;
+    content: "";
+    font-family: icomoon;
+    margin-right: 15px;
+    text-align: center;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    font-size: 22px;
+    border-radius: 50%;
+    background-color: #ccc;
+    color: #fff;
+    border-bottom: none;
+}
+
+.nav_bottom > hr {
+    margin-left: 5%;
+}
+
+.nav_bottom > h2 {
+    font-size: 19px;
+    color: #aaa;
+}
+
+.nav_bottom table {
+    margin: 35px 0 35px 5%;
+    width: 95%;
+}
+
+.nav_bottom table th {
+    line-height: 45px;
+    min-width: 55px;
+    border-bottom: 1px solid #ebebeb;
+}
+
+.nav_bottom tbody td {
+    height: 70px;
+    text-align: center;
+    border-bottom: 1px solid #ebebeb;
+    color: #666;
+    font-size: 12px;
+}
+
+.nav_bottom table th:nth-child(2),
+.nav_bottom table td:nth-child(2) {
+    text-align: left;
+}
+
+.nav_bottom tbody td img {
+    width: 60px;
+    height: 60px;
+    padding: 15px 0;
+    vertical-align: center;
+}
+
+.nav_bottom tbody td p {
+    display: inline-block;
+}
+
+.nav_bottom tfoot tr {
+    height: 35px;
+    line-height: 35px;
+    text-align: right;
+}
+
+.nav_bottom tfoot td {
+    font-size: 12px;
+}
+
+.nav_bottom tfoot td:nth-child(1) {
+    padding-right: 15px;
+}
+
+.detail_sum td {
+    color: brown;
+}
+
+.back {
+    display: inline-block;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 50px;
+    padding: 7px 35px;
+    background-color: #5E3B25;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.back:hover {
+    opacity: .7;
+    text-decoration: none;
+}

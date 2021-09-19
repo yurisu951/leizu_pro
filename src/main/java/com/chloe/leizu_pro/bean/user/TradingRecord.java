@@ -1,5 +1,6 @@
 package com.chloe.leizu_pro.bean.user;
 
+import com.chloe.leizu_pro.bean.product.ColorImage;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,5 +16,6 @@ public class TradingRecord {
     private Date buyDate;
     private Integer totalQuantity;
     private Integer totalPrice;
+    private String status;
 
 }

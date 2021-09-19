@@ -2,10 +2,13 @@ package com.chloe.leizu_pro.controller;
 
 import com.chloe.leizu_pro.bean.product.Inventory;
 import com.chloe.leizu_pro.bean.product.Product;
+import com.chloe.leizu_pro.bean.user.PurchaseDetails;
+import com.chloe.leizu_pro.bean.user.TradingRecord;
 import com.chloe.leizu_pro.bean.user.User;
 import com.chloe.leizu_pro.bean.user.UserCollection;
 import com.chloe.leizu_pro.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -150,6 +153,28 @@ public class UserController {
         return userService.getInventoryListByColorId(colorId);
     }
 
+    @GetMapping(value = {"/user/orders"})
+    public ModelAndView userOrders(HttpSession session){
+        Integer userId = (Integer) session.getAttribute("user");
+        ModelAndView mav = new ModelAndView();
+        if (userId == null) {
+            mav.setViewName("redirect:/login_register");
+            return mav;
+        }
+        mav = userService.getUserOrders(mav,userId);
+        mav.setViewName("user/user_orders");
+        return mav;
+    }
+
+    @GetMapping(value = {"/user/orders/detail/{id}"})
+    public ModelAndView userOrdersDetails(@PathVariable("id") Integer detailId){
+        ModelAndView mav = new ModelAndView();
+        if (detailId != null){
+            mav.addObject("orderDetails",userService.getOrderDetails(detailId));
+        }
+        mav.setViewName("user/user_order_details");
+        return mav;
+    }
 
 
 }

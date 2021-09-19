@@ -13,4 +13,7 @@ public interface PurchaseDetailsMapper {
     int addPurchaseDetails(PurchaseDetails purchaseDetails);
 
     int addPurchaseDetailsList(List<PurchaseDetails> recordList);
+
+    List<PurchaseDetails> getOrderDetails(Integer cartId);
+
 }

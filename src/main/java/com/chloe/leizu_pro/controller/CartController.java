@@ -2,16 +2,16 @@ package com.chloe.leizu_pro.controller;
 
 import com.chloe.leizu_pro.bean.Cart;
 import com.chloe.leizu_pro.service.CartService;
+import com.chloe.leizu_pro.service.UserService;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
+
 
 
 @Controller
@@ -19,6 +19,8 @@ public class CartController {
 
     @Autowired
     CartService cartService;
+    @Autowired
+    UserService userService;
 
     @RequestMapping(value = "/shop/cart", method = RequestMethod.POST)
     @ResponseBody
@@ -56,5 +58,42 @@ public class CartController {
         mav.setViewName("cart");
         return mav;
     }
+
+    @PostMapping ("/shop/cart/buy")
+    public ModelAndView buyCart(@RequestBody MultiValueMap<String, String> params, HttpSession session){
+        ModelAndView mav = new ModelAndView();
+        Integer userId = (Integer) session.getAttribute("user");
+        if (userId == null) {
+            mav.setViewName("redirect:/login_register");
+            return mav;
+        }
+        Cart cart = cartService.buyCart(params, userId);
+        session.setAttribute("buyCart", cart);
+        mav.addObject("userInfo", userService.getUserProfile(userId));
+        mav.setViewName("cart_payment");
+        return mav;
+    }
+
+    @PostMapping("/shop/cart/payment")
+    public ModelAndView cartPayment(@RequestBody MultiValueMap<String, String> params, HttpSession session){
+        ModelAndView mav = new ModelAndView();
+        boolean result = cartService.commitCart(params, session);
+
+        if (result){
+            mav.setViewName("redirect:/shop/finish");
+        } else {
+            mav.setViewName("redirect:500");
+        }
+
+        return mav;
+    }
+
+    @GetMapping("/shop/finish")
+    public String cartPaymentFinish(){
+        return "cart_finish";
+    }
+
+
+
 
 }

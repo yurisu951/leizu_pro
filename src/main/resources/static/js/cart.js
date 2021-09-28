@@ -57,7 +57,9 @@ $(function (){
             $("#product_price").text('NT$ '+ originalTotalPrice);
             $("#discount_price").text('NT$ ' + discount);
             $("#total_price").text('NT$ ' + totalPrice);
-        }
+            $("#total_price").siblings("input[type=hidden]").val(totalPrice);
+
+    }
 
     // 添加、減少購買數量
     $(".minus").click(function(){

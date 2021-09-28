@@ -5,8 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class Inventory {
     private Integer id;
     private Integer productId; // Product Id
@@ -15,4 +13,5 @@ public class Inventory {
     private Integer quantity;
 
     private ColorImage colorInfo;
+    private Product productInfo;
 }

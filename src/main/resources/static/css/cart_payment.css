@@ -1,0 +1,103 @@
+.cart_bottom  h3 {
+    font-size: 16px;
+    text-align: center;
+}
+
+.cart_bottom .warn {
+    color: brown;
+}
+
+.cart_bottom .warn > strong {
+    font-size: 18px;
+}
+
+.recipient_info,
+.payment_info {
+    width: 70%;
+    margin: 35px auto;
+    border: 1px solid #ddd;
+}
+
+.recipient_info > h4,
+.payment_info > h4 {
+    font-size: 17px;
+    line-height: 50px;
+    text-indent: 1rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.recipient_info table,
+.payment_info table {
+    margin: 25px auto;
+    width: 88%;
+    text-align: left;
+}
+
+.recipient_info tr,
+.payment_info tr {
+    line-height: 50px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 50px;
+
+}
+
+.recipient_info th,
+.payment_info th {
+    width: 100px;
+    text-align: justify;
+    letter-spacing: 1px;
+}
+
+
+.recipient_info input {
+    width: 200px;
+    height: 25px;
+    line-height: 25px;
+    text-indent: 0.5rem;
+    border: none;
+    outline: none;
+
+}
+
+.recipient_info .address {
+    width: 400px;
+    border: 1px solid #ccc;
+}
+
+.recipient_info input:focus {
+    border: 1px solid #ccc;
+}
+
+.payment_info input {
+    height: 25px;
+    line-height: 25px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.payment_info select {
+    height: 25px;
+    line-height: 25px;
+    outline: none;
+    border: 1px solid #ccc;
+}
+
+.payment_info .creditId input {
+    display: inline-block;
+    width: 50px;
+    text-align: center;
+
+}
+
+.credit_last input {
+    text-align: center;
+}
+
+.payment_info .credit_last input {
+    width: 50px;
+}
+
+.btn_link {
+    width: 70%;
+}
+

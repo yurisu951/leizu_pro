@@ -54,7 +54,7 @@
                 </div>
             </div>
             <div class="with_product" th:unless="${#arrays.isEmpty(cart.productList)}">
-                <form action="" method="">
+                <form th:action="@{/shop/cart/buy}" method="post">
                     <table>
                         <thead>
                         <tr>
@@ -67,21 +67,21 @@
                         <tbody>
                         <tr th:each="product, loop:${cart.productList}">
                             <td>
-                                <input type="checkbox" th:name="${product.id}" th:value="${product.thisProductInfo.id}"></td>
+                                <input type="checkbox" th:name="selectedProduct" th:value="${product.thisProductInfo.id}"></td>
                             <td>
                                 <div><img th:src="${product.thisProductInfo.colorInfo.productImage}" th:alt-title="${product.productName}"></div>
                             </td>
                             <td>
                                 <h5 th:text="${product.productName}" th:value="${product.price+','+product.promoPrice}">商品名稱</h5>
-                                <select name="" th:with="invId=${product.thisProductInfo.id}" >
-                                    <option th:each="otherInven:${product.otherProductsInfo}" th:if="${otherInven.color==product.thisProductInfo.color}" th:text="${otherInven.colorInfo.productColor+' - '+otherInven.size}" th:selected="${(invId== otherInven.id)?true:false}" >1</option>
+                                <select th:name="${product.thisProductInfo.id}" th:with="invId=${product.thisProductInfo.id}" >
+                                    <option th:each="otherInven:${product.otherProductsInfo}" th:if="${otherInven.color==product.thisProductInfo.color}" th:text="${otherInven.colorInfo.productColor+' - '+otherInven.size}" th:selected="${(invId== otherInven.id)?true:false}" th:value="${otherInven.id}" >1</option>
                                 </select>
                                 <p></p>
                             </td>
                             <td>
                                     <span>
                                         <a href="javascript:;" class="minus"></a>
-                                        <input type="text" class="buyNumber" th:max="${product.thisProductInfo.quantity}" maxlength="2" th:value="${product.buyNumber}" name="" oninput="value=value.replace(/[^\d]/g,'')">
+                                        <input type="text" class="buyNumber" th:max="${product.thisProductInfo.quantity}" maxlength="2" th:value="${product.buyNumber}" th:name="${product.thisProductInfo.id + ''}" oninput="value=value.replace(/[^\d]/g,'')">
                                         <a href="javascript:;" class="plus"></a>
                                     </span>
                             </td>
@@ -112,6 +112,7 @@
                         </tr>
                         <tr>
                             <td  colspan="4">小計</td>
+                            <input type="hidden" name="totalPrice">
                             <td class="total" id="total_price">NT$ 60</td>
                         </tr>
                         </tfoot>

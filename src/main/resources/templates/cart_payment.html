@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leizu 國際服飾品牌</title>
+    <div th:replace="commons::inputCommons"></div>
+    <link rel="stylesheet"  th:href="@{/css/cart.css}">
+    <link rel="stylesheet"  th:href="@{/css/cart_payment.css}">
+    <script th:src="@{/js/cart_payment.js}"></script>
+
+</head>
+
+<body>
+    <!-- Commons部分 -->
+    <div th:replace="commons::header"></div>
+
+
+    <div class="center wrapper">
+        <form th:action="@{/shop/cart/payment}" method="post">
+
+        <div class="cart_top">
+            <ul>
+                <li class="done" >
+                    <div class="circle_index">1</div>
+                    <div class="arrow"></div>
+                    <p>確認購物車</p>
+                </li>
+                <li class="current">
+                    <div class="circle_index">2</div>
+                    <div class="arrow"></div>
+                    <p>付款與填寫資料</p>
+                </li>
+                
+                <li class="last_item">
+                    <div class="circle_index">3</div>
+                    <p>完成訂購</p>
+                </li>
+            </ul>
+        </div>
+        <div class="cart_bottom">
+            <h3>本次消費總計 <span class="warn">NT$ <strong th:text="${session.buyCart.tradingRecord.totalPrice}">666</strong></span></h3>
+            <div class="recipient_info">
+                <h4>收件人資訊</h4>
+                <table>
+                    <tr>
+                        <th>姓&emsp;&emsp;名</th>
+                        <td><input type="hidden" name="userId" th:value="${userInfo.userId}"><input type="text" required name="username" th:value="${userInfo.userName}"></td>
+                    </tr>
+                    <tr>
+                        <th>手機號碼</th>
+                        <td><input type="tel" required name="userPhone" th:value="${userInfo.phone}"></td>
+                    </tr>
+                    <tr>
+                        <th>地&emsp;&emsp;址</th>
+                        <td><input type="text" required class="address" name="userAddress" th:value="${userInfo.address!=null ?userInfo.address:''}"></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="payment_info">
+                <h4>付款資訊</h4>
+                <table>
+                    <tr  class="creditId">
+                        <th>信用卡卡號</th>
+                        <td>
+                            <input required type="text" maxlength="4" name="creditId1" onkeyup="this.value=this.value.replace(/\D/g,'')"> -
+                            <input required type="text" maxlength="4" name="creditId2" onkeyup="this.value=this.value.replace(/\D/g,'')"> -
+                            <input required type="text" maxlength="4" name="creditId3" onkeyup="this.value=this.value.replace(/\D/g,'')"> -
+                            <input required type="text" maxlength="4" name="creditId4" onkeyup="this.value=this.value.replace(/\D/g,'')">
+                        </td>
+                    </tr>
+                    <tr class="expired_date">
+                        <th>卡片有效期限</th>
+                        <td>
+                            <select  name="expired_month" class="expired_month">
+                                <option value="1">01</option>
+                            </select>
+                            /
+                            <select name="expired_year" class="expired_year">
+                                <option value="21">21</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr class="credit_last" name="credit_last">
+                        <th>背面末三碼</th>
+                        <td><input required type="text" maxlength="3"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="btn_link clearfix">
+            <a th:href="@{/cart}">回到購物車</a>
+            <input type="submit" value="送出">
+        </div>
+    </form>
+    </div>
+
+
+
+
+   <hr class="wrapper">
+
+    <div th:replace="commons::footer"></div>
+
+</body>
+
+</html>
+

@@ -16,4 +16,6 @@ public interface TradingRecordMapper {
 
     Integer getUserOrdersLength(Integer userId);
 
+    Integer getNewTradingCode();
+
 }

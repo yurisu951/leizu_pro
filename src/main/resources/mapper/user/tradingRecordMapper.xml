@@ -25,4 +25,9 @@
         select count(*) from tbl_trading_record where user_id = #{userId}
     </select>
 
+    <select id="getNewTradingCode" resultType="java.lang.Integer" >
+        select cart_id from tbl_trading_record order by cart_id desc limit 1;
+    </select>
+
+
 </mapper>

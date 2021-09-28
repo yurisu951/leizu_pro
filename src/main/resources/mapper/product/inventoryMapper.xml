@@ -28,4 +28,14 @@
         select quantity from tbl_inventory where id = #{inventoryId}
     </select>
 
+
+    <resultMap id="productInfo" type="com.chloe.leizu_pro.bean.product.Inventory">
+        <id column="id" property="id" />
+        <result property="quantity" column="quantity" />
+        <association property="productInfo" column="product_id" select="com.chloe.leizu_pro.mapper.product.ProductMapper.getProductById" />
+    </resultMap>
+    <select id="getInventoryInfo" resultMap="productInfo">
+        select id, product_id, quantity from tbl_inventory  where id = #{inventoryId}
+    </select>
+
 </mapper>

@@ -107,6 +107,7 @@
     margin: 0px 5px 30px 5px;
     background-color: #eee;
     border: 1px solid transparent;
+    cursor: pointer;
 }
 
 .keep {

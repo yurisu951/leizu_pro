@@ -1,0 +1,42 @@
+.cart_bottom {
+    height: 250px;
+    width: 55%;
+    margin: 60px auto;
+    text-align: center;
+    border: 1px solid #eee;
+    border-radius: 5px;
+}
+
+.cart_bottom > p{
+    margin-top: 50px;
+    font-size: 18px;
+    line-height: 35px;
+}
+
+.cart_bottom > div {
+    margin: 60px auto;
+    width: 60%;
+}
+
+.cart_bottom > div > a {
+    display: inline-block;
+    padding: 8px 28px;
+    font-size: 13px;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+.cart_bottom > div > .left {
+    float: left;
+    background-color: #4D3028;
+}
+
+.cart_bottom > div > .right{
+    float: right;
+    background-color: #99846e;
+}
+
+.cart_bottom > div > a:hover {
+    text-decoration: none;
+    background-color: #86725d;
+}

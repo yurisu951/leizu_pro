@@ -1,10 +1,8 @@
 package com.chloe.leizu_pro.service;
 
-import com.chloe.leizu_pro.bean.product.ColorImage;
 import com.chloe.leizu_pro.bean.product.Inventory;
 import com.chloe.leizu_pro.bean.product.Product;
 import com.chloe.leizu_pro.bean.user.PurchaseDetails;
-import com.chloe.leizu_pro.bean.user.TradingRecord;
 import com.chloe.leizu_pro.bean.user.User;
 import com.chloe.leizu_pro.bean.user.UserCollection;
 import org.springframework.web.servlet.ModelAndView;
@@ -38,6 +36,10 @@ public interface UserService {
     ModelAndView getUserOrders(ModelAndView mav, Integer userId);
 
     List<PurchaseDetails> getOrderDetails(Integer cartId);
+
+    boolean checkEmailRegister(String email);
+
+    String changePassword(String email, String password);
 
 
 }

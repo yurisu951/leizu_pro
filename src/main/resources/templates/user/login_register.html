@@ -8,11 +8,14 @@
     <title>Leizu 國際服飾品牌</title>
     <div th:replace="commons::inputCommons"></div>
     <link rel="stylesheet" href="../css/login_register.css"  th:href="@{/css/login_register.css}">
+    <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
     <script th:src="@{/js/login_register.js}"></script>
+
 </head>
 
 
 <body>
+<div class="mask"></div>
     <!-- Commons部分 -->
     <div th:replace="commons::header"></div>
 
@@ -25,7 +28,7 @@
         </div>
         <div class="nav_bottom">
             <ul>
-                <li class="current">
+                <li class="loginSec current">
                     <form th:action="@{/user/login}" method="POST">
                         <input type="hidden" name="url">
                         <div>
@@ -41,18 +44,27 @@
                         <input type="submit" value="登入">
                         <div class="clearfix">
                             <input type="checkbox" value="yes" name="remember" id="remenber" th:checked="${rememberInfo!=null}"><label for="remenber">記住我</label>
-                            <a href="">忘記密碼？</a>
+                            <a th:href="@{/forget_pwd}">忘記密碼？</a>
                         </div>
                     </form> 
                 </li>
-                <li class="">
-                    <form action="" method="POST">
+                <li class="registerSec">
+                    <form method="POST">
                         <h4>加入專屬會員</h4>
-                        <p>我們將發送簡訊驗證碼至您的手機內</p>
-                        <input type="tel" placeholder="請輸入手機號碼">
-                        <input type="submit" value="下一步">
-                        <p>收到簡訊驗證碼後，請依照步驟完成驗證註冊</p>
+                        <p>我們將發送驗證碼至您的信箱內</p>
+                        <input type="email" required placeholder="請輸入信箱" name="user_email" id="userEmail">
+                        <input type="submit" value="發送">
+                        <p>收到驗證碼後，請依照步驟完成驗證註冊</p>
                     </form> 
+                </li>
+                <li class="verifySec">
+                    <form th:action="@{/register/verify}" method="POST">
+                        <p>我們已發送驗證碼至您的信箱</p>
+                        <input type="text" required readonly="readonly" class="userEmail"  name="user_email">
+                        <p style="margin-top: 45px;">請輸入驗證碼</p>
+                        <input type="text" id="verify"><p class="warn">驗證碼輸入錯誤</p>
+                        <input type="submit" value="下一步">
+                    </form>
                 </li>
             </ul>
 

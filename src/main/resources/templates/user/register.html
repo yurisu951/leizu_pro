@@ -1,65 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
-    <link rel="stylesheet" href="../css/base.css">
-    <link rel="stylesheet" href="../css/common.css">
-    <link rel="stylesheet" href="../css/login_register.css">
-
-    <script src="../js/jQuery3.6.0.js"></script>
+    <title>Leizu 國際服飾品牌</title>
+    <div th:replace="commons::inputCommons"></div>
+    <link rel="stylesheet" href="../css/login_register.css"  th:href="@{/css/login_register.css}">
+    <script th:src="@{/js/register.js}"></script>
 
 </head>
 
 <body>
     <!-- Commons部分 -->
-    <div class="header">
-        <div class="wrapper clearfix">
-            <div class="logo"><a href="javascript:;">Leizu</a></div>
-            <nav>
-                <ul>
-                    <li><a href="javascript:;">WOMEN</a></li>
-                    <li><a href="javascript:;">MEN</a></li>
-                </ul>
-            </nav>
-            <div class="userConsole">
-                <div class="search">
-                    <form>
-                        <input type="text" placeholder="SREACH...">
-                        <input type="submit" class="icomoon" value="">
-                    </form>
-                </div>
-                <div class="sub_nav">
-                    <ul>
-                        <li>
-                            <i class="icomoon"></i>
-                            <div class="sub_sub_nav">
-                                <ul>
-                                    <li><a href="#">訂單查詢</a></li>
-                                    <li><a href="#">會員專區</a></li>
-                                    <li><a href="#">我的收藏</a></li>
-                                    <li><a href="#">會員登錄/註冊</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="icomoon"></i>
-                            <div class="sub_sub_nav">
-
-                                <p>購物車清單</p>
-                            </div>
-
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-        </div>
-    </div>
+    <div th:replace="commons::header"></div>
 
 
     <div class="center wrapper">
@@ -71,20 +26,26 @@
         <div class="nav_bottom">
             <ul class="register">
                 <li class="current">
-                    <form action="" method="POST"> 
+                    <form th:action="@{/register}" method="POST">
+                        <input type="hidden" name="email" th:value="${userEmail}">
                         <div>
-                            <label for="uName">姓名：</label>
-                            <input type="text" placeholder="請輸入姓名" id="uName" name="">
+                            <label for="uName">姓&emsp;&emsp;&emsp;&emsp;名：</label>
+                            <input type="text" required placeholder="請輸入姓名" id="uName" name="userName">
                         </div>
                         <div>
-                            <label for="upwd">密碼：</label>
-                            <input type="password" placeholder="請輸入密碼（5-20英數字）" id="upwd" name="">
+                            <label for="upwd">密&emsp;&emsp;&emsp;&emsp;碼：</label>
+                            <input type="password" required placeholder="請輸入密碼（6-20英數字）" id="upwd" name="password">
                         </div>
-                        
                         <div>
-                            <label for="">信箱：</label>
-                        <input type="email" placeholder="請輸入信箱" id="uEmail" name=""> 
+                            <label for="upwd_again">再次輸入密碼：</label>
+                            <input type="password" required placeholder="請再次輸入密碼" id="upwd_again">
                         </div>
+
+                        <div>
+                            <label for="uPhone">手&emsp;&emsp;&emsp;&emsp;機：</label>
+                        <input type="tel" required  placeholder="請輸入手機" id="uPhone" name="phone" onkeyup="value=value.replace(/[^\d]/g,'') ">
+                        </div>
+                        <p id="msg">.</p>
                         <input type="submit" value="註冊">
                     </form> 
                 </li>
@@ -95,14 +56,9 @@
     </div>
 
 
-    <footer>
-        <p> 測試用的footer</p>
-        <p> 測試用的footer</p>
-        <p> 測試用的footer</p>
-        <p> 測試用的footer</p>
-        <p> 測試用的footer</p>
-        <p> 測試用的footer</p>
-    </footer>
+
+    <hr class="wrapper">
+    <div th:replace="commons::footer"></div>
 </body>
 
 </html>

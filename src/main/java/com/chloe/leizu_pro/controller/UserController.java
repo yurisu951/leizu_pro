@@ -7,9 +7,11 @@ import com.chloe.leizu_pro.bean.user.TradingRecord;
 import com.chloe.leizu_pro.bean.user.User;
 import com.chloe.leizu_pro.bean.user.UserCollection;
 import com.chloe.leizu_pro.service.UserService;
+import com.chloe.leizu_pro.utils.UserUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -57,29 +59,62 @@ public class UserController {
         boolean result = userService.loginUser(session,account,password, remember);
 
         if (result){
-            mav.setViewName("redirect:" + url);
+            if (url.contains("forget_pwd")){
+                mav.setViewName("redirect:/index");
+            } else {
+                mav.setViewName("redirect:" + url);
+            }
             return mav;
         }
-        mav.setViewName("redirect:/user/login_register");
         mav.addObject("failMsg", "密碼輸入錯誤");
+        mav.setViewName("user/login_register");
+        return mav;
+    }
+
+    @PostMapping(value = {"/register/verify"})
+    public ModelAndView verify(@RequestParam("user_email") String userEmail){
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("userEmail", userEmail);
+        mav.setViewName("user/register");
         return mav;
     }
 
 
-//    @PostMapping(value = "/test2", params = {"password", "userName", "email", "phone"})
-//    public String registerUser(@RequestParam("password") String password,
-//                               @RequestParam("userName") String userName,
-//                               @RequestParam("email") String email,
-//                               @RequestParam("phone") String phone,
-//                               @RequestParam(value = "address", required = false) String address){
-//        boolean addSuccess;
-//        User user = null;
-//        if (password != null && userName != null && email != null && phone != null){
-//            user = new User(null, password, userName, email, phone, null);
-//            addSuccess = userService.addUser(user);
-//        }
-//        return  "success";
-//    }
+
+    @PostMapping(value = "/register", params = {"password", "userName", "email", "phone"})
+    public ModelAndView registerUser(@RequestParam("password") String password,
+                               @RequestParam("userName") String userName,
+                               @RequestParam("email") String email,
+                               @RequestParam("phone") String phone,
+                               @RequestParam(value = "address", required = false) String address){
+        ModelAndView mav = new ModelAndView();
+        boolean addSuccess =false;
+        User user = null;
+        if (password != null && userName != null && email != null && phone != null){
+            user = new User(null, password, userName, email, phone, null);
+            addSuccess = userService.addUser(user);
+        }
+
+        if (addSuccess){
+            mav.addObject("msg", "已完成註冊。");
+        } else {
+            mav.addObject("msg", "由於網路問題，請您重新註冊。");
+        }
+        mav.setViewName("user/registered");
+        return  mav;
+    }
+
+    @GetMapping(value = "/registered/email_check")
+    @ResponseBody
+    public String checkEmail(@RequestParam("userEmail") String userEmail){
+        boolean exist = userService.checkEmailRegister(userEmail);
+        if (exist){
+            return "registered";
+        }
+        return "no";
+    }
+
+
 
     @GetMapping("/user/profile")
     public ModelAndView userProfile(HttpSession session){
@@ -175,6 +210,19 @@ public class UserController {
         }
         mav.setViewName("user/user_order_details");
         return mav;
+    }
+
+    @GetMapping("/forget_pwd")
+    public String forgetPassword(){
+        return "user/forget_password";
+    }
+
+    @PutMapping("/user/change_password")
+    @ResponseBody
+    public String changePassword(@RequestParam("userEmail") String userEmail,
+                                 @RequestParam("userPassword") String userPassword){
+        String userName = userService.changePassword(userEmail, userPassword);
+        return userName;
     }
 
 

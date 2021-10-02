@@ -70,6 +70,7 @@ public class UserServiceImpl implements UserService {
             phone = account;
         }
         User user = userMapper.getUserByEmailOrPhone(email, phone);
+        if (user == null) return false;
 
         String dbPwd = user.getPassword();
         if (UserUtils.pwdMatches(password, dbPwd)){
@@ -155,6 +156,24 @@ public class UserServiceImpl implements UserService {
         User userById = userMapper.getUserProfileById(userId);
         if(UserUtils.pwdMatches(password, userById.getPassword())) return "true";
         return "false";
+    }
+
+    @Override
+    public boolean checkEmailRegister(String email){
+        User user = userMapper.getUserByEmailOrPhone(email, null);
+        if (user != null) {
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public String changePassword(String email, String password){
+        User user = userMapper.getUserByEmailOrPhone(email, null);
+        user.setPassword(UserUtils.pwdEncode(password));
+        int i = userMapper.updateUser(user);
+        if (i>0) return user.getUserName();
+        return "no";
     }
 
 

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leizu 國際服飾品牌</title>
+    <div th:replace="commons::inputCommons"></div>
+    <link rel="stylesheet" href="../css/login_register.css"  th:href="@{/css/login_register.css}">
+    <script th:src="@{/js/login_register.js}"></script>
+</head>
+
+
+<body>
+    <!-- Commons部分 -->
+    <div th:replace="commons::header"></div>
+
+    <div class="center wrapper">
+        <div class="nav_bottom" style="height: 460px;">
+            <ul>
+                <li class="current">
+                    <form action="" method="POST">
+                        <p>我們已發送驗證碼至您的信箱</p>
+                        <input type="text" style="text-align: center;" disabled="disabled" th:value="${userEmail}" name="userEmail">
+                        <p style="margin-top: 45px;">請輸入驗證碼</p>
+                        <input type="text" name="verify">
+                        <input type="submit" value="下一步">
+                    </form>
+                    <script th:inline="javascript">
+                        var verifyCode = [[${verify}]];
+                    </script>
+                </li>
+            </ul>
+
+        </div>
+        
+    </div>
+
+
+    <hr class="wrapper">
+    <div th:replace="commons::footer"></div>
+</body>
+
+</html>
+

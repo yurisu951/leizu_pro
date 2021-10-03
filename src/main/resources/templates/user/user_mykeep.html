@@ -46,7 +46,7 @@
                 <ul th:if="${userKeepProductList}">
                     <li th:each="keepProduct :${userKeepProductList}" th:value="${keepProduct.id}">
                         <span class="deleteKeep"></span>
-                        <a href="#">
+                        <a th:href="@{'/'+${#strings.substring(keepProduct.productName, keepProduct.productName.length()-2).contains('女')? 'women':'men'}+'/details/'+ ${keepProduct.id}}">
                             <img th:src="${keepProduct.image}" th:alt-title="${keepProduct.productName}" >
                         </a>
                         <h6 th:text="${keepProduct.productName}">細肩帶印花洋裝-女</h6>

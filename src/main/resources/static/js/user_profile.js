@@ -30,6 +30,7 @@ $(function (){
 
     $("input[type=submit]").click(function (){
         if(flagOk != false){
+            alert("密碼已修改");
             return true;
         }
         return false;

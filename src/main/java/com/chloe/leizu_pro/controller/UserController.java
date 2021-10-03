@@ -66,7 +66,7 @@ public class UserController {
             }
             return mav;
         }
-        mav.addObject("failMsg", "密碼輸入錯誤");
+        mav.addObject("failMsg", "帳號或密碼輸入錯誤");
         mav.setViewName("user/login_register");
         return mav;
     }

@@ -1,10 +1,4 @@
-# leizu_pro
+# Leizu - 服飾網站
 
-
-CartPage - 金流
-註冊頁面
-
-后台管理页面 - 尚未开始  + 数据表格化
------------------------
-
-完成頁面： mainPage、 DetailsPage、 ActivitiesPage 、SearchPage 、會員頁面
+網站主要是用SpringBoot、Thymeleaf、MyBatis、jQuery、CSS3、HTML5，這幾項技術做成。  
+以lativ為模板寫成的服飾網站，數據資料也都是從lativ爬下來。
